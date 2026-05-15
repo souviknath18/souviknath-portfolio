@@ -1,0 +1,158 @@
+"use client";
+import Link from "next/link";
+import { ArrowRight } from "lucide-react";
+import {
+  JetBrains_Mono,
+  Montserrat,
+  Inter,
+} from "next/font/google";
+
+const jetbrainsMono = JetBrains_Mono({
+  subsets: ["latin"],
+});
+
+const montserrat = Montserrat({
+  subsets: ["latin"],
+  weight: ["700", "900"],
+});
+
+const inter = Inter({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+});
+
+export default function HeroSection() {
+  return (
+    <section className="mx-auto flex max-w-7xl items-start px-6 py-16 md:px-10 lg:px-6 lg:py-24 xl:px-4">
+      <div className="grid w-full gap-16 lg:grid-cols-2">
+        {/* LEFT SIDE */}
+        <div className="flex flex-col justify-center">
+          {/* Availability */}
+          <div className="mb-6 flex items-center gap-3">
+            <div className="relative flex h-2.5 w-2.5">
+              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-cyan-300 opacity-75" />
+              <span className="relative inline-flex h-2.5 w-2.5 rounded-full bg-cyan-300 shadow-[0_0_12px_rgba(34,211,238,0.95)]" />
+            </div>
+
+            <span
+              className={`${jetbrainsMono.className} text-[12px] uppercase tracking-[0.12em] text-cyan-300`}
+            >
+              Available for New Projects
+            </span>
+          </div>
+
+          {/* Name + Role */}
+          <h1
+            className={`${montserrat.className} mb-5 text-[44px] font-[700] leading-[0.98] tracking-[-0.05em] text-[#dae2fd] sm:text-[58px] md:text-7xl`}
+          >
+            Souvik Nath
+            <span className="block bg-gradient-to-r from-[#adc7ff] to-cyan-300 bg-clip-text text-transparent">
+              Senior Full Stack & AI Architect
+            </span>
+          </h1>
+
+          {/* Description */}
+          <p
+            className={`${inter.className} max-w-xl text-[16px] leading-[1.9] text-[#97a3bd] sm:text-[17px]`}
+          >
+            Building scalable web solutions and intelligent systems with
+            precision and purpose. I bridge the gap between complex logic and
+            seamless user experiences.
+          </p>
+
+          {/* Buttons */}
+          <div
+            className={`${inter.className} mt-10 flex flex-wrap items-center gap-4 sm:gap-5`}
+          >
+            <Link href="/projects">
+              <button className="rounded-xl bg-gradient-to-r from-[#adc7ff] to-cyan-300 px-6 sm:px-7 py-3 sm:py-3.5 text-[13px] sm:text-[15px] font-bold text-[#08111f] shadow-[0_0_25px_rgba(173,199,255,0.22)] transition-all duration-300 hover:scale-[1.03] hover:shadow-[0_0_35px_rgba(99,247,255,0.28)]">
+                View Projects
+              </button>
+            </Link>
+
+            <button className="rounded-xl border border-cyan-300/30 bg-cyan-300/[0.02] px-6 sm:px-7 py-3 sm:py-3.5 text-[13px] sm:text-[15px] font-bold text-cyan-300 transition-all duration-300 hover:border-cyan-300/60 hover:bg-cyan-300/[0.05]">
+              Download Resume
+            </button>
+
+            <Link
+              href="/contact"
+              className="flex cursor-pointer items-center gap-2 text-[14px] sm:text-[16px] font-bold text-[#dae2fd] transition hover:text-[#adc7ff]"
+            >
+              Contact Me
+              <ArrowRight size={18} className="sm:size-5" />
+            </Link>
+          </div>
+        </div>
+
+        {/* RIGHT SIDE */}
+        <div className="relative hidden items-center justify-center lg:flex">
+          {/* Blur Glow */}
+          <div className="absolute h-72 w-72 rounded-full bg-cyan-300/8 blur-[120px]" />
+
+          {/* Terminal */}
+          <div className="group relative w-full max-w-xl overflow-hidden rounded-2xl border border-white/10 bg-[#0f172ab3] shadow-[0_0_40px_rgba(0,0,0,0.45)] backdrop-blur-xl transition-all duration-300 hover:border-cyan-300/20">
+            
+            {/* Header */}
+            <div className="flex items-center border-b border-white/5 bg-[#11182760] px-5 py-3.5 backdrop-blur-xl">
+              {/* Mac Dots */}
+              <div className="mr-5 flex items-center gap-2">
+                <div className="h-3 w-3 rounded-full bg-[#ff5f56]" />
+                <div className="h-3 w-3 rounded-full bg-[#ffbd2e]" />
+                <div className="h-3 w-3 rounded-full bg-[#27c93f]" />
+              </div>
+
+              {/* Filename */}
+              <div
+                className={`${jetbrainsMono.className} text-[12px] tracking-[0.06em] text-[#7f8ba3]`}
+              >
+                souvik_nath_core.py
+              </div>
+            </div>
+
+            {/* Code Area */}
+            <div
+              className={`${jetbrainsMono.className} overflow-x-auto p-6 text-[14px] leading-[2] text-[#adc7ff]`}
+            >
+              <div>
+                <span className="text-[#63f7ff]">class</span>{" "}
+                <span className="text-white">Developer</span>:
+              </div>
+
+              <div className="pl-4">
+                <span className="text-[#63f7ff]">def</span>{" "}
+                <span className="text-white">__init__</span>(self):
+              </div>
+
+              <div className="pl-8">
+                self.name ={" "}
+                <span className="text-[#ffb695]">"Souvik Nath"</span>
+              </div>
+
+              <div className="pl-8">
+                self.role ={" "}
+                <span className="text-[#ffb695]">"AI Architect"</span>
+              </div>
+
+              <div className="pl-8">
+                self.stack = [
+                <span className="text-[#ffb695]">"React"</span>,{" "}
+                <span className="text-[#ffb695]">"Next.js"</span>,{" "}
+                <span className="text-[#ffb695]">"Django"</span>]
+              </div>
+
+              <div className="pl-4">
+                <span className="text-[#63f7ff]">def</span>{" "}
+                <span className="text-white">solve_complexity</span>(self, task):
+              </div>
+
+              <div className="pl-8">
+                <span className="text-[#63f7ff]">return</span>{" "}
+                self.architect(task).optimize()
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
