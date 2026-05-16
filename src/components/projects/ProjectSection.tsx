@@ -211,11 +211,11 @@ export default function ProjectSection() {
             <div className="p-5 sm:p-6">
 
               {/* TITLE */}
-              <h3 className="text-[20px] sm:text-[22px] font-semibold text-[#e8edff]">
+              <h3 className="text-[24px] sm:text-[22px] font-semibold text-[#e8edff]">
                 AI Career Coach
               </h3>
 
-              <p className="mt-2 text-[13px] sm:text-[14px] leading-[1.7] text-[#cfd6e6]">
+              <p className="mt-2 text-[15px] sm:text-[14px] leading-[1.7] text-[#cfd6e6]">
                 AI-powered career platform focused on resume analysis, ATS optimization,
                 job matching, and personalized interview preparation workflows.
               </p>
@@ -225,7 +225,7 @@ export default function ProjectSection() {
                 <p className={`${jetbrainsMono.className} font-semibold text-[10px] text-[#7d8496] uppercase tracking-widest`}>
                   Architecture
                 </p>
-                <p className="mt-1 text-[13px] sm:text-[14px] leading-[1.7] text-cyan-200">
+                <p className="mt-1 text-[14px] sm:text-[14px] leading-[1.7] text-cyan-200">
                   Resume-Aware RAG Pipeline
                 </p>
               </div>
@@ -235,14 +235,14 @@ export default function ProjectSection() {
 
                 <div className="flex items-start gap-2">
                   <Zap className="mt-[2px] shrink-0 text-cyan-300 w-4 h-4" />
-                  <span className="text-[#cfd6e6] text-[11px] sm:text-[13px]">
+                  <span className="text-[#cfd6e6] text-[14px] sm:text-[13px]">
                     Resume Analysis & ATS Optimization
                   </span>
                 </div>
 
                 <div className="flex items-start gap-2">
                   <Shield className="mt-[2px] shrink-0 text-cyan-300 w-4 h-4" />
-                  <span className="text-[#cfd6e6] text-[11px] sm:text-[13px]">
+                  <span className="text-[#cfd6e6] text-[14px] sm:text-[13px]">
                     Job Match Scoring & AI Interview Prep
                   </span>
                 </div>
@@ -268,7 +268,7 @@ export default function ProjectSection() {
               <div className="my-5 border-t border-white/5" />
 
               {/* ACTIONS */}
-              <div className="flex flex-col gap-3 text-[11px] sm:text-[13px]">
+              <div className="flex flex-col gap-3 text-[14px] sm:text-[13px]">
 
                 <a href="#" className="flex items-center gap-2 font-semibold text-sm text-cyan-300 hover:text-[#dae2fd]">
                   <Rocket className="w-4 h-4" />
@@ -321,12 +321,12 @@ export default function ProjectSection() {
             <div className="p-5 sm:p-6">
 
               {/* TITLE */}
-              <h3 className="text-[20px] sm:text-[22px] font-semibold text-[#e8edff]">
+              <h3 className="text-[24px] sm:text-[22px] font-semibold text-[#e8edff]">
                 Sentinel API
               </h3>
 
               {/* DESCRIPTION */}
-              <p className="mt-2 text-[13px] sm:text-[14px] leading-[1.7] text-[#cfd6e6]">
+              <p className="mt-2 text-[15px] sm:text-[14px] leading-[1.7] text-[#cfd6e6]">
                 AI-powered API observability and security platform focused on intelligent
                 monitoring, anomaly detection, fraud analysis, and real-time threat insights
                 for modern backend infrastructure.
@@ -338,7 +338,7 @@ export default function ProjectSection() {
                   Architecture
                 </p>
 
-                <p className="mt-1 text-[13px] sm:text-[14px] leading-[1.7] text-cyan-200">
+                <p className="mt-1 text-[14px] sm:text-[14px] leading-[1.7] text-cyan-200">
                   AI Monitoring + Threat Detection Architecture
                 </p>
               </div>
@@ -349,7 +349,7 @@ export default function ProjectSection() {
                 <div className="flex items-start gap-2">
                   <Zap className="text-cyan-300 w-4 h-4" />
 
-                  <span className="text-[#cfd6e6] text-[11px] sm:text-[13px]">
+                  <span className="text-[#cfd6e6] text-[14px] sm:text-[13px]">
                     Real-time API Monitoring & Alerting
                   </span>
                 </div>
@@ -357,7 +357,7 @@ export default function ProjectSection() {
                 <div className="flex items-start gap-2">
                   <Shield className="text-cyan-300 w-4 h-4" />
 
-                  <span className="text-[#cfd6e6] text-[11px] sm:text-[13px]">
+                  <span className="text-[#cfd6e6] text-[14px] sm:text-[13px]">
                     AI-based Threat & Anomaly Detection
                   </span>
                 </div>
@@ -384,7 +384,7 @@ export default function ProjectSection() {
               <div className="my-5 border-t border-white/5" />
 
               {/* ACTIONS */}
-              <div className="flex flex-col gap-3 text-[11px] sm:text-[13px]">
+              <div className="flex flex-col gap-3 text-[14px] sm:text-[13px]">
 
                 <a href="#" className="flex items-center gap-2 font-semibold text-sm text-cyan-300 hover:text-[#dae2fd]">
                   <Rocket className="w-4 h-4" />
