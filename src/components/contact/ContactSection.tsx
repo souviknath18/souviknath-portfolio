@@ -218,12 +218,14 @@ export default function ContactSection() {
           </div>
 
           {/* DOWNLOAD BUTTON */}
-          <button
-            className={`${inter.className} flex w-full items-center justify-center gap-3 rounded-md bg-[#232c41] px-6 py-4 text-[15px] font-bold text-[#dae2fd] transition-all duration-300 hover:-translate-y-[2px] hover:-translate-y-[2px] hover:bg-[#2d3850] hover:shadow-[0_0_30px_rgba(173,199,255,0.12)] hover:shadow-[0_0_30px_rgba(173,199,255,0.12)]`}
+          <a
+            href="/resume/SouvikNath_Resume.pdf"
+            download
+            className={`${inter.className} flex w-full items-center justify-center gap-3 rounded-md bg-[#232c41] px-6 py-4 text-[15px] font-bold text-[#dae2fd] transition-all duration-300 hover:-translate-y-[2px] hover:bg-[#2d3850] hover:shadow-[0_0_30px_rgba(173,199,255,0.12)]`}
           >
             <Download size={18} className="text-[#adc7ff]" />
             Download Resume
-          </button>
+          </a>
 
           {/* VIEW PROJECTS BUTTON */}
           <Link href="/projects">

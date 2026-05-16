@@ -45,7 +45,7 @@ export default function AboutHero() {
             </div>
 
             <span
-              className={`${jetbrainsMono.className} text-[13px] font-semibold uppercase tracking-[0.14em] text-cyan-300`}
+              className={`${jetbrainsMono.className} text-[13px] uppercase tracking-[0.12em] text-cyan-300`}
             >
               Available for Opportunities
             </span>
@@ -84,7 +84,9 @@ export default function AboutHero() {
           <div className="mt-12 flex flex-wrap items-center gap-5">
 
             {/* DOWNLOAD BUTTON */}
-            <button
+            <a
+              href="/resume/SouvikNath_Resume.pdf"
+              download
               className={`${inter.className} inline-flex items-center gap-3 rounded-xl bg-gradient-to-r from-[#4a8eff] to-cyan-300 px-6 sm:px-7 md:px-8 py-3 sm:py-4 text-[11px] sm:text-[12px] md:text-[13px] font-bold uppercase tracking-[0.1em] text-[#08111f] shadow-[0_0_30px_rgba(99,247,255,0.18)] transition-all duration-300 hover:scale-[1.03] hover:shadow-[0_0_45px_rgba(99,247,255,0.3)]`}
             >
               Download Resume
@@ -93,7 +95,7 @@ export default function AboutHero() {
                 size={18}
                 strokeWidth={2.5}
               />
-            </button>
+            </a>
 
             {/* ICON BUTTONS */}
             <div className="flex items-center gap-4">
