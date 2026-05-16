@@ -197,17 +197,17 @@ export default function AllSkillsTab() {
           <SkillCard
             icon={<Layers3 size={22} />}
             level="EXPERT"
-            title="React / Next.js"
+            title="Next.js & React"
             years="2+ Years"
             width="w-[95%]"
           />
 
           <SkillCard
             icon={<Code2 size={22} />}
-            level="ADVANCED"
+            level="EXPERT"
             title="TypeScript"
             years="2+ Years"
-            width="w-[88%]"
+            width="w-[90%]"
           />
 
           <SkillCard
@@ -220,10 +220,10 @@ export default function AllSkillsTab() {
 
           <SkillCard
             icon={<FileCode2 size={22} />}
-            level="INTERMEDIATE"
+            level="ADVANCED"
             title="HTML / CSS"
             years="2+ Years"
-            width="w-[80%]"
+            width="w-[85%]"
           />
         </div>
       </div>
@@ -247,45 +247,36 @@ export default function AllSkillsTab() {
         <div className="space-y-4">
 
           <div className="flex items-center justify-between border-b border-white/5 pb-4">
-
             <div className="flex items-center gap-3">
               <Server size={18} className="text-orange-300" />
-
               <span className="text-[14px] sm:text-[15px] font-medium text-[#edf2ff]">
                 PostgreSQL
               </span>
             </div>
-
             <span className="font-mono text-[13px] sm:text-[14px] lg:text-[15px] text-[#7d8496]">
               2+ Years
             </span>
           </div>
 
           <div className="flex items-center justify-between border-b border-white/5 pb-4">
-
             <div className="flex items-center gap-3">
               <Server size={18} className="text-orange-300" />
-
               <span className="text-[14px] sm:text-[15px] font-medium text-[#edf2ff]">
                 MySQL
               </span>
             </div>
-
             <span className="font-mono text-[13px] sm:text-[14px] lg:text-[15px] text-[#7d8496]">
               2+ Years
             </span>
           </div>
 
           <div className="flex items-center justify-between border-b border-white/5 pb-4">
-
             <div className="flex items-center gap-3">
               <Server size={18} className="text-orange-300" />
-
               <span className="text-[14px] sm:text-[15px] font-medium text-[#edf2ff]">
                 CockroachDB
               </span>
             </div>
-
             <span className="font-mono text-[13px] sm:text-[14px] lg:text-[15px] text-[#7d8496]">
               2+ Years
             </span>
@@ -313,21 +304,21 @@ export default function AllSkillsTab() {
         <div className="grid grid-cols-1 gap-5 lg:grid-cols-3">
 
           <AIBox
-            title="OpenAI & Anthropic APIs"
-            description="Prompt engineering, fine-tuning, and structured output management for production-grade AI applications."
+            title="OpenAI APIs"
+            description="Building production AI features with prompt engineering, structured outputs, and intelligent workflows."
             badge="PROD-READY"
           />
 
           <AIBox
             title="RAG & LangChain"
-            description="Designing Retrieval Augmented Generation pipelines with complex document processing and semantic search."
-            badge="ARCHITECT"
+            description="Designing Retrieval-Augmented Generation systems with vector databases for contextual AI applications."
+            badge="CORE STRENGTH"
           />
 
           <AIBox
-            title="TensorFlow / PyTorch"
-            description="Foundational model training and deployment for computer vision and NLP classification tasks."
-            badge="RESEARCH-GRADE"
+            title="AI Agents & Automation"
+            description="Developing intelligent agents and automation flows for real-world use cases like finance and career tools."
+            badge="BUILDING"
           />
         </div>
       </div>
@@ -359,15 +350,21 @@ export default function AllSkillsTab() {
           />
 
           <BackendSkill
-            title="RESTful APIs"
+            title="FastAPI"
+            years="1+ Year"
+            width="w-[75%]"
+          />
+
+          <BackendSkill
+            title="RESTful APIs + Security"
             years="2+ Years"
             width="w-[88%]"
           />
 
           <BackendSkill
-            title="JWT Authentication"
+            title="JWT & RBAC"
             years="2+ Years"
-            width="w-[84%]"
+            width="w-[85%]"
           />
         </div>
       </div>
@@ -375,58 +372,23 @@ export default function AllSkillsTab() {
       {/* INFRASTRUCTURE */}
       <div className="rounded-2xl sm:rounded-3xl border border-white/10 bg-[#131b2e]/70 p-4 sm:p-6 lg:p-8 backdrop-blur-md sm:backdrop-blur-xl lg:col-span-6">
 
-        {/* HEADER */}
         <div className="mb-8 flex items-center gap-4">
-
           <div className="relative">
-            <Cloud
-              size={34}
-              className="fill-cyan-300 text-cyan-300"
-            />
-
-            <Check
-              size={14}
-              className="absolute left-1/2 top-3/5 -translate-x-1/2 -translate-y-[55%] text-[#08111f] stroke-[3]"
-            />
+            <Cloud size={34} className="fill-cyan-300 text-cyan-300" />
+            <Check size={14} className="absolute left-1/2 top-3/5 -translate-x-1/2 -translate-y-[55%] text-[#08111f] stroke-[3]" />
           </div>
-
           <h3 className="text-[22px] sm:text-[24px] lg:text-[28px] font-semibold tracking-[-0.03em] text-[#adc7ff]">
             Infrastructure
           </h3>
         </div>
 
-        {/* GRID */}
         <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
-
-          <InfraItem
-            icon={<Box size={18} />}
-            text="Docker"
-          />
-
-          <InfraItem
-            icon={<Network size={18} />}
-            text="Kubernetes"
-          />
-
-          <InfraItem
-            icon={<CloudCog size={18} />}
-            text="AWS (EC2/S3/Lambda)"
-          />
-
-          <InfraItem
-            icon={<Workflow size={18} />}
-            text="CI/CD (GitHub Actions)"
-          />
-
-          <InfraItem
-            icon={<KeyRound size={18} />}
-            text="JWT / OAuth2"
-          />
-
-          <InfraItem
-            icon={<Waypoints size={18} />}
-            text="REST & GraphQL"
-          />
+          <InfraItem icon={<Box size={18} />} text="Docker" />
+          <InfraItem icon={<Workflow size={18} />} text="GitHub Actions (CI/CD)" />
+          <InfraItem icon={<CloudCog size={18} />} text="Vercel Deployment" />
+          <InfraItem icon={<Cloud size={18} />} text="AWS (Learning)" />
+          <InfraItem icon={<KeyRound size={18} />} text="JWT + RBAC" />
+          <InfraItem icon={<Waypoints size={18} />} text="REST API Design" />
         </div>
       </div>
     </div>

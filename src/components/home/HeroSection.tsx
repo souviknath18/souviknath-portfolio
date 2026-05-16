@@ -23,21 +23,21 @@ const inter = Inter({
 
 export default function HeroSection() {
   return (
-    <section className="mx-auto flex max-w-7xl items-start px-6 py-16 md:px-10 lg:px-6 lg:py-24 xl:px-4">
+    <section className="mx-auto flex max-w-7xl items-start px-6 pt-28 pb-20 md:px-10 lg:px-6 lg:pt-28 pb-20 xl:px-4">
       <div className="grid w-full gap-16 lg:grid-cols-2">
         {/* LEFT SIDE */}
         <div className="flex flex-col justify-center">
           {/* Availability */}
-          <div className="mb-6 flex items-center gap-3">
+          <div className="mb-4 flex items-center gap-3">
             <div className="relative flex h-2.5 w-2.5">
               <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-cyan-300 opacity-75" />
               <span className="relative inline-flex h-2.5 w-2.5 rounded-full bg-cyan-300 shadow-[0_0_12px_rgba(34,211,238,0.95)]" />
             </div>
 
             <span
-              className={`${jetbrainsMono.className} text-[12px] uppercase tracking-[0.12em] text-cyan-300`}
+              className={`${jetbrainsMono.className} text-[13px] uppercase tracking-[0.12em] text-cyan-300`}
             >
-              Available for New Projects
+              Open to Opportunities
             </span>
           </div>
 
@@ -47,17 +47,13 @@ export default function HeroSection() {
           >
             Souvik Nath
             <span className="block bg-gradient-to-r from-[#adc7ff] to-cyan-300 bg-clip-text text-transparent">
-              Senior Full Stack & AI Architect
+              Full Stack Engineer & AI Builder
             </span>
           </h1>
 
           {/* Description */}
-          <p
-            className={`${inter.className} max-w-xl text-[16px] leading-[1.9] text-[#97a3bd] sm:text-[17px]`}
-          >
-            Building scalable web solutions and intelligent systems with
-            precision and purpose. I bridge the gap between complex logic and
-            seamless user experiences.
+          <p className={`${inter.className} max-w-xl text-[16px] leading-[1.9] text-[#97a3bd] sm:text-[17px]`}>
+            Crafting high-performance full-stack applications and intelligent AI solutions using Next.js, Django, and LLMs. Passionate about turning complex problems into intuitive, AI-enhanced experiences.
           </p>
 
           {/* Buttons */}
@@ -110,12 +106,10 @@ export default function HeroSection() {
             </div>
 
             {/* Code Area */}
-            <div
-              className={`${jetbrainsMono.className} overflow-x-auto p-6 text-[14px] leading-[2] text-[#adc7ff]`}
-            >
+            <div className={`${jetbrainsMono.className} overflow-x-auto p-6 text-[14px] leading-[1.95] text-[#adc7ff]`}>
               <div>
                 <span className="text-[#63f7ff]">class</span>{" "}
-                <span className="text-white">Developer</span>:
+                <span className="text-white">SouvikNath</span>(Developer):
               </div>
 
               <div className="pl-4">
@@ -124,31 +118,32 @@ export default function HeroSection() {
               </div>
 
               <div className="pl-8">
-                self.name ={" "}
-                <span className="text-[#ffb695]">"Souvik Nath"</span>
+                self.name = <span className="text-[#ffb695]">"Souvik Nath"</span>
               </div>
-
               <div className="pl-8">
-                self.role ={" "}
-                <span className="text-[#ffb695]">"AI Architect"</span>
+                self.role = <span className="text-[#ffb695]">"Full Stack & AI Engineer"</span>
               </div>
-
               <div className="pl-8">
-                self.stack = [
-                <span className="text-[#ffb695]">"React"</span>,{" "}
-                <span className="text-[#ffb695]">"Next.js"</span>,{" "}
-                <span className="text-[#ffb695]">"Django"</span>]
+                self.currently_building = [
+                  <span className="text-[#ffb695]">"Expensight"</span>,{" "}
+                  <span className="text-[#ffb695]">"AI Career Coach"</span>
+                ]
               </div>
 
-              <div className="pl-4">
+              <div className="pl-4 mt-4">
                 <span className="text-[#63f7ff]">def</span>{" "}
-                <span className="text-white">solve_complexity</span>(self, task):
+                <span className="text-white">build_intelligent_systems</span>(self):
               </div>
 
               <div className="pl-8">
-                <span className="text-[#63f7ff]">return</span>{" "}
-                self.architect(task).optimize()
+                <span className="text-[#63f7ff]">return</span> RAGPipeline(
+                  llm=OpenAI(), 
+                  vector_db=Chroma(),
+                  framework=LangChain
+                )
               </div>
+
+              <div className="pl-8 mt-2 text-[#63f7ff]"># Next.js + Django + AI = Production</div>
             </div>
           </div>
         </div>

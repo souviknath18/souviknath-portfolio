@@ -14,7 +14,7 @@ const montserrat = Montserrat({
 
 export default function ExperienceHero() {
   return (
-    <section className="px-6 py-20 sm:py-24 lg:px-12">
+    <section className="px-6 py-20 sm:pt-42 pb-24 lg:px-12">
 
       <div className="mx-auto flex max-w-5xl flex-col items-center text-center">
 

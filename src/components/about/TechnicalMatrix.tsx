@@ -60,16 +60,14 @@ export default function TechnicalMatrix() {
           </h3>
 
           <p className={`${inter.className} mb-7 text-[14px] sm:text-[15px] md:text-[16px] leading-[1.8] text-[#9ca8c4]`}>
-            Crafting immersive interfaces with React,
-            Next.js, and Tailwind CSS. Focus on motion,
-            accessibility, and pixel-perfection.
+            Building fast, responsive, and beautiful user interfaces using modern React ecosystem with focus on performance and great user experience.
           </p>
 
           <div className="flex flex-wrap gap-3">
 
             {[
-              "React",
               "Next.js",
+              "React",
               "TypeScript",
               "Tailwind CSS",
             ].map((item) => (
@@ -94,18 +92,16 @@ export default function TechnicalMatrix() {
           </h3>
 
           <p className={`${inter.className} mb-7 text-[14px] sm:text-[15px] md:text-[16px] leading-[1.8] text-[#9ca8c4]`}>
-            Designing distributed systems using Node.js
-            and Go. Experts in containerization and
-            cloud-native strategies.
+            Developing robust and scalable server-side applications with Python. Strong focus on clean architecture, security, and performance.
           </p>
 
           <div className="flex flex-wrap gap-3">
 
             {[
-              "Python",
               "Django",
+              "FastAPI",
               "RESTful APIs",
-              "API Security",
+              "PostgreSQL",
             ].map((item) => (
               <span
                 key={item}
@@ -128,13 +124,11 @@ export default function TechnicalMatrix() {
           <div className="relative z-10">
 
             <h3 className={`${montserrat.className} mb-4 text-[20px] sm:text-[22px] md:text-[24px] font-[500] text-[#edf2ff]`}>
-              AI & Automation
+              AI & Intelligence
             </h3>
 
             <p className={`${inter.className} mb-7 text-[14px] sm:text-[15px] md:text-[16px] leading-[1.8] text-[#9ca8c4]`}>
-              Implementing LLM agents, RAG systems,
-              and custom automation flows for intelligent
-              enterprise applications.
+              Building intelligent applications using Large Language Models, Retrieval-Augmented Generation, and AI agents.
             </p>
 
             <div className="flex flex-wrap gap-3">
@@ -142,7 +136,8 @@ export default function TechnicalMatrix() {
               {[
                 "OpenAI",
                 "LangChain",
-                "VectorDB",
+                "RAG",
+                "Vector DB",
               ].map((item) => (
                 <span
                   key={item}
@@ -167,13 +162,11 @@ export default function TechnicalMatrix() {
               <Waypoints className="mb-6 text-[#8fb3ff]" size={32} strokeWidth={1.8} />
 
               <h3 className={`${montserrat.className} mb-4 text-[20px] sm:text-[22px] md:text-[24px] font-[500] text-[#edf2ff]`}>
-                Scalable API Design
+                API & Security
               </h3>
 
               <p className={`${inter.className} text-[14px] sm:text-[15px] md:text-[16px] leading-[1.8] text-[#9ca8c4]`}>
-                Building RESTful and GraphQL endpoints
-                that serve millions. Implementing rigorous
-                authentication and documentation standards.
+                Designing secure, well-documented, and high-performance REST APIs with proper authentication and authorization systems.
               </p>
 
             </div>
@@ -182,9 +175,9 @@ export default function TechnicalMatrix() {
             <div className="flex flex-col justify-center gap-3">
 
               {[
-                ["01", "GraphQL / Apollo"],
-                ["02", "gRPC Services"],
-                ["03", "OAuth2 / JWT"],
+                ["01", "JWT Authentication"],
+                ["02", "Role Based Access"],
+                ["03", "API Optimization"],
               ].map(([number, label]) => (
                 <div
                   key={number}
@@ -217,12 +210,11 @@ export default function TechnicalMatrix() {
           </h3>
 
           <p className={`${inter.className} mb-6 text-[14px] sm:text-[15px] md:text-[16px] leading-[1.8] text-[#9ca8c4]`}>
-            Complex relational modeling and high-speed
-            NoSQL implementations.
+            Working with relational databases to ensure data integrity, performance, and scalability.
           </p>
 
           <p className={`${jetbrainsMono.className} font-semibold text-[10px] sm:text-[11px] md:text-[12px] tracking-[0.03em] text-[#7f889d]`}>
-            PostgreSQL / MySQL / CockroachDB
+            PostgreSQL • MySQL • CockroachDB
           </p>
 
         </div>

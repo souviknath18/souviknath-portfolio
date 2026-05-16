@@ -2,7 +2,7 @@
 
 export default function SkillsHero() {
   return (
-    <section className="px-6 md:px-10 lg:px-8 xl:px-12 py-20 md:py-24">
+    <section className="px-6 md:px-10 lg:px-8 xl:px-12 pt-28 md:pt-32 lg:pt-36 pb-20 md:pb-24">
       <div className="mx-auto flex max-w-4xl flex-col items-center text-center">
 
         {/* TOP BADGE */}
@@ -19,9 +19,10 @@ export default function SkillsHero() {
 
         {/* DESCRIPTION */}
         <p className="mt-5 sm:mt-6 max-w-3xl text-[15px] sm:text-[16px] md:text-[17px] lg:text-[18px] leading-[1.75] sm:leading-[1.8] text-[#8b90a0]">
-          Architecting robust digital ecosystems through continuous
-          learning and specialized expertise in high-concurrency systems,
-          AI-driven automation, and cloud-native infrastructure.
+          Full Stack Engineer specializing in building modern web applications 
+          with Next.js, Django, and AI technologies. Focused on creating scalable, 
+          secure, and intelligent systems — from beautiful user interfaces to 
+          powerful RAG-powered AI applications.
         </p>
 
         {/* STATUS */}
@@ -35,7 +36,7 @@ export default function SkillsHero() {
 
           {/* STATUS TEXT */}
           <span className="font-mono text-[11px] sm:text-[12px] md:text-[13px] uppercase tracking-[0.06em] sm:tracking-[0.08em] text-cyan-300">
-            Status: Available for complex engineering challenges
+            Status: Actively building AI-powered products
           </span>
         </div>
 
