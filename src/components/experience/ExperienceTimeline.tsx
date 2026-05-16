@@ -28,41 +28,43 @@ const jetbrainsMono = JetBrains_Mono({
 const experiences = [
   {
     role: "Software Engineer",
-    company: "Enterprise Technology Solutions",
-    year: "2023 – Present",
+    company: "GTPL — Gowdanar Technologies Pvt. Ltd.",
+    year: "2024 – Present",
     side: "left",
     glow: "bg-cyan-300",
     points: [
-      "Built scalable React and Next.js applications with reusable enterprise-grade UI systems.",
-      "Developed secure Django REST APIs with JWT authentication and role-based access control.",
-      "Integrated AI-powered workflows and automation pipelines into internal business systems.",
+      "Developed and maintained scalable frontend modules using Next.js and React.js, improving dashboard responsiveness and reducing page load times by ~30%.",
+      "Built and optimized RESTful APIs using Django REST Framework, improving backend workflow efficiency and reducing average API response time by ~25%.",
+      "Implemented JWT authentication and RBAC systems for multiple user roles, improving application security and access management.",
     ],
   },
 
   {
-    role: "Full Stack Developer",
-    company: "Cloud Native Systems",
-    year: "2022 – 2023",
+    role: "Software Engineer Intern",
+    company: "GTPL — Gowdanar Technologies Pvt. Ltd.",
+    year: "2022 – 2024",
     side: "right",
     glow: "bg-[#adc7ff]",
     points: [
-      "Optimized backend performance and reduced API response latency across distributed services.",
-      "Worked on PostgreSQL schema optimization, caching layers, and scalable deployment flows.",
-      "Collaborated with frontend teams to build analytics dashboards and data visualization systems.",
+      "Developed and enhanced reusable React components for enterprise dashboards, improving UI consistency and reducing development time for new features by ~20%.",
+      "Integrated and debugged RESTful APIs with Django REST Framework, ensuring stable data flow between frontend and backend systems across multiple modules.",
+      "Optimized frontend performance by reducing unnecessary re-renders and improving API handling, resulting in smoother user interactions and faster page responsiveness.",
     ],
   },
 
+  /*
   {
-    role: "Frontend Developer",
-    company: "Digital Product Studio",
-    year: "2021 – 2022",
+    role: "AI Product Builder",
+    company: "Personal SaaS Projects",
+    year: "2025 – Present",
     side: "left",
     glow: "bg-[#5f6b85]",
     points: [
-      "Designed responsive UI interfaces using React, TailwindCSS, and component-driven architecture.",
-      "Implemented accessible and animation-rich user experiences for modern web platforms.",
+      "Building AI-powered SaaS products including Expensight, AI Career Coach, and Sentinel API using Next.js, Django, OpenAI, and RAG concepts.",
+      "Exploring vector databases, semantic retrieval, AI memory systems, and conversational AI workflows for practical full-stack applications.",
     ],
   },
+  */
 ];
 
 export default function ExperienceTimeline() {
