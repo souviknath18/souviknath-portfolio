@@ -29,7 +29,7 @@ const inter = Inter({
 
 export default function AboutHero() {
   return (
-    <section className="mx-auto max-w-7xl px-6 md:px-10 lg:px-8 xl:px-4 py-20">
+    <section className="mx-auto max-w-7xl px-6 md:px-10 lg:px-8 xl:px-4 pt-28 md:pt-32 lg:pt-36 pb-20">
       <div className="grid items-center gap-14 md:gap-20 lg:grid-cols-2">
 
         {/* LEFT SIDE */}
@@ -47,7 +47,7 @@ export default function AboutHero() {
             <span
               className={`${jetbrainsMono.className} text-[13px] font-semibold uppercase tracking-[0.14em] text-cyan-300`}
             >
-              Available for Work
+              Available for Opportunities
             </span>
           </div>
 
@@ -68,17 +68,16 @@ export default function AboutHero() {
           <h2
             className={`${inter.className} mt-5 text-[24px] sm:text-[28px] md:text-[32px] lg:text-[36px] font-semibold tracking-[-0.02em] text-[#8b90a0]`}
           >
-            Senior Full Stack & AI Architect
+            Full Stack Engineer & AI Builder
           </h2>
 
           {/* DESCRIPTION */}
           <p
-            className={`${inter.className} mt-7 max-w-2xl text-[15px] sm:text-[16px] md:text-[17px] lg:text-[18px] leading-[1.7] text-[#b7c3de]`}
+            className={`${inter.className} mt-7 max-w-2xl text-[15px] sm:text-[16px] md:text-[17px] lg:text-[18px] leading-[1.75] text-[#b7c3de]`}
           >
-            Engineering high-performance software at the intersection
-            of logical architecture and futuristic innovation.
-            Specializing in scalable systems and neural-integrated
-            user experiences.
+            Building scalable web applications and intelligent AI systems. 
+            Currently developing <span className="text-white">Expensight</span> — an AI-powered personal finance assistant, 
+            and <span className="text-white">AI Career Coach</span> — a smart career guidance platform using RAG and LLMs.
           </p>
 
           {/* BUTTONS */}
@@ -157,7 +156,7 @@ export default function AboutHero() {
               <p
                 className={`${montserrat.className} text-[32px] font-[700] leading-none text-[#adc7ff]`}
               >
-                4+
+                2+
               </p>
 
               <p

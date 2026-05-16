@@ -22,7 +22,7 @@ export default function Navbar() {
 
   return (
     <>
-      <nav className="sticky top-0 z-50 border-b border-white/10 bg-[#0b1326]/70 backdrop-blur-md shadow-[0_0_15px_rgba(173,199,255,0.10)]">
+      <nav className="fixed top-0 left-0 right-0 z-50 border-b border-white/10 bg-[#0b1326]/70 backdrop-blur-md shadow-[0_0_15px_rgba(173,199,255,0.10)]">
         
         {/* glow */}
         <div className="absolute inset-x-0 bottom-0 h-[1px] bg-gradient-to-r from-transparent via-[#adc7ff]/20 to-transparent" />

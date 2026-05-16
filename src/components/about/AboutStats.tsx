@@ -16,23 +16,23 @@ const montserrat = Montserrat({
 
 const stats = [
   {
-    number: "4+",
+    number: "2+",
     label: "Years of Experience",
     color: "text-[#adc7ff]",
   },
   {
-    number: "15+",
-    label: "Projects Completed",
+    number: "2",
+    label: "AI Products Built",
     color: "text-cyan-300",
   },
   {
-    number: "10+",
-    label: "Tech Mastered",
+    number: "8+",
+    label: "Projects Completed",
     color: "text-[#adc7ff]",
   },
   {
-    number: "5+",
-    label: "Domains Explored",
+    number: "10+",
+    label: "Technologies Mastered",
     color: "text-cyan-300",
   },
 ];

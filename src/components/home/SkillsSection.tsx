@@ -20,61 +20,65 @@ const skills = [
   {
     title: "Frontend",
     icon: frontendIcon,
-    iconBoxClass:
-      "border border-[#adc7ff]/15 bg-[#adc7ff]/6",
+    iconBoxClass: "border border-[#adc7ff]/15 bg-[#adc7ff]/6",
     items: [
-      "React / Next.js",
+      "Next.js",
+      "React.js",
       "TypeScript",
       "Tailwind CSS",
-      "Framer Motion",
+      "Shadcn/UI",
     ],
   },
 
   {
     title: "Backend",
     icon: backendIcon,
-    iconBoxClass:
-      "border border-[#63f7ff]/20 bg-[#63f7ff]/10",
+    iconBoxClass: "border border-[#63f7ff]/20 bg-[#63f7ff]/10",
     items: [
-      "Django",
-      "Django REST Framework",
-      "RESTful API",
-      "Python / FastAPI",
+      "Django & DRF",
+      "FastAPI",
+      "RESTful APIs",
+      "JWT + RBAC",
+      "PostgreSQL",
     ],
   },
 
   {
-    title: "AI / ML",
+    title: "AI & LLM",
     icon: aiIcon,
-    iconBoxClass:
-      "border border-[#4a8eff]/20 bg-[#4a8eff]/10",
+    iconBoxClass: "border border-[#4a8eff]/20 bg-[#4a8eff]/10",
     items: [
-      "TensorFlow",
-      "PyTorch",
       "OpenAI API",
-      "Pinecone / Vector DB",
+      "LangChain / RAG",
+      "Vector Databases",
+      "Prompt Engineering",
+      "AI Agents",
     ],
   },
 
   {
-    title: "Cloud",
+    title: "Tools & DevOps",
     icon: cloudIcon,
-    iconBoxClass:
-      "border border-[#ffb695]/20 bg-[#ffb695]/10",
+    iconBoxClass: "border border-[#ffb695]/20 bg-[#ffb695]/10",
     items: [
-      "AWS (S3, EC2, Lambda)",
       "Docker",
-      "Kubernetes",
-      "CI/CD (GitHub Actions)",
+      "GitHub Actions",
+      "Vercel",
+      "Postman",
+      // "Linux Basics",
     ],
   },
 
   {
     title: "Database",
     icon: databaseIcon,
-    iconBoxClass:
-      "border border-[#8b90a0]/20 bg-[#8b90a0]/10",
-    items: ["PostgreSQL", "MySQL", "CockroachDB", "Redis"],
+    iconBoxClass: "border border-[#8b90a0]/20 bg-[#8b90a0]/10",
+    items: [
+      "PostgreSQL",
+      "MySQL",
+      "CockroachDB",
+      "Redis (Learning)",
+    ],
   },
 ];
 
@@ -139,7 +143,7 @@ export default function SkillsSection() {
         </div>
 
         <h2 className="text-[32px] font-semibold tracking-tight text-[#dae2fd] sm:text-4xl">
-          Technical Arsenal
+          Tech Stack
         </h2>
       </div>
 
@@ -155,6 +159,10 @@ export default function SkillsSection() {
           />
         ))}
       </div>
+
+      <p className="mt-8 text-center text-sm text-[#97a3bd]">
+        Actively learning • Always exploring new tools
+      </p>
     </section>
   );
 }

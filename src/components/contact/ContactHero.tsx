@@ -22,7 +22,7 @@ const inter = Inter({
 
 export default function ContactHero() {
   return (
-    <section className="mx-auto max-w-7xl px-6 py-20 lg:px-4">
+    <section className="mx-auto max-w-7xl px-6 pt-42 pb-24 lg:px-4">
       <div className="relative overflow-hidden rounded-2xl border border-white/10 bg-[#131b2eb3] shadow-[0_0_50px_rgba(0,0,0,0.45)] backdrop-blur-xl">
 
         {/* Glow */}
