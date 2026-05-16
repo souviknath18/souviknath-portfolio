@@ -14,7 +14,7 @@ const montserrat = Montserrat({
 
 export default function ExperienceHero() {
   return (
-    <section className="px-6 py-20 sm:pt-42 pb-24 lg:px-12">
+    <section className="px-6 md:px-10 lg:px-8 xl:px-12 pt-28 md:pt-32 lg:pt-36 pb-20 md:pb-24">
 
       <div className="mx-auto flex max-w-5xl flex-col items-center text-center">
 
@@ -54,10 +54,10 @@ export default function ExperienceHero() {
         <p
           className="mt-6 sm:mt-7 max-w-2xl text-[15px] sm:text-[17px] lg:text-[18px] leading-[1.9] text-[#8b90a0]"
         >
-          A retrospective of building scalable,
-          intelligence-driven systems. From cloud-native
-          microservices to high-performance LLM pipelines,
-          I architect the digital backbone of tomorrow.
+          A retrospective of building scalable, intelligence-driven
+          applications. From modern web platforms to AI-powered
+          systems, I focus on engineering secure, performant,
+          and production-ready digital experiences.
         </p>
 
       </div>

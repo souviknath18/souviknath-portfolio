@@ -4,7 +4,7 @@ import { Download, Mail } from "lucide-react";
 
 export default function ResumeHero() {
   return (
-    <section className="px-6 py-16 sm:py-20 lg:px-12 lg:pt-42 pb-24">
+    <section className="px-6 md:px-10 lg:px-8 xl:px-12 pt-28 md:pt-32 lg:pt-36 pb-20 md:pb-24">
       <div className="mx-auto flex max-w-5xl flex-col items-center text-center">
 
         {/* TOP BADGE */}

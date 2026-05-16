@@ -28,9 +28,9 @@ export default function KeyContributionSection() {
             </h2>
 
             <p className="mt-4 max-w-2xl text-[14px] sm:text-[16px] md:text-[17px] leading-[1.8] sm:leading-[1.9] text-[#8b90a0]">
-              Specialized engineering domains where I’ve architected
-              scalable systems, optimized infrastructure, and integrated
-              modern AI capabilities into production-grade applications.
+              Core engineering areas shaped through professional full-stack experience,
+              secure backend development, database integrations, and AI-powered SaaS
+              projects focused on RAG, semantic search, and intelligent workflows.
             </p>
           </div>
 
@@ -39,7 +39,7 @@ export default function KeyContributionSection() {
             <div className="h-px w-32 bg-gradient-to-r from-transparent via-white/10 to-transparent" />
 
             <span className="font-mono text-[12px] font-semibold uppercase tracking-[0.22em] text-cyan-300">
-              Specialized Domains
+              Engineering Focus
             </span>
           </div>
         </div>
@@ -60,14 +60,14 @@ export default function KeyContributionSection() {
 
             {/* TITLE */}
             <h3 className="mt-5 sm:mt-7 text-[20px] sm:text-[22px] lg:text-[24px] font-[700] tracking-[-0.03em] leading-[1.2] text-[#dae2fd]">
-              REST API & Auth Systems
+              Secure Backend Systems
             </h3>
 
             {/* DESCRIPTION */}
             <p className="mt-4 sm:mt-5 text-[14px] sm:text-[15px] leading-[1.8] sm:leading-[1.9] text-[#9ba7c2]">
-              Architected scalable RESTful APIs with JWT authentication,
-              RBAC authorization, and secure enterprise-grade workflows
-              while mitigating modern OWASP vulnerabilities.
+              Built RESTful APIs with Django REST Framework, JWT authentication,
+              role-based access control, and secure backend workflows for scalable
+              enterprise-grade applications.
             </p>
           </div>
 
@@ -84,14 +84,14 @@ export default function KeyContributionSection() {
 
             {/* TITLE */}
             <h3 className="mt-5 sm:mt-7 text-[20px] sm:text-[22px] lg:text-[24px] font-[700] tracking-[-0.03em] leading-[1.2] text-[#dae2fd]">
-              Database Scaling
+              Full Stack Integration
             </h3>
 
             {/* DESCRIPTION */}
             <p className="mt-4 sm:mt-5 text-[14px] sm:text-[15px] leading-[1.8] sm:leading-[1.9] text-[#9ba7c2]">
-              Optimized PostgreSQL and MySQL systems through advanced
-              indexing strategies, query tuning, caching layers, and
-              distributed architecture patterns.
+              Integrated React and Next.js frontend systems with PostgreSQL and
+              MySQL databases, improving data retrieval, API consistency, and
+              dashboard performance across business modules.
             </p>
           </div>
 
@@ -108,14 +108,14 @@ export default function KeyContributionSection() {
 
             {/* TITLE */}
             <h3 className="mt-5 sm:mt-7 text-[20px] sm:text-[22px] lg:text-[24px] font-[700] tracking-[-0.03em] leading-[1.2] text-[#dae2fd]">
-              AI Integration
+              AI-Powered Products
             </h3>
 
             {/* DESCRIPTION */}
             <p className="mt-4 sm:mt-5 text-[14px] sm:text-[15px] leading-[1.8] sm:leading-[1.9] text-[#9ba7c2]">
-              Integrated intelligent AI pipelines, semantic search,
-              RAG-based systems, and LLM-powered automation into
-              responsive full stack applications.
+              Building AI SaaS projects with RAG pipelines, semantic retrieval,
+              vector databases, LLM workflows, and conversational AI experiences
+              for finance, career coaching, and API monitoring.
             </p>
           </div>
         </div>
