@@ -66,9 +66,13 @@ export default function HeroSection() {
               </button>
             </Link>
 
-            <button className="rounded-xl border border-cyan-300/30 bg-cyan-300/[0.02] px-6 sm:px-7 py-3 sm:py-3.5 text-[13px] sm:text-[15px] font-bold text-cyan-300 transition-all duration-300 hover:border-cyan-300/60 hover:bg-cyan-300/[0.05]">
+            <a
+              href="/resume/SouvikNath_Resume.pdf"
+              download
+              className="rounded-xl border border-cyan-300/30 bg-cyan-300/[0.02] px-6 sm:px-7 py-3 sm:py-3.5 text-[13px] sm:text-[15px] font-bold text-cyan-300 transition-all duration-300 hover:border-cyan-300/60 hover:bg-cyan-300/[0.05]"
+            >
               Download Resume
-            </button>
+            </a>
 
             <Link
               href="/contact"

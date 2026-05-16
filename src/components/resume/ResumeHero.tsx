@@ -40,10 +40,14 @@ export default function ResumeHero() {
         <div className="mt-10 sm:mt-12 flex flex-col items-center gap-3 sm:gap-4 sm:flex-row">
 
           {/* DOWNLOAD BUTTON */}
-          <button className="flex items-center gap-2 sm:gap-3 rounded-xl bg-gradient-to-r from-[#4a8eff] to-cyan-300 px-6 sm:px-8 py-3 sm:py-4 text-[12px] sm:text-sm font-bold uppercase tracking-[0.08em] text-[#08111f] shadow-[0_0_30px_rgba(99,247,255,0.18)] transition-all duration-300 hover:scale-[1.03] hover:shadow-[0_0_40px_rgba(99,247,255,0.28)]">
+          <a
+            href="/resume/SouvikNath_Resume.pdf"
+            download
+            className="flex items-center gap-2 sm:gap-3 rounded-xl bg-gradient-to-r from-[#4a8eff] to-cyan-300 px-6 sm:px-8 py-3 sm:py-4 text-[12px] sm:text-sm font-bold uppercase tracking-[0.08em] text-[#08111f] shadow-[0_0_30px_rgba(99,247,255,0.18)] transition-all duration-300 hover:scale-[1.03] hover:shadow-[0_0_40px_rgba(99,247,255,0.28)]"
+          >
             <Download className="h-4 w-4 sm:h-[18px] sm:w-[18px]" strokeWidth={2.4} />
             Download PDF
-          </button>
+          </a>
 
           {/* CONTACT BUTTON */}
           <Link href="/contact">
