@@ -19,10 +19,10 @@ export default function SkillsHero() {
 
         {/* DESCRIPTION */}
         <p className="mt-5 sm:mt-6 max-w-3xl text-[15px] sm:text-[16px] md:text-[17px] lg:text-[18px] leading-[1.75] sm:leading-[1.8] text-[#8b90a0]">
-          Full Stack Engineer specializing in building modern web applications 
-          with Next.js, Django, and AI technologies. Focused on creating scalable, 
+          Software Engineer focused on building modern web applications 
+          with Next.js, Django, and AI-powered workflows. Focused on creating scalable, 
           secure, and intelligent systems — from beautiful user interfaces to 
-          powerful RAG-powered AI applications.
+          intelligent AI-native applications.
         </p>
 
         {/* STATUS */}

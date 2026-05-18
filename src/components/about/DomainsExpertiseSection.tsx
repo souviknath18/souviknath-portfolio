@@ -34,7 +34,7 @@ const domains = [
   },
   {
     icon: Bot,
-    label: "Automation",
+    label: "AI Workflows",
   },
   {
     icon: Zap,
@@ -55,11 +55,11 @@ export default function DomainsExpertiseSection() {
 
         <h2 className={`${montserrat.className} text-[30px] sm:text-[38px] md:text-[46px] lg:text-[52px] leading-[1.05] tracking-[-0.04em]`}>
           <span className="text-[#edf2ff]">
-            Domains of{" "}
+            Engineering{" "}
           </span>
 
           <span className="text-[#6f7d99]">
-            Expertise
+            Focus Areas
           </span>
         </h2>
 

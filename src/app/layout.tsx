@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -23,6 +23,10 @@ export const metadata: Metadata = {
       name: "Souvik Nath",
     },
   ],
+};
+
+export const viewport: Viewport = {
+  themeColor: "#0b1326",
 };
 
 export default function RootLayout({

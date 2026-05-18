@@ -67,7 +67,7 @@ export default function KeyContributionSection() {
             <p className="mt-4 sm:mt-5 text-[14px] sm:text-[15px] leading-[1.8] sm:leading-[1.9] text-[#9ba7c2]">
               Built RESTful APIs with Django REST Framework, JWT authentication,
               role-based access control, and secure backend workflows for scalable
-              enterprise-grade applications.
+              scalable production applications.
             </p>
           </div>
 
@@ -113,9 +113,8 @@ export default function KeyContributionSection() {
 
             {/* DESCRIPTION */}
             <p className="mt-4 sm:mt-5 text-[14px] sm:text-[15px] leading-[1.8] sm:leading-[1.9] text-[#9ba7c2]">
-              Building AI SaaS projects with RAG pipelines, semantic retrieval,
-              vector databases, LLM workflows, and conversational AI experiences
-              for finance, career coaching, and API monitoring.
+              Building AI-powered SaaS projects using LLM workflows,
+              RAG concepts, vector databases, and intelligent document-based experiences
             </p>
           </div>
         </div>

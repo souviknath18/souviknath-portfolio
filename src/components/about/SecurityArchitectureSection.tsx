@@ -41,12 +41,11 @@ export default function SecurityArchitectureSection() {
             <p
               className={`${inter.className} mt-6 sm:mt-8 max-w-3xl text-[15px] sm:text-[16px] md:text-[17px] leading-[1.9] text-[#b7c3de]`}
             >
-              My methodology treats security not as a final
-              layer, but as the foundational skeleton of every
-              project. By integrating automated vulnerability
-              scanning and encrypted-at-rest protocols from Day
-              1, I ensure that growth doesn't become a
-              liability.
+              I approach every project with security, scalability,
+              and maintainability in mind from the beginning.
+              From authentication and authorization to clean API
+              design and database structure, I focus on building
+              systems that are reliable, secure, and ready to grow.
             </p>
 
             <div className="mt-10 sm:mt-12 lg:mt-14 grid gap-8 md:grid-cols-2">
@@ -65,9 +64,9 @@ export default function SecurityArchitectureSection() {
                     </h4>
 
                     <p className={`${inter.className} mt-3 text-[14px] sm:text-[15px] md:text-[16px] leading-[1.8] text-[#8b96b3]`}>
-                      Deterministic outputs and rigorous
-                      state management across distributed
-                      systems.
+                      Consistent data handling, clear validation,
+                      and reliable state management across
+                      frontend and backend workflows.
                     </p>
 
                   </div>
@@ -88,8 +87,9 @@ export default function SecurityArchitectureSection() {
                     </h4>
 
                     <p className={`${inter.className} mt-3 text-[14px] sm:text-[15px] md:text-[16px] leading-[1.8] text-[#8b96b3]`}>
-                      Optimizing critical paths to maintain
-                      sub-100ms response times globally.
+                      Optimizing API responses, frontend rendering,
+                      and database queries to deliver faster and
+                      smoother user experiences.
                     </p>
 
                   </div>
