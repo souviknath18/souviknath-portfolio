@@ -17,7 +17,7 @@ export default function ResumeHero() {
           </div>
 
           <span className="font-mono text-[10px] sm:text-[12px] md:text-[13px] font-medium uppercase tracking-[0.14em] sm:tracking-[0.16em] text-cyan-300">
-            Architectural Blueprint
+            Professional Snapshot
           </span>
         </div>
 
@@ -31,9 +31,9 @@ export default function ResumeHero() {
 
         {/* DESCRIPTION */}
         <p className="mt-6 sm:mt-7 max-w-3xl text-[15px] sm:text-[17px] md:text-[18px] leading-[1.8] sm:leading-[1.9] text-[#8b90a0]">
-          A comprehensive overview of my engineering expertise, AI system
-          architecture experience, scalable backend development, and modern
-          frontend craftsmanship across enterprise-grade applications.
+          A concise overview of my software engineering experience, full-stack
+          development skills, backend API work, and growing focus on AI-powered
+          applications.
         </p>
 
         {/* BUTTONS */}

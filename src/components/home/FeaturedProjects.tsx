@@ -1,12 +1,49 @@
 "use client";
 
 import Link from "next/link";
-import { ExternalLink, Code } from "lucide-react";
+import { Code } from "lucide-react";
 import { JetBrains_Mono } from "next/font/google";
+import ProjectImageSlider from "./ProjectImageSlider";
 
 const jetbrainsMono = JetBrains_Mono({
   subsets: ["latin"],
 });
+
+const financeImages: {
+  src: string;
+  alt: string;
+}[] = [
+  {
+    src: "/projects/finance-dashboard.png",
+    alt: "AI Finance Assistant dashboard screen",
+  },
+  {
+    src: "/projects/finance-transactions.png",
+    alt: "AI Finance Assistant transactions screen",
+  },
+  {
+    src: "/projects/finance-upload.png",
+    alt: "AI Finance Assistant upload screen",
+  },
+];
+
+const careerCoachImages: {
+  src: string;
+  alt: string;
+}[] = [
+  // {
+  //   src: "/projects/career-coach-dashboard.png",
+  //   alt: "AI Career Coach dashboard screen",
+  // },
+  // {
+  //   src: "/projects/career-coach-resume.png",
+  //   alt: "AI Career Coach resume analysis screen",
+  // },
+  // {
+  //   src: "/projects/career-coach-chat.png",
+  //   alt: "AI Career Coach chat screen",
+  // },
+];
 
 export default function FeaturedProjects() {
   return (
@@ -37,30 +74,24 @@ export default function FeaturedProjects() {
       {/* Grid */}
       <div className="grid gap-6 md:grid-cols-2 md:gap-10">
 
-        {/* PROJECT 1 - EXPENSIGHT */}
+        {/* PROJECT 1 - AI FINANCE ASSISTANT */}
         <div className="group overflow-hidden rounded-2xl border border-white/10 bg-[#131d33]/20 backdrop-blur-xl transition-all duration-300 hover:border-cyan-400/30">
 
           {/* IMAGE */}
-          <div className="relative h-56 overflow-hidden sm:h-64 md:h-72">
-            <div className="h-full w-full bg-gradient-to-br from-[#1b2a4a] to-[#0b1326]" />
-
-            <div className="absolute bottom-4 left-4">
-              <span className="rounded-md border border-[#adc7ff]/10 bg-[#0b1f33]/90 px-2.5 py-1 text-[12px] font-semibold text-[#adc7ff] backdrop-blur-md sm:px-3 sm:text-sm">
-                AI Finance
-              </span>
-            </div>
-          </div>
+          <ProjectImageSlider
+            badge="AI Finance"
+            images={financeImages}
+          />
 
           {/* CONTENT */}
           <div className="space-y-5 p-5 sm:p-6 md:p-8">
 
             <h3 className="text-[24px] font-semibold leading-[1.25] text-[#dae2fd] sm:text-[28px] md:text-3xl">
-              Expensight
+              AI Finance Insights
             </h3>
 
             <p className="text-[14px] leading-[1.8] text-[#cdd5f0] sm:text-[15px] md:text-[16px]">
-              AI-powered personal finance assistant that automatically categorizes expenses, 
-              tracks spending patterns, and delivers intelligent financial insights through natural conversation.
+              AI-powered finance platform that processes financial documents, extracts transaction data, categorizes expenses, and delivers intelligent financial insights using LLM workflows.
             </p>
 
             {/* BADGES */}
@@ -78,11 +109,20 @@ export default function FeaturedProjects() {
             {/* LINKS */}
             <div className="flex flex-wrap items-center gap-5 pt-3 sm:gap-7">
 
-              <a className="flex items-center gap-2 text-[13px] font-semibold text-[#63f7ff] hover:text-cyan-300 sm:text-sm">
-                Live Demo <ExternalLink size={16} />
-              </a>
+              {/* <a
+                href="https://your-live-demo.vercel.app"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-2 text-[13px] font-semibold text-[#63f7ff] hover:text-cyan-300 sm:text-sm"
+              >
+              </a> */}
 
-              <a className="flex items-center gap-2 text-[13px] font-semibold text-[#8b90a0] hover:text-[#dae2fd] sm:text-sm">
+              <a
+                href="https://github.com/souviknath18/ai-finance-assistant"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-2 text-[13px] font-semibold text-[#8b90a0] hover:text-[#dae2fd] sm:text-sm"
+              >
                 GitHub <Code size={16} />
               </a>
 
@@ -95,15 +135,10 @@ export default function FeaturedProjects() {
         <div className="group overflow-hidden rounded-2xl border border-white/10 bg-[#131d33]/20 backdrop-blur-xl transition-all duration-300 hover:border-cyan-400/30">
 
           {/* IMAGE */}
-          <div className="relative h-56 overflow-hidden sm:h-64 md:h-72">
-            <div className="h-full w-full bg-gradient-to-br from-[#1a3a3a] to-[#0b1326]" />
-
-            <div className="absolute bottom-4 left-4">
-              <span className="rounded-md border border-[#adc7ff]/10 bg-[#0b1f33]/90 px-2.5 py-1 text-[12px] font-semibold text-[#adc7ff] backdrop-blur-md sm:px-3 sm:text-sm">
-                AI Web App
-              </span>
-            </div>
-          </div>
+          <ProjectImageSlider
+            badge="AI Web App"
+            images={careerCoachImages}
+          />
 
           {/* CONTENT */}
           <div className="space-y-5 p-5 sm:p-6 md:p-8">
@@ -113,14 +148,12 @@ export default function FeaturedProjects() {
             </h3>
 
             <p className="text-[14px] leading-[1.8] text-[#cdd5f0] sm:text-[15px] md:text-[16px]">
-              Intelligent web-based career guidance platform that analyzes resumes, 
-              provides job matching, mock interviews, and personalized career advice 
-              using RAG and LLM technologies.
+              AI-powered career guidance platform that analyzes resumes, matches candidates with job descriptions, conducts mock interviews, and delivers personalized career insights using LLM and RAG workflows.
             </p>
 
             {/* BADGES */}
             <div className="flex flex-wrap gap-2 pt-1">
-              {["Next.js", "FastAPI", "LangChain", "RAG", "OpenAI"].map((item) => (
+              {["Next.js", "Django", "LangChain", "RAG", "OpenAI"].map((item) => (
                 <span
                   key={item}
                   className={`${jetbrainsMono.className} rounded-full border border-[#1f2a3a] bg-[#0b1b2a] px-2.5 py-1 text-[11px] text-[#adc7ff] sm:px-3 sm:text-[12px]`}
@@ -133,11 +166,20 @@ export default function FeaturedProjects() {
             {/* LINKS */}
             <div className="flex flex-wrap items-center gap-5 pt-3 sm:gap-7">
 
-              <a className="flex items-center gap-2 text-[13px] font-semibold text-[#63f7ff] hover:text-cyan-300 sm:text-sm">
-                Live Demo <ExternalLink size={16} />
-              </a>
+              {/* <a
+                href="https://your-live-demo.vercel.app"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-2 text-[13px] font-semibold text-[#63f7ff] hover:text-cyan-300 sm:text-sm"
+              >
+              </a> */}
 
-              <a className="flex items-center gap-2 text-[13px] font-semibold text-[#8b90a0] hover:text-[#dae2fd] sm:text-sm">
+              <a
+                href="https://github.com/souviknath18/ai-career-coach"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-2 text-[13px] font-semibold text-[#8b90a0] hover:text-[#dae2fd] sm:text-sm"
+              >
                 GitHub <Code size={16} />
               </a>
 

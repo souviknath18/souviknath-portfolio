@@ -26,7 +26,7 @@ export default function ProjectsHero() {
 
         {/* DESCRIPTION */}
         <p className="mt-5 sm:mt-6 max-w-3xl text-[15px] sm:text-[16px] md:text-[17px] lg:text-[18px] leading-[1.75] sm:leading-[1.8] text-[#8b90a0]">
-          Building scalable full-stack applications and AI-powered digital products
+          Building scalable software systems and AI-powered digital products
           with a strong focus on performance, system design, intelligent workflows,
           and seamless user experiences.
         </p>
@@ -44,7 +44,7 @@ export default function ProjectsHero() {
           <div className="flex items-center gap-2">
             <span className="h-1.5 w-1.5 rounded-full bg-cyan-300 shadow-[0_0_8px_rgba(34,211,238,0.8)]" />
             <span className="font-mono text-[10px] sm:text-[12px] uppercase tracking-[0.1em] text-cyan-300">
-              AI / RAG Applications
+              AI-Native Applications
             </span>
           </div>
 

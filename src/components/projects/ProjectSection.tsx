@@ -1,9 +1,9 @@
 "use client";
 
 import Link from "next/link";
-import Image from "next/image";
 import { Rocket, Github, Code2, CheckCircle2, Zap, Shield } from "lucide-react";
 import { JetBrains_Mono } from "next/font/google";
+import ProjectImageSlider from "../home/ProjectImageSlider";
 
 const jetbrainsMono = JetBrains_Mono({
   subsets: ["latin"],
@@ -47,8 +47,29 @@ function TechTagSmall({ text }: { text: string }) {
   );
 }
 
-const imageSrc1 = "";
-const imageSrc2 = "";
+const financeImages: {
+  src: string;
+  alt: string;
+}[] = [
+  {
+    src: "/projects/finance-dashboard.png",
+    alt: "AI Finance Insights dashboard screen",
+  },
+  {
+    src: "/projects/finance-transactions.png",
+    alt: "AI Finance Insights transactions screen",
+  },
+  {
+    src: "/projects/finance-upload.png",
+    alt: "AI Finance Insights upload screen",
+  },
+];
+
+const careerCoachImages: {
+  src: string;
+  alt: string;
+}[] = [];
+
 
 export default function ProjectSection() {
   return (
@@ -62,26 +83,10 @@ export default function ProjectSection() {
           <div className="md:col-span-8 rounded-2xl overflow-hidden border border-white/10 bg-[#131b2e] transition-all duration-300 hover:border-cyan-300/20 hover:-translate-y-1">
 
             {/* IMAGE TOP HALF */}
-            <div className="relative h-[220px] sm:h-[240px] sm:h-[300px] md:h-[360px] bg-[#1a2236] overflow-hidden">
-              {imageSrc1 ? (
-                <Image
-                  src={imageSrc1}
-                  alt="Expensight"
-                  fill
-                  className="object-cover opacity-80 hover:scale-105 transition-transform duration-700"
-                />
-              ) : (
-                <div className="w-full h-full flex items-center justify-center text-[#7d8496] font-mono text-[12px] uppercase tracking-widest bg-[#1a2236]">
-                  Project Image Coming Soon
-                </div>
-              )}
-
-              <div className="absolute top-4 left-4">
-                <span className="font-mono text-[12px] uppercase tracking-[0.12em] bg-[#4a8eff]/20 border border-[#4a8eff]/30 text-[#adc7ff] px-3 py-1 rounded-full">
-                  AI Finance SaaS
-                </span>
-              </div>
-            </div>
+            <ProjectImageSlider
+              badge="AI Finance SaaS"
+              images={financeImages}
+            />
 
             {/* CONTENT BOTTOM HALF */}
             <div className="p-5 sm:p-6 lg:p-8">
@@ -92,13 +97,11 @@ export default function ProjectSection() {
                 {/* LEFT TEXT */}
                 <div className="flex-1">
                   <h3 className="text-[24px] sm:text-[26px] lg:text-[28px] font-semibold text-[#e8edff]">
-                    Expensight
+                    AI Finance Insights
                   </h3>
 
                   <p className="mt-3 text-[15px] sm:text-[15px] lg:text-[16px] text-[#cfd6e6] leading-[1.8]">
-                    AI-powered personal finance platform utilizing RAG workflows and semantic
-                    retrieval to generate contextual spending insights, intelligent budgeting,
-                    and conversational financial analysis from uploaded transaction data.
+                    AI-powered personal finance platform utilizing document processing, transaction extraction, AI-assisted categorization, and intelligent financial insights from uploaded financial data.
                   </p>
                 </div>
 
@@ -153,7 +156,7 @@ export default function ProjectSection() {
                     <TechTag text="Next.js" />
                     <TechTag text="PostgreSQL" />
                     <TechTag text="OpenAI API" />
-                    <TechTag text="LangChain" />
+                    <TechTag text="Django" />
                   </div>
                 </div>
               </div>
@@ -166,14 +169,14 @@ export default function ProjectSection() {
                   <span className="font-semibold text-sm">Live Demo</span>
                 </a>
 
-                <a href="#" className="flex items-center gap-2 text-[#8b90a0] hover:text-[#dae2fd] cursor-pointer">
+                <a href="https://github.com/souviknath18/ai-finance-assistant/tree/main/frontend" className="flex items-center gap-2 text-[#8b90a0] hover:text-[#dae2fd] cursor-pointer">
                   <Code2 size={18} />
                   <span className="font-semibold text-sm">Frontend Repo</span>
                 </a>
 
-                <a href="#" className="flex items-center gap-2 text-[#8b90a0] hover:text-[#dae2fd] cursor-pointer">
+                <a href="https://github.com/souviknath18/ai-finance-assistant" className="flex items-center gap-2 text-[#8b90a0] hover:text-[#dae2fd] cursor-pointer">
                   <Github size={18} />
-                  <span className="font-semibold text-sm">GitHub Org</span>
+                  <span className="font-semibold text-sm">GitHub</span>
                 </a>
 
               </div>
@@ -184,28 +187,10 @@ export default function ProjectSection() {
           {/* ================= RIGHT SMALL PROJECT ================= */}
           <div className="md:col-span-4 rounded-2xl overflow-hidden border border-white/10 bg-[#131b2e] transition-all duration-300 hover:border-cyan-300/20">
 
-            <div className="h-[220px] sm:h-[240px] bg-[#1a2236] relative overflow-hidden flex items-center justify-center">
-
-              {/* IMAGE */}
-              {imageSrc2 ? (
-                <Image
-                  src={imageSrc2}
-                  alt="AI Career Coach"
-                  fill
-                  className="object-cover opacity-80 hover:scale-105 transition-transform duration-700"
-                />
-              ) : (
-                <div className="text-[#7d8496] font-mono text-[12px] uppercase tracking-widest text-center px-4">
-                  Project Image Coming Soon
-                </div>
-              )}
-
-              <div className="absolute top-4 left-4">
-                <span className="font-mono text-[12px] uppercase tracking-[0.12em] bg-orange-300/15 border border-orange-300/30 text-orange-300 px-3 py-1 rounded-full">
-                  AI PLATFORM
-                </span>
-              </div>
-            </div>
+            <ProjectImageSlider
+              badge="AI Platform"
+              images={careerCoachImages}
+            />
 
             {/* CONTENT */}
             <div className="p-5 sm:p-6">
@@ -293,29 +278,10 @@ export default function ProjectSection() {
           <div className="md:col-span-4 rounded-2xl overflow-hidden border border-white/10 bg-[#131b2e] transition-all duration-300 hover:border-cyan-300/20">
 
             {/* IMAGE SECTION */}
-            <div className="h-[220px] sm:h-[240px] bg-[#1a2236] relative overflow-hidden flex items-center justify-center">
-
-              {/* IMAGE */}
-              {imageSrc2 ? (
-                <Image
-                  src={imageSrc2}
-                  alt="Sentinel API"
-                  fill
-                  className="object-cover opacity-80 hover:scale-105 transition-transform duration-700"
-                />
-              ) : (
-                <div className="text-[#7d8496] font-mono text-[12px] uppercase tracking-widest text-center px-4">
-                  Project Image Coming Soon
-                </div>
-              )}
-
-              {/* BADGE */}
-              <div className="absolute top-4 left-4">
-                <span className="font-mono text-[12px] uppercase tracking-[0.12em] bg-cyan-300/15 border border-cyan-300/30 text-cyan-300 px-3 py-1 rounded-full">
-                  AI SECURITY SAAS
-                </span>
-              </div>
-            </div>
+            <ProjectImageSlider
+              badge="API Monitoring SaaS"
+              images={[]}
+            />
 
             {/* CONTENT */}
             <div className="p-5 sm:p-6">

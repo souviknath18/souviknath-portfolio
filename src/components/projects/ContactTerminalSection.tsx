@@ -51,7 +51,7 @@ export default function ContactTerminalSection() {
                 </span>
 
                 <span className="break-words text-[#aab4cf]">
-                  ./hire_architect.sh --subject "Collaborate on AI System"
+                  ./contact_engineer.sh --subject "Collaborate on AI Product"
                   <span className="ml-1 inline-block h-[16px] w-[2px] animate-[pulse_1s_steps(1)_infinite] bg-cyan-300 align-middle" />
                 </span>
               </div>
@@ -68,8 +68,8 @@ export default function ContactTerminalSection() {
                 </div>
 
                 <div className="text-[#c1c6d7]">
-                  [INFO] Looking for a developer who speaks fluent React,
-                  Python, and AWS?
+                  [INFO] Looking for a developer who works with React,
+                  Python, and AI-powered systems?
                 </div>
 
                 <div className="text-[#c1c6d7]">

@@ -61,7 +61,7 @@ export default function ResumeSection() {
           <p
             className={`${jetbrainsMono.className} mt-3 text-[11px] sm:text-[13px] md:text-[15px] uppercase tracking-[0.12em] sm:tracking-[0.18em] text-cyan-300`}
           >
-            Senior Full Stack & AI Architect
+            Software Engineer | Full Stack Development | AI Applications
           </p>
 
           <div className="mt-8 flex flex-col sm:flex-row sm:flex-wrap gap-x-8 gap-y-4 border-t border-white/5 pt-6 text-[#b7c3de]">
@@ -168,11 +168,11 @@ export default function ResumeSection() {
               </p>
 
               <div className="flex flex-wrap gap-3">
-                <SkillBadge text="PyTorch" variant="orange" />
-                <SkillBadge text="LangChain" variant="orange" />
                 <SkillBadge text="OpenAI API" variant="orange" />
-                <SkillBadge text="Vector DBs" variant="orange" />
-                <SkillBadge text="HuggingFace" variant="orange" />
+                <SkillBadge text="LangChain (Learning)" variant="orange" />
+                <SkillBadge text="RAG (Learning)" variant="orange" />
+                <SkillBadge text="Vector DBs (Learning)" variant="orange" />
+                <SkillBadge text="LLM Workflows" variant="orange" />
               </div>
             </div>
 
@@ -231,7 +231,7 @@ export default function ResumeSection() {
 
               <div className="flex flex-col gap-3 md:flex-row md:items-center md:justify-between">
                 <h3 className="text-[22px] sm:text-[24px] md:text-[28px] font-semibold text-[#dae2fd]">
-                  Full Stack Engineer
+                  Software Engineer
                 </h3>
 
                 <span
@@ -344,7 +344,7 @@ export default function ResumeSection() {
           </div>
 
           {/* CERTIFICATIONS */}
-          <div>
+          {/* <div>
             <SectionHeading title="Certifications" />
 
             <div className="space-y-4">
@@ -374,7 +374,7 @@ export default function ResumeSection() {
               </div>
 
             </div>
-          </div>
+          </div> */}
 
         </div>
 

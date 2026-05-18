@@ -8,9 +8,9 @@ import {
 
 import {
   Download,
-  Code2,
-  Share2,
+  Linkedin ,
   Image as ImageIcon,
+  Github,
 } from "lucide-react";
 
 const jetbrainsMono = JetBrains_Mono({
@@ -39,7 +39,7 @@ export default function AboutHero() {
           <div className="flex items-center gap-3">
 
             {/* PULSE DOT */}
-            <div className="relative flex h-3 w-3">
+            <div className="relative flex h-3 w-3 shrink-0">
               <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-cyan-300 opacity-75" />
               <span className="relative inline-flex h-3 w-3 rounded-full bg-cyan-300 shadow-[0_0_14px_rgba(34,211,238,0.95)]" />
             </div>
@@ -66,18 +66,16 @@ export default function AboutHero() {
 
           {/* ROLE */}
           <h2
-            className={`${inter.className} mt-5 text-[24px] sm:text-[28px] md:text-[32px] lg:text-[36px] font-semibold tracking-[-0.02em] text-[#8b90a0]`}
+            className={`${inter.className} mt-5 text-[24px] sm:text-[28px] md:text-[32px] lg:text-[36px] font-semibold tracking-[-0.02em] text-[#9ba7c2]`}
           >
-            Full Stack Engineer & AI Builder
+            Software Engineer & AI Builder
           </h2>
 
           {/* DESCRIPTION */}
           <p
             className={`${inter.className} mt-7 max-w-2xl text-[15px] sm:text-[16px] md:text-[17px] lg:text-[18px] leading-[1.75] text-[#b7c3de]`}
           >
-            Building scalable web applications and intelligent AI systems. 
-            Currently developing <span className="text-white">Expensight</span> — an AI-powered personal finance assistant, 
-            and <span className="text-white">AI Career Coach</span> — a smart career guidance platform using RAG and LLMs.
+            Building scalable full-stack applications and intelligent AI-powered systems using modern web technologies and LLM workflows. Currently developing AI Finance Insights and AI Career Coach — two AI-native SaaS platforms focused on finance and career intelligence.
           </p>
 
           {/* BUTTONS */}
@@ -105,9 +103,9 @@ export default function AboutHero() {
                 href="https://github.com/souviknath18"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex h-14 w-14 items-center justify-center rounded-2xl border border-white/10 bg-[#131b2eb3] text-[#8b90a0] shadow-[0_0_30px_rgba(0,0,0,0.2)] backdrop-blur-xl transition-all duration-300 hover:border-cyan-300/40 hover:text-cyan-300"
+                className="flex h-14 w-14 items-center justify-center rounded-2xl border border-white/10 bg-[#131b2eb3] text-[#9ba7c2] shadow-[0_0_30px_rgba(0,0,0,0.2)] backdrop-blur-xl transition-all duration-300 hover:border-cyan-300/40 hover:text-cyan-300"
               >
-                <Code2 size={22} />
+                <Github size={22} />
               </a>
 
               {/* SHARE */}
@@ -115,9 +113,9 @@ export default function AboutHero() {
                 href="https://linkedin.com/in/souvik-nath-0111a721a/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex h-14 w-14 items-center justify-center rounded-2xl border border-white/10 bg-[#131b2eb3] text-[#8b90a0] shadow-[0_0_30px_rgba(0,0,0,0.2)] backdrop-blur-xl transition-all duration-300 hover:border-cyan-300/40 hover:text-cyan-300"
+                className="flex h-14 w-14 items-center justify-center rounded-2xl border border-white/10 bg-[#131b2eb3] text-[#9ba7c2] shadow-[0_0_30px_rgba(0,0,0,0.2)] backdrop-blur-xl transition-all duration-300 hover:border-cyan-300/40 hover:text-cyan-300"
               >
-                <Share2 size={22} />
+                <Linkedin  size={22} />
               </a>
             </div>
           </div>

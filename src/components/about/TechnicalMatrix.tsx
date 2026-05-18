@@ -51,7 +51,7 @@ export default function TechnicalMatrix() {
       <div className="grid gap-5 sm:gap-6 md:gap-7 md:grid-cols-3">
 
         {/* FRONTEND */}
-        <div className="group relative overflow-hidden rounded-2xl border border-white/10 bg-[#131b2eb3] p-5 sm:p-6 md:p-5 sm:p-6 md:p-5 sm:p-6 md:p-5 sm:p-6 md:p-8 backdrop-blur-xl transition-all duration-300 hover:border-[#4a8eff]/50 hover:shadow-[0_0_35px_rgba(74,142,255,0.12)]">
+        <div className="group relative overflow-hidden rounded-2xl border border-white/10 bg-[#131b2eb3] p-5 sm:p-6 md:p-8 sm:p-6 md:p-5 sm:p-6 md:p-8 backdrop-blur-xl transition-all duration-300 hover:border-[#4a8eff]/50 hover:shadow-[0_0_35px_rgba(74,142,255,0.12)]">
 
           <Monitor className="mb-6 text-[#8fb3ff]" size={32} strokeWidth={1.8} />
 
@@ -83,7 +83,7 @@ export default function TechnicalMatrix() {
         </div>
 
         {/* BACKEND */}
-        <div className="group relative overflow-hidden rounded-2xl border border-white/10 bg-[#131b2eb3] p-5 sm:p-6 md:p-5 sm:p-6 md:p-5 sm:p-6 md:p-5 sm:p-6 md:p-8 backdrop-blur-xl transition-all duration-300 hover:border-cyan-400/50 hover:shadow-[0_0_35px_rgba(34,211,238,0.12)]">
+        <div className="group relative overflow-hidden rounded-2xl border border-white/10 bg-[#131b2eb3] p-5 sm:p-6 md:p-8 sm:p-6 md:p-5 sm:p-6 md:p-8 backdrop-blur-xl transition-all duration-300 hover:border-cyan-400/50 hover:shadow-[0_0_35px_rgba(34,211,238,0.12)]">
 
           <TerminalSquare className="mb-6 text-cyan-300" size={32} strokeWidth={1.8} />
 
@@ -99,8 +99,8 @@ export default function TechnicalMatrix() {
 
             {[
               "Django",
-              "FastAPI",
               "RESTful APIs",
+              "JWT + RBAC",
               "PostgreSQL",
             ].map((item) => (
               <span
@@ -115,7 +115,7 @@ export default function TechnicalMatrix() {
         </div>
 
         {/* AI */}
-        <div className="relative overflow-hidden rounded-2xl border border-white/10 bg-gradient-to-br from-[#131b2eb3] to-[#1d2947] p-5 sm:p-6 md:p-5 sm:p-6 md:p-5 sm:p-6 md:p-5 sm:p-6 md:p-8 backdrop-blur-xl transition-all duration-300 hover:border-[#7b879d]/50 hover:shadow-[0_0_40px_rgba(148,163,184,0.10)]">
+        <div className="relative overflow-hidden rounded-2xl border border-white/10 bg-gradient-to-br from-[#131b2eb3] to-[#1d2947] p-5 sm:p-6 md:p-8 sm:p-6 md:p-5 sm:p-6 md:p-8 backdrop-blur-xl transition-all duration-300 hover:border-[#7b879d]/50 hover:shadow-[0_0_40px_rgba(148,163,184,0.10)]">
 
           <div className="absolute -bottom-10 -right-10 h-40 w-40 rounded-full bg-[#4a8eff]/20 blur-[70px]" />
 
@@ -128,7 +128,7 @@ export default function TechnicalMatrix() {
             </h3>
 
             <p className={`${inter.className} mb-7 text-[14px] sm:text-[15px] md:text-[16px] leading-[1.8] text-[#9ca8c4]`}>
-              Building intelligent applications using Large Language Models, Retrieval-Augmented Generation, and AI agents.
+              Building AI-powered applications using Large Language Models, Retrieval-Augmented Generation, and modern LLM workflows.
             </p>
 
             <div className="flex flex-wrap gap-3">
@@ -136,8 +136,8 @@ export default function TechnicalMatrix() {
               {[
                 "OpenAI",
                 "LangChain",
-                "RAG",
-                "Vector DB",
+                "RAG (Learning)",
+                "Vector DBs",
               ].map((item) => (
                 <span
                   key={item}
@@ -152,9 +152,9 @@ export default function TechnicalMatrix() {
         </div>
 
         {/* API DESIGN */}
-        <div className="md:col-span-2 rounded-2xl border border-white/10 bg-[#131b2eb3] p-5 sm:p-6 md:p-5 sm:p-6 md:p-5 sm:p-6 md:p-5 sm:p-6 md:p-8 backdrop-blur-xl transition-all duration-300 hover:border-[#4a8eff]/50 hover:shadow-[0_0_35px_rgba(74,142,255,0.10)]">
+        <div className="md:col-span-2 rounded-2xl border border-white/10 bg-[#131b2eb3] p-5 sm:p-6 md:p-8 sm:p-6 md:p-5 sm:p-6 md:p-8 backdrop-blur-xl transition-all duration-300 hover:border-[#4a8eff]/50 hover:shadow-[0_0_35px_rgba(74,142,255,0.10)]">
 
-          <div className="grid gap-5 sm:p-6 md:p-5 sm:p-6 md:p-5 sm:p-6 md:p-5 sm:p-6 md:p-8 md:grid-cols-2">
+          <div className="grid gap-5 sm:p-6 md:p-8 sm:p-6 md:p-5 sm:p-6 md:p-8 md:grid-cols-2">
 
             {/* LEFT */}
             <div>
@@ -201,7 +201,7 @@ export default function TechnicalMatrix() {
         </div>
 
         {/* DATA SYSTEMS */}
-        <div className="rounded-2xl border border-white/10 bg-[#131b2eb3] p-5 sm:p-6 md:p-5 sm:p-6 md:p-5 sm:p-6 md:p-5 sm:p-6 md:p-8 backdrop-blur-xl transition-all duration-300 hover:border-[#7b879d]/50 hover:shadow-[0_0_35px_rgba(148,163,184,0.08)]">
+        <div className="rounded-2xl border border-white/10 bg-[#131b2eb3] p-5 sm:p-6 md:p-8 sm:p-6 md:p-5 sm:p-6 md:p-8 backdrop-blur-xl transition-all duration-300 hover:border-[#7b879d]/50 hover:shadow-[0_0_35px_rgba(148,163,184,0.08)]">
 
           <Database className="mb-6 text-[#8d96ab]" size={32} strokeWidth={1.8} />
 

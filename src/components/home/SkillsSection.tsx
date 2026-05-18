@@ -36,10 +36,10 @@ const skills = [
     iconBoxClass: "border border-[#63f7ff]/20 bg-[#63f7ff]/10",
     items: [
       "Django & DRF",
-      "FastAPI",
       "RESTful APIs",
       "JWT + RBAC",
       "PostgreSQL",
+      "API Security",
     ],
   },
 
@@ -49,10 +49,10 @@ const skills = [
     iconBoxClass: "border border-[#4a8eff]/20 bg-[#4a8eff]/10",
     items: [
       "OpenAI API",
-      "LangChain / RAG",
-      "Vector Databases",
-      "Prompt Engineering",
-      "AI Agents",
+      "LangChain (Learning)",
+      "LLM Applications",
+      "RAG (Learning)",
+      "Vector DBs (Learning)",
     ],
   },
 

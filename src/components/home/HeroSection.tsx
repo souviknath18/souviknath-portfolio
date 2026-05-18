@@ -23,13 +23,13 @@ const inter = Inter({
 
 export default function HeroSection() {
   return (
-    <section className="mx-auto flex max-w-7xl items-start px-6 pt-28 pb-20 md:px-10 lg:px-6 lg:pt-28 pb-20 xl:px-4">
+    <section className="mx-auto flex max-w-7xl items-start px-6 pt-28 pb-20 md:px-10 lg:px-6 lg:pt-28 xl:px-4">
       <div className="grid w-full gap-16 lg:grid-cols-2">
         {/* LEFT SIDE */}
         <div className="flex flex-col justify-center">
           {/* Availability */}
           <div className="mb-4 flex items-center gap-3">
-            <div className="relative flex h-2.5 w-2.5">
+            <div className="relative flex h-2.5 w-2.5 shrink-0">
               <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-cyan-300 opacity-75" />
               <span className="relative inline-flex h-2.5 w-2.5 rounded-full bg-cyan-300 shadow-[0_0_12px_rgba(34,211,238,0.95)]" />
             </div>
@@ -47,7 +47,7 @@ export default function HeroSection() {
           >
             Souvik Nath
             <span className="block bg-gradient-to-r from-[#adc7ff] to-cyan-300 bg-clip-text text-transparent">
-              Full Stack Engineer & AI Builder
+              Software Engineer & AI Builder
             </span>
           </h1>
 
@@ -71,7 +71,7 @@ export default function HeroSection() {
               download
               className="rounded-xl border border-cyan-300/30 bg-cyan-300/[0.02] px-6 sm:px-7 py-3 sm:py-3.5 text-[13px] sm:text-[15px] font-bold text-cyan-300 transition-all duration-300 hover:border-cyan-300/60 hover:bg-cyan-300/[0.05]"
             >
-              Download Resume
+              View Resume
             </a>
 
             <Link
@@ -125,29 +125,36 @@ export default function HeroSection() {
                 self.name = <span className="text-[#ffb695]">"Souvik Nath"</span>
               </div>
               <div className="pl-8">
-                self.role = <span className="text-[#ffb695]">"Full Stack & AI Engineer"</span>
+                self.role = <span className="text-[#ffb695]">"Software Engineer & AI Builder"</span>
               </div>
               <div className="pl-8">
                 self.currently_building = [
-                  <span className="text-[#ffb695]">"Expensight"</span>,{" "}
-                  <span className="text-[#ffb695]">"AI Career Coach"</span>
+                <span className="text-[#ffb695]">"AI Finance Insights Platform"</span>,{" "}
+                <span className="text-[#ffb695]">"AI Career Coach"</span>
                 ]
               </div>
 
               <div className="pl-4 mt-4">
-                <span className="text-[#63f7ff]">def</span>{" "}
-                <span className="text-white">build_intelligent_systems</span>(self):
+                <span className="text-[#63f7ff]">self</span>.learning = [
               </div>
 
               <div className="pl-8">
-                <span className="text-[#63f7ff]">return</span> RAGPipeline(
-                  llm=OpenAI(), 
-                  vector_db=Chroma(),
-                  framework=LangChain
-                )
+                <span className="text-[#ffb695]">"RAG Pipelines"</span>,
               </div>
 
-              <div className="pl-8 mt-2 text-[#63f7ff]"># Next.js + Django + AI = Production</div>
+              <div className="pl-8">
+                <span className="text-[#ffb695]">"Vector Databases"</span>,
+              </div>
+
+              <div className="pl-8">
+                <span className="text-[#ffb695]">"LLM Applications"</span>
+              </div>
+
+              <div className="pl-4">]</div>
+
+              <div className="pl-8 mt-3 text-[#63f7ff]">
+                # Building scalable AI-native systems
+              </div>
             </div>
           </div>
         </div>

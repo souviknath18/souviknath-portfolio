@@ -39,7 +39,7 @@ export default function ExperienceSection() {
             <div className="flex flex-col gap-2 md:flex-row md:items-center md:justify-between">
               
               <h3 className="text-[24px] font-semibold text-[#dae2fd] sm:text-2xl">
-                Full Stack Engineer
+                Software Engineer
               </h3>
 
               <span className="text-[14px] font-semibold tracking-[0.06em] text-cyan-300 sm:text-[16px]">
@@ -159,7 +159,7 @@ export default function ExperienceSection() {
 
             <div className="min-w-0">
               <p className="text-[15px] font-bold text-[#dae2fd] sm:text-[16px]">
-                Full Stack Engineer
+                Software Engineer
               </p>
 
               <p className="text-sm font-semibold text-[#8b90a0]">

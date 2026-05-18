@@ -22,17 +22,17 @@ export default function ExperienceHero() {
         <div className="mb-6 flex items-center gap-2 sm:gap-3 rounded-full border border-cyan-300/30 bg-cyan-300/[0.03] px-3 sm:px-4 py-[4px] sm:py-[5px]">
 
           {/* ANIMATED CYAN DOT */}
-          <div className="relative flex h-2 w-2 sm:h-2.5 sm:w-2.5">
+          <div className="relative flex h-2 w-2 sm:h-2.5 sm:w-2.5 shrink-0">
 
             <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-cyan-300 opacity-70" />
 
-            <span className="relative inline-flex h-2.5 w-2.5 rounded-full bg-cyan-300 shadow-[0_0_12px_rgba(34,211,238,0.9)]" />
+            <span className="relative inline-flex h-2 w-2 sm:h-2.5 sm:w-2.5 rounded-full bg-cyan-300 shadow-[0_0_12px_rgba(34,211,238,0.9)]" />
 
           </div>
 
           {/* BADGE TEXT */}
           <span className={`${jetbrainsMono.className} text-[10px] sm:text-[12px] uppercase tracking-[0.14em] sm:tracking-[0.16em] text-cyan-300`}>
-            Systems Architecture & AI Ops
+            Software Engineering & AI Systems
           </span>
 
         </div>

@@ -196,7 +196,7 @@ export default function AllSkillsTab() {
 
           <SkillCard
             icon={<Layers3 size={22} />}
-            level="EXPERT"
+            level="ADVANCED"
             title="Next.js & React"
             years="2+ Years"
             width="w-[95%]"
@@ -204,7 +204,7 @@ export default function AllSkillsTab() {
 
           <SkillCard
             icon={<Code2 size={22} />}
-            level="EXPERT"
+            level="ADVANCED"
             title="TypeScript"
             years="2+ Years"
             width="w-[90%]"
@@ -212,7 +212,7 @@ export default function AllSkillsTab() {
 
           <SkillCard
             icon={<Palette size={22} />}
-            level="EXPERT"
+            level="ADVANCED"
             title="Tailwind CSS"
             years="2+ Years"
             width="w-[96%]"
@@ -220,7 +220,7 @@ export default function AllSkillsTab() {
 
           <SkillCard
             icon={<FileCode2 size={22} />}
-            level="ADVANCED"
+            level="PROFICIENT"
             title="HTML / CSS"
             years="2+ Years"
             width="w-[85%]"
@@ -306,18 +306,18 @@ export default function AllSkillsTab() {
           <AIBox
             title="OpenAI APIs"
             description="Building production AI features with prompt engineering, structured outputs, and intelligent workflows."
-            badge="PROD-READY"
+            badge="ACTIVE PROJECTS"
           />
 
           <AIBox
             title="RAG & LangChain"
-            description="Designing Retrieval-Augmented Generation systems with vector databases for contextual AI applications."
-            badge="CORE STRENGTH"
+            description="Exploring Retrieval-Augmented Generation workflows and vector databases for AI-powered applications."
+            badge="ACTIVE LEARNING"
           />
 
           <AIBox
-            title="AI Agents & Automation"
-            description="Developing intelligent agents and automation flows for real-world use cases like finance and career tools."
+            title="AI Workflows & Automation"
+            description="Building AI-powered workflows and automation systems for real-world applications like finance and career platforms."
             badge="BUILDING"
           />
         </div>
@@ -350,9 +350,9 @@ export default function AllSkillsTab() {
           />
 
           <BackendSkill
-            title="FastAPI"
-            years="1+ Year"
-            width="w-[75%]"
+            title="API Architecture"
+            years="2+ Years"
+            width="w-[82%]"
           />
 
           <BackendSkill
