@@ -1,4 +1,6 @@
 "use client";
+import { useRef, useState } from "react";
+import emailjs from "@emailjs/browser";
 import Link from "next/link";
 import {
   JetBrains_Mono,
@@ -25,6 +27,37 @@ const inter = Inter({
 });
 
 export default function ContactSection() {
+  const formRef = useRef<HTMLFormElement | null>(null);
+  const [loading, setLoading] = useState(false);
+  const [status, setStatus] = useState("");
+
+  const sendEmail = async (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+
+    if (!formRef.current || loading) return;
+
+    setLoading(true);
+    setStatus("");
+
+    try {
+      await emailjs.sendForm(
+        process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID!,
+        process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID!,
+        formRef.current,
+        {
+          publicKey: process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY!,
+        }
+      );
+
+      setStatus("Message sent successfully.");
+      formRef.current.reset();
+    } catch {
+      setStatus("Failed to send message. Please try again.");
+    } finally {
+      setLoading(false);
+    }
+  };
+
   return (
     <section className="mx-auto max-w-7xl px-6 pb-24 lg:px-4 py-10">
       <div className="grid gap-8 lg:grid-cols-12">
@@ -33,7 +66,7 @@ export default function ContactSection() {
         <div className="lg:col-span-8">
           <div className="overflow-hidden rounded-2xl border border-white/10 bg-[#131b2eb3] p-6 shadow-[0_0_50px_rgba(0,0,0,0.35)] backdrop-blur-xl transition-all duration-300 hover:border-cyan-300/20 md:p-10">
             
-            <form className="space-y-8">
+            <form ref={formRef} onSubmit={sendEmail} className="space-y-8">
 
               {/* FIRST ROW */}
               <div className="grid gap-8 md:grid-cols-2">
@@ -47,6 +80,7 @@ export default function ContactSection() {
                   </label>
 
                   <input
+                    name="user_name"
                     type="text"
                     placeholder="Enter your name"
                     className={`${inter.className} w-full border-0 border-b-[2px] border-[#3a4255] bg-transparent px-0 py-3 text-[15px] text-[#dae2fd] placeholder:text-[15px] placeholder:text-[#5e6880] transition-all duration-300 focus:border-cyan-300 focus:outline-none focus:ring-0`}
@@ -62,6 +96,7 @@ export default function ContactSection() {
                   </label>
 
                   <input
+                    name="user_email"
                     type="email"
                     placeholder="Enter your email"
                     className={`${inter.className} w-full border-0 border-b-[2px] border-[#3a4255] bg-transparent px-0 py-3 text-[15px] text-[#dae2fd] placeholder:text-[15px] placeholder:text-[#5e6880] transition-all duration-300 focus:border-cyan-300 focus:outline-none focus:ring-0`}
@@ -78,6 +113,7 @@ export default function ContactSection() {
                 </label>
 
                 <input
+                  name="subject"
                   type="text"
                   placeholder="Project discussion / collaboration"
                   className={`${inter.className} w-full border-0 border-b-[2px] border-[#3a4255] bg-transparent px-0 py-3 text-[15px] text-[#dae2fd] placeholder:text-[15px] placeholder:text-[#5e6880] transition-all duration-300 focus:border-cyan-300 focus:outline-none focus:ring-0`}
@@ -93,6 +129,7 @@ export default function ContactSection() {
                 </label>
 
                 <textarea
+                  name="message"
                   rows={6}
                   placeholder="Describe your requirements..."
                   className={`${inter.className} min-h-[180px] w-full resize-y border-0 border-b-[2px] border-[#3a4255] bg-transparent px-0 py-3 text-[15px] leading-[1.8] text-[#dae2fd] placeholder:text-[15px] placeholder:text-[#5e6880] transition-all duration-300 focus:border-cyan-300 focus:outline-none focus:ring-0`}
@@ -105,8 +142,14 @@ export default function ContactSection() {
                 className={`${inter.className} inline-flex items-center gap-3 rounded-md bg-gradient-to-r from-[#adc7ff] to-cyan-300 px-8 py-4 text-[15px] font-bold tracking-[0.03em] text-[#08111f] shadow-[0_0_25px_rgba(99,247,255,0.2)] transition-all duration-300 hover:-translate-y-[2px] hover:scale-[1.01] hover:shadow-[0_0_40px_rgba(99,247,255,0.30)]`}
               >
                 <Send size={18} />
-                TRANSMIT MESSAGE
+                {loading ? "TRANSMITTING..." : "TRANSMIT MESSAGE"}
               </button>
+
+              {status && (
+                <p className={`${jetbrainsMono.className} text-sm text-cyan-300`}>
+                  {status}
+                </p>
+              )}
             </form>
           </div>
         </div>
