@@ -42,7 +42,7 @@ const experiences = [
   {
     role: "Software Engineer Intern",
     company: "GTPL — Gowdanar Technologies Pvt. Ltd.",
-    year: "2022 – 2024",
+    year: "Jun 2024 – Dec 2024",
     side: "right",
     glow: "bg-[#adc7ff]",
     points: [
