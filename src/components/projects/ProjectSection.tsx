@@ -164,17 +164,32 @@ export default function ProjectSection() {
               {/* ACTION BAR */}
               <div className="flex flex-wrap gap-4 sm:gap-6 mt-8 pt-6 border-t border-white/5">
 
-                <a href="#" className="flex items-center gap-2 text-cyan-300 hover:text-[#dae2fd] cursor-pointer">
+                <a
+                  href="https://ai-finance-assistant-phi.vercel.app/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-2 text-cyan-300 hover:text-[#dae2fd] cursor-pointer"
+                >
                   <Rocket size={18} />
                   <span className="font-semibold text-sm">Live Demo</span>
                 </a>
 
-                <a href="https://github.com/souviknath18/ai-finance-assistant/tree/main/frontend" className="flex items-center gap-2 text-[#8b90a0] hover:text-[#dae2fd] cursor-pointer">
+                <a
+                  href="https://github.com/souviknath18/ai-finance-assistant/tree/main/frontend"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-2 text-[#8b90a0] hover:text-[#dae2fd] cursor-pointer"
+                >
                   <Code2 size={18} />
                   <span className="font-semibold text-sm">Frontend Repo</span>
                 </a>
 
-                <a href="https://github.com/souviknath18/ai-finance-assistant" className="flex items-center gap-2 text-[#8b90a0] hover:text-[#dae2fd] cursor-pointer">
+                <a
+                  href="https://github.com/souviknath18/ai-finance-assistant"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-2 text-[#8b90a0] hover:text-[#dae2fd] cursor-pointer"
+                >
                   <Github size={18} />
                   <span className="font-semibold text-sm">GitHub</span>
                 </a>

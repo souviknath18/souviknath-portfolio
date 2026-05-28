@@ -175,7 +175,7 @@ export default function FeaturedProjects() {
               </a> */}
 
               <a
-                href="https://github.com/souviknath18/ai-career-coach"
+                href="https://github.com/souviknath18"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center gap-2 text-[13px] font-semibold text-[#8b90a0] hover:text-[#dae2fd] sm:text-sm"

@@ -86,7 +86,7 @@ export default function ExperienceSection() {
               </h3>
 
               <span className="text-[14px] font-semibold tracking-[0.06em] text-[#8b90a0] sm:text-[16px]">
-                2022 - 2024
+                Jun 2024 - Dec 2024
               </span>
             </div>
 

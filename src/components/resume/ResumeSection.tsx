@@ -292,7 +292,7 @@ export default function ResumeSection() {
                 <span
                   className={`${jetbrainsMono.className} rounded-md bg-white/5 px-4 py-2 text-[12px] uppercase tracking-[0.12em] text-[#8b90a0]`}
                 >
-                  2022 - 2024
+                  Jun 2024 - Dec 2024
                 </span>
               </div>
 
