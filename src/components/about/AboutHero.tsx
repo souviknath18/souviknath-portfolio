@@ -1,5 +1,6 @@
 "use client";
 
+import { useState } from "react";
 import {
   JetBrains_Mono,
   Montserrat,
@@ -12,6 +13,7 @@ import {
   Image as ImageIcon,
   Github,
 } from "lucide-react";
+import Image from "next/image";
 
 const jetbrainsMono = JetBrains_Mono({
   subsets: ["latin"],
@@ -28,6 +30,9 @@ const inter = Inter({
 });
 
 export default function AboutHero() {
+  const PROFILE_IMAGE = "/images/Profile.png";
+  const [imageLoaded, setImageLoaded] = useState(true);
+
   return (
     <section className="mx-auto max-w-7xl px-6 md:px-10 lg:px-8 xl:px-4 pt-28 md:pt-32 lg:pt-36 pb-20">
       <div className="grid items-center gap-14 md:gap-20 lg:grid-cols-2">
@@ -132,22 +137,31 @@ export default function AboutHero() {
             {/* MAIN IMAGE BOX */}
             <div className="relative h-full w-full overflow-hidden rounded-[15px] border border-white/10 bg-[#131b2eb3] p-4 shadow-[0_0_50px_rgba(0,0,0,0.35)] backdrop-blur-xl">
 
-              {/* PLACEHOLDER */}
-              <div className="flex h-full w-full items-center justify-center rounded-[10px] border border-dashed border-[#2f394d] bg-[#111827]">
+              {imageLoaded ? (
+                <Image
+                  src={PROFILE_IMAGE}
+                  alt="Souvik Nath"
+                  fill
+                  priority
+                  className="rounded-[10px] object-cover object-top"
+                  onError={() => setImageLoaded(false)}
+                />
+              ) : (
+                <div className="flex h-full w-full items-center justify-center rounded-[10px] border border-dashed border-[#2f394d] bg-[#111827]">
+                  <div className="flex flex-col items-center">
+                    <ImageIcon
+                      size={58}
+                      className="text-[#3d475d]"
+                    />
 
-                <div className="flex flex-col items-center">
-                  <ImageIcon
-                    size={58}
-                    className="text-[#3d475d]"
-                  />
-
-                  <p
-                    className={`${jetbrainsMono.className} mt-5 text-[12px] uppercase tracking-[0.14em] text-[#4d576d]`}
-                  >
-                    Profile Image
-                  </p>
+                    <p
+                      className={`${jetbrainsMono.className} mt-5 text-[12px] uppercase tracking-[0.14em] text-[#4d576d]`}
+                    >
+                      Profile Image
+                    </p>
+                  </div>
                 </div>
-              </div>
+              )}
             </div>
 
             {/* FLOATING EXPERIENCE CARD */}
