@@ -242,7 +242,7 @@ export default function ResumeSection() {
               </div>
 
               <p className="mt-3 text-[15px] sm:text-[16px] md:text-[18px] font-medium text-[#adc7ff]">
-                Gowdanar Technologies Pvt. Ltd.
+                Gowdanar Technosoft Pvt. Ltd.
               </p>
 
               <ul className="mt-6 ml-5 list-disc space-y-4 text-[14px] sm:text-[15px] md:text-[16px] leading-[1.8] sm:leading-[1.9] text-[#b7c3de]">
@@ -286,18 +286,18 @@ export default function ResumeSection() {
 
               <div className="flex flex-col gap-3 md:flex-row md:items-center md:justify-between">
                 <h3 className="text-[22px] sm:text-[24px] md:text-[28px] font-semibold text-[#dae2fd]">
-                  Software Engineer Intern
+                  Software Engineer Trainee
                 </h3>
 
                 <span
                   className={`${jetbrainsMono.className} rounded-md bg-white/5 px-4 py-2 text-[12px] uppercase tracking-[0.12em] text-[#8b90a0]`}
                 >
-                  Jun 2024 - Dec 2024
+                  Dec 2023 - Dec 2024
                 </span>
               </div>
 
               <p className="mt-3 text-[15px] sm:text-[16px] md:text-[18px] font-medium text-[#adc7ff]">
-                Gowdanar Technologies Pvt. Ltd.
+                Gowdanar Technosoft Pvt. Ltd.
               </p>
 
               <ul className="mt-6 ml-5 list-disc space-y-4 text-[14px] sm:text-[15px] md:text-[16px] leading-[1.8] sm:leading-[1.9] text-[#b7c3de]">
