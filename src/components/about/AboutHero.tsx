@@ -30,7 +30,7 @@ const inter = Inter({
 });
 
 export default function AboutHero() {
-  const PROFILE_IMAGE = "/images/Profile.png";
+  const PROFILE_IMAGE = "/images/Profile2.png";
   const [imageLoaded, setImageLoaded] = useState(true);
 
   return (
@@ -170,7 +170,7 @@ export default function AboutHero() {
               <p
                 className={`${montserrat.className} text-[32px] font-[700] leading-none text-[#adc7ff]`}
               >
-                2+
+                2.5+
               </p>
 
               <p
