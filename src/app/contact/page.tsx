@@ -1,6 +1,5 @@
 import Navbar from "@/components/common/Navbar";
 import Footer from "@/components/common/Footer";
-import ContactHero from "@/components/contact/ContactHero";
 import ContactSection from "@/components/contact/ContactSection";
 
 export default function ContactPage() {
@@ -22,8 +21,6 @@ export default function ContactPage() {
 
       {/* Navbar */}
       <Navbar />
-
-      <ContactHero />
 
       <ContactSection />
 

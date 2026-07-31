@@ -3,80 +3,135 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
-import { Menu, X } from "lucide-react";
+import {
+  Github,
+  Menu,
+} from "lucide-react";
+
 import Sidebar from "@/components/common/Sidebar";
 
 const navItems = [
-  { label: "Home", href: "/" },
-  { label: "About", href: "/about" },
-  { label: "Skills", href: "/skills" },
-  { label: "Projects", href: "/projects" },
-  { label: "Experience", href: "/experience" },
-  { label: "Resume", href: "/resume" },
-  { label: "Contact", href: "/contact" },
+  {
+    label: "Home",
+    href: "/",
+  },
+  {
+    label: "About",
+    href: "/about",
+  },
+  {
+    label: "Skills",
+    href: "/skills",
+  },
+  {
+    label: "Experience",
+    href: "/experience",
+  },
+  {
+    label: "Projects",
+    href: "/projects",
+  },
+  {
+    label: "Contact",
+    href: "/contact",
+  },
 ];
 
 export default function Navbar() {
   const pathname = usePathname();
   const [isOpen, setIsOpen] = useState(false);
 
+  const isActivePath = (href: string) => {
+    if (href === "/") {
+      return pathname === "/";
+    }
+
+    return pathname === href || pathname.startsWith(`${href}/`);
+  };
+
   return (
     <>
-      <nav className="fixed top-0 left-0 right-0 z-50 border-b border-white/10 bg-[#0b1326]/70 backdrop-blur-md shadow-[0_0_15px_rgba(173,199,255,0.10)]">
-        
-        {/* glow */}
-        <div className="absolute inset-x-0 bottom-0 h-[1px] bg-gradient-to-r from-transparent via-[#adc7ff]/20 to-transparent" />
-        <div className="pointer-events-none absolute left-1/2 top-full h-20 w-[500px] -translate-x-1/2 bg-[#adc7ff]/10 blur-3xl" />
+      <nav className="fixed inset-x-0 top-0 z-50 border-b border-white/[0.08] bg-[#0b1326]/75 shadow-[0_0_20px_rgba(173,199,255,0.08)] backdrop-blur-xl">
+        {/* Bottom border glow */}
+        <div className="pointer-events-none absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-cyan-300/20 to-transparent" />
 
-        <div className="mx-auto flex max-w-7xl items-center justify-between gap-3 px-4 sm:px-6 py-5 lg:px-4 flex-nowrap">
+        {/* Background glow */}
+        <div className="pointer-events-none absolute left-1/2 top-full h-20 w-[420px] -translate-x-1/2 bg-[#adc7ff]/[0.08] blur-3xl" />
 
-          {/* LEFT: menu + logo */}
-          <div className="flex items-center gap-2 sm:gap-3 flex-shrink min-w-0">
-            
-            {/* MOBILE MENU */}
+        <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 py-4 sm:px-6 lg:px-4">
+          {/* Left side */}
+          <div className="flex min-w-0 items-center gap-3">
+            {/* Mobile menu button */}
             <button
+              type="button"
               onClick={() => setIsOpen(true)}
-              className="flex lg:hidden items-center justify-center rounded-md border border-white/10 bg-[#131b2e] p-[7px] sm:p-2 text-[#dae2fd] transition-all duration-300 hover:border-cyan-300 hover:text-cyan-300"
+              aria-label="Open navigation menu"
+              aria-expanded={isOpen}
+              className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg border border-white/10 bg-white/[0.035] text-[#dae2fd] transition-all duration-300 hover:border-cyan-300/35 hover:bg-cyan-300/[0.05] hover:text-cyan-300 lg:hidden"
             >
-              <Menu className="h-5 w-5 sm:h-[22px] sm:w-[22px]" />
+              <Menu size={21} />
             </button>
 
-            {/* LOGO */}
+            {/* Logo */}
             <Link
               href="/"
-              className="text-[16px] sm:text-[18px] md:text-2xl font-bold tracking-tight text-[#adc7ff] hover:text-cyan-300 whitespace-nowrap truncate"
+              aria-label="Go to homepage"
+              className="truncate whitespace-nowrap text-[17px] font-bold tracking-[-0.03em] text-[#dae2fd] transition-colors duration-300 hover:text-cyan-300 sm:text-[19px] md:text-[21px]"
             >
-              StackWithSouvik
+              Souvik Nath
+              <span className="text-cyan-300">.</span>
             </Link>
           </div>
 
-          {/* DESKTOP NAV */}
-          <div className="hidden lg:flex absolute left-1/2 -translate-x-1/2 items-center gap-4 xl:gap-8">
+          {/* Desktop navigation */}
+          <div className="absolute left-1/2 hidden -translate-x-1/2 items-center gap-5 lg:flex xl:gap-7">
             {navItems.map((item) => {
-              const isActive = pathname === item.href;
+              const isActive = isActivePath(item.href);
 
               return (
                 <Link
-                  key={item.label}
+                  key={item.href}
                   href={item.href}
-                  className={`border-b-2 pb-1 uppercase tracking-[0.12em] transition-all duration-300 ${
+                  aria-current={isActive ? "page" : undefined}
+                  className={`relative whitespace-nowrap py-2 text-[12px] font-semibold uppercase tracking-[0.1em] transition-colors duration-300 xl:text-[13px] ${
                     isActive
-                      ? "border-cyan-300 text-[12px] xl:text-[14px] text-cyan-300 font-semibold"
-                      : "border-transparent text-[12px] xl:text-sm font-medium text-gray-400 hover:text-[#adc7ff]"
+                      ? "text-cyan-300"
+                      : "text-[#8f9ab2] hover:text-[#dae2fd]"
                   }`}
                 >
                   {item.label}
+
+                  <span
+                    className={`absolute inset-x-0 bottom-0 mx-auto h-[2px] rounded-full bg-cyan-300 transition-all duration-300 ${
+                      isActive
+                        ? "w-full opacity-100"
+                        : "w-0 opacity-0"
+                    }`}
+                  />
                 </Link>
               );
             })}
           </div>
 
-          {/* RIGHT: HIRE ME */}
-          <div className="ml-auto flex-shrink-0 min-w-fit">
-            <Link href="/contact">
-              <button className="whitespace-nowrap rounded-lg bg-[#adc7ff] px-3 sm:px-5 py-2.5 sm:py-3 text-[12px] sm:text-sm font-bold text-[#08111f] shadow-[0_0_20px_rgba(173,199,255,0.25)] transition-all duration-300 hover:scale-[1.03] hover:bg-[#c4d7ff] hover:shadow-[0_0_30px_rgba(173,199,255,0.35)]">
-                Hire Me
-              </button>
+          {/* Right side */}
+          <div className="ml-auto flex shrink-0 items-center gap-2.5">
+            {/* GitHub */}
+            <a
+              href="https://github.com/souviknath18"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Open Souvik Nath's GitHub profile"
+              className="hidden h-10 w-10 items-center justify-center rounded-lg border border-white/10 bg-white/[0.025] text-[#b9c3d8] transition-all duration-300 hover:border-white/25 hover:bg-white/[0.06] hover:text-white sm:flex"
+            >
+              <Github size={18} />
+            </a>
+
+            {/* Contact button */}
+            <Link
+              href="/contact"
+              className="whitespace-nowrap rounded-lg bg-gradient-to-r from-[#adc7ff] to-cyan-300 px-4 py-2.5 text-[12px] font-bold text-[#08111f] shadow-[0_0_20px_rgba(173,199,255,0.2)] transition-all duration-300 hover:scale-[1.03] hover:shadow-[0_0_28px_rgba(99,247,255,0.28)] sm:px-5 sm:text-[13px]"
+            >
+              Let&apos;s Talk
             </Link>
           </div>
         </div>

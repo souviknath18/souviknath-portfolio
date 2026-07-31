@@ -1,16 +1,23 @@
 "use client";
 
+import type { LucideIcon } from "lucide-react";
 import {
-  BrainCircuit,
   Bot,
+  BrainCircuit,
+  CheckCircle2,
   Cpu,
   DatabaseZap,
+  FileSearch,
   MessageSquareText,
+  Search,
   Workflow,
-  CheckCircle2,
 } from "lucide-react";
 
-import { Montserrat, Inter, JetBrains_Mono } from "next/font/google";
+import {
+  Inter,
+  JetBrains_Mono,
+  Montserrat,
+} from "next/font/google";
 
 const montserrat = Montserrat({
   subsets: ["latin"],
@@ -27,129 +34,312 @@ const jetbrainsMono = JetBrains_Mono({
   weight: ["500"],
 });
 
-const aiSkills = [
+type AISkill = {
+  icon: LucideIcon;
+  title: string;
+  level: string;
+  description: string;
+  tech: string[];
+};
+
+const aiSkills: AISkill[] = [
   {
-    icon: <Bot size={24} />,
-    title: "OpenAI API",
-    level: "BUILDING",
+    icon: Bot,
+    title: "OpenAI API Integration",
+    level: "Production",
     description:
-      "Building AI-powered features using prompts, structured responses, and practical LLM workflows.",
-    tech: ["OpenAI", "Prompts", "Chat APIs", "Structured Output"],
+      "Building AI-powered product features with structured prompts, reliable output handling, fallback workflows, and secure API integration.",
+    tech: [
+      "OpenAI API",
+      "GPT Models",
+      "Structured Output",
+      "AI Fallbacks",
+      "Prompt Design",
+    ],
   },
   {
-    icon: <BrainCircuit size={24} />,
+    icon: BrainCircuit,
     title: "LLM Applications",
-    level: "LEARNING",
+    level: "Production",
     description:
-      "Exploring how LLMs can improve real product workflows like finance insights and career guidance.",
-    tech: ["LLMs", "AI Features", "Product AI", "Automation"],
+      "Developing practical LLM-powered features for transaction extraction, categorization, financial assistance, and intelligent application workflows.",
+    tech: [
+      "LLMs",
+      "Generative AI",
+      "AI Features",
+      "Context Handling",
+      "Product AI",
+    ],
   },
   {
-    icon: <Workflow size={24} />,
+    icon: Workflow,
     title: "RAG Workflows",
-    level: "LEARNING",
+    level: "Implemented",
     description:
-      "Learning retrieval-based AI workflows to connect user data, documents, and contextual answers.",
-    tech: ["RAG", "Retrieval", "Context", "Documents"],
+      "Building retrieval-augmented workflows that connect user-specific application data with grounded and context-aware AI responses.",
+    tech: [
+      "RAG",
+      "Retrieval",
+      "Context Injection",
+      "Grounded Responses",
+      "User Data",
+    ],
   },
   {
-    icon: <DatabaseZap size={24} />,
-    title: "Vector Databases",
-    level: "LEARNING",
+    icon: DatabaseZap,
+    title: "Embeddings & Vector Search",
+    level: "Implemented",
     description:
-      "Understanding embeddings and vector search for semantic retrieval and AI-powered search systems.",
-    tech: ["Embeddings", "Vector DB", "Semantic Search", "Similarity"],
+      "Generating embeddings and using vector similarity search to support semantic transaction retrieval and similar-record discovery.",
+    tech: [
+      "OpenAI Embeddings",
+      "pgvector",
+      "Vector Search",
+      "Similarity Search",
+      "Semantic Retrieval",
+    ],
   },
   {
-    icon: <MessageSquareText size={24} />,
+    icon: Search,
+    title: "Semantic Search",
+    level: "Production",
+    description:
+      "Enabling natural-language transaction search across financial data using embeddings, similarity matching, filtering, and user-scoped retrieval.",
+    tech: [
+      "Semantic Search",
+      "Natural Language Queries",
+      "Similarity Matching",
+      "User Isolation",
+      "Search APIs",
+    ],
+  },
+  {
+    icon: FileSearch,
+    title: "Intelligent Document Processing",
+    level: "Production",
+    description:
+      "Combining rule-based parsing, AI extraction, validation, and asynchronous workflows to process PDF, CSV, image, invoice, and receipt data.",
+    tech: [
+      "Document Parsing",
+      "PDF",
+      "CSV",
+      "Image Processing",
+      "AI Extraction",
+    ],
+  },
+  {
+    icon: MessageSquareText,
     title: "Prompt Engineering",
-    level: "PRACTICING",
+    level: "Production",
     description:
-      "Designing prompts that produce clearer, structured, and more useful AI responses for users.",
-    tech: ["Prompt Design", "Instructions", "Output Format", "Evaluation"],
+      "Designing prompts with clear instructions, structured response formats, validation rules, and safeguards for reliable application behavior.",
+    tech: [
+      "Prompt Design",
+      "Output Schema",
+      "Validation",
+      "Guardrails",
+      "Evaluation",
+    ],
   },
   {
-    icon: <Cpu size={24} />,
-    title: "AI Product Workflows",
-    level: "BUILDING",
+    icon: Cpu,
+    title: "AI Orchestration",
+    level: "Production",
     description:
-      "Applying AI to practical SaaS use cases such as document processing, insights, and user assistance.",
-    tech: ["Finance AI", "Career AI", "Insights", "SaaS AI"],
+      "Coordinating traditional parsing, AI fallbacks, categorization, embeddings, background jobs, and financial insight generation.",
+    tech: [
+      "Hybrid AI",
+      "Celery",
+      "Redis",
+      "AI Pipelines",
+      "Background Jobs",
+    ],
+  },
+  {
+    icon: Workflow,
+    title: "AI-Powered SaaS Workflows",
+    level: "Production",
+    description:
+      "Applying AI to real SaaS workflows including document uploads, transaction processing, semantic retrieval, financial insights, and user assistance.",
+    tech: [
+      "Aura Finance",
+      "Financial AI",
+      "SaaS AI",
+      "Insights",
+      "Automation",
+    ],
   },
 ];
 
+function SkillBadge({
+  item,
+}: {
+  item: string;
+}) {
+  return (
+    <span
+      className={`${jetbrainsMono.className} rounded-md border border-white/[0.08] bg-white/[0.035] px-2.5 py-1.5 text-[10px] leading-none text-[#b8c4dd] transition-all duration-300 group-hover:border-cyan-300/15 group-hover:text-[#dce7fb] sm:text-[11px]`}
+    >
+      {item}
+    </span>
+  );
+}
+
+function AISkillCard({
+  icon: Icon,
+  title,
+  level,
+  description,
+  tech,
+}: AISkill) {
+  return (
+    <article className="group relative flex h-full flex-col overflow-hidden rounded-2xl border border-white/[0.08] bg-[#1a2338]/70 p-5 transition-all duration-300 hover:-translate-y-1 hover:border-cyan-300/20 hover:bg-[#1e2942] hover:shadow-[0_0_30px_rgba(99,247,255,0.05)] sm:p-6">
+      {/* Background decoration */}
+      <div className="pointer-events-none absolute -right-8 -top-8 h-28 w-28 rounded-full bg-cyan-300/[0.05] blur-3xl transition-all duration-500 group-hover:bg-cyan-300/[0.09]" />
+
+      <Icon
+        size={68}
+        strokeWidth={1}
+        className="pointer-events-none absolute right-3 top-3 text-[#2a3f61]/55"
+        aria-hidden="true"
+      />
+
+      {/* Header */}
+      <div className="relative z-10 mb-5 flex items-start justify-between gap-4">
+        <div className="flex h-11 w-11 items-center justify-center rounded-xl border border-cyan-300/15 bg-cyan-300/[0.05]">
+          <Icon
+            size={22}
+            strokeWidth={1.9}
+            className="text-cyan-300"
+            aria-hidden="true"
+          />
+        </div>
+
+        <span
+          className={`${jetbrainsMono.className} rounded-md border border-cyan-300/15 bg-cyan-300/[0.05] px-2.5 py-1 text-[9px] uppercase tracking-[0.1em] text-cyan-300 sm:text-[10px]`}
+        >
+          {level}
+        </span>
+      </div>
+
+      {/* Title */}
+      <h4
+        className={`${montserrat.className} relative z-10 text-[19px] font-[600] tracking-[-0.03em] text-[#edf2ff] sm:text-[20px]`}
+      >
+        {title}
+      </h4>
+
+      {/* Description */}
+      <p
+        className={`${inter.className} relative z-10 mt-3 flex-1 text-[13px] leading-[1.8] text-[#8f9ab3] sm:text-[14px]`}
+      >
+        {description}
+      </p>
+
+      {/* Technologies */}
+      <div className="relative z-10 mt-6 flex flex-wrap gap-2">
+        {tech.map((item) => (
+          <SkillBadge key={item} item={item} />
+        ))}
+      </div>
+    </article>
+  );
+}
+
 export default function AISkillsTab() {
   return (
-    <div className="rounded-2xl border border-white/10 bg-[#131b2e]/70 p-5 backdrop-blur-xl sm:rounded-3xl sm:p-6 lg:p-8">
-      <div className="mb-10 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+    <section className="rounded-2xl border border-white/10 bg-[#131b2e]/70 p-5 backdrop-blur-xl sm:rounded-3xl sm:p-6 lg:p-8">
+      {/* Header */}
+      <div className="mb-9 flex flex-col gap-5 sm:mb-10 lg:flex-row lg:items-end lg:justify-between">
         <div>
-          <h3
-            className={`${montserrat.className} text-[28px] font-[700] tracking-[-0.04em] text-[#edf2ff] sm:text-[32px] lg:text-[38px]`}
+          <p
+            className={`${jetbrainsMono.className} text-[10px] uppercase tracking-[0.14em] text-cyan-300 sm:text-[11px]`}
           >
-            AI & LLM Engineering
+            AI Engineering Capabilities
+          </p>
+
+          <h3
+            className={`${montserrat.className} mt-3 text-[27px] font-[700] tracking-[-0.04em] text-[#edf2ff] sm:text-[32px] lg:text-[36px]`}
+          >
+            AI & Generative AI
           </h3>
 
           <p
-            className={`${inter.className} mt-3 max-w-3xl text-[15px] leading-[1.8] text-[#8b90a0] sm:text-[16px] lg:text-[17px]`}
+            className={`${inter.className} mt-3 max-w-3xl text-[14px] leading-[1.8] text-[#8b90a0] sm:text-[15px]`}
           >
-            Exploring and building AI-powered product workflows using OpenAI,
-            LLMs, RAG concepts, embeddings, and intelligent document-based
-            experiences.
+            Building production AI features with OpenAI APIs, LLMs, RAG,
+            embeddings, semantic search, vector databases, prompt engineering,
+            intelligent document processing, and asynchronous AI workflows.
           </p>
         </div>
 
-        <div className="inline-flex items-center gap-2 rounded-full border border-cyan-300/20 bg-cyan-300/[0.04] px-4 py-2">
-          <CheckCircle2 size={16} className="text-cyan-300" />
+        <div className="inline-flex w-fit items-center gap-2 rounded-full border border-cyan-300/20 bg-cyan-300/[0.04] px-4 py-2">
+          <CheckCircle2
+            size={16}
+            className="text-cyan-300"
+            aria-hidden="true"
+          />
 
           <span
-            className={`${jetbrainsMono.className} text-[11px] uppercase tracking-[0.12em] text-cyan-300`}
+            className={`${jetbrainsMono.className} text-[10px] uppercase tracking-[0.1em] text-cyan-300 sm:text-[11px]`}
           >
-            AI-Native Product Focus
+            Production AI Applications
           </span>
         </div>
       </div>
 
+      {/* Skills Grid */}
       <div className="grid grid-cols-1 gap-5 md:grid-cols-2 xl:grid-cols-3">
         {aiSkills.map((skill) => (
-          <div
+          <AISkillCard
             key={skill.title}
-            className="group rounded-2xl border border-white/8 bg-[#1a2338]/70 p-5 transition-all duration-300 hover:-translate-y-1 hover:border-cyan-300/20 hover:bg-[#1e2942] sm:p-6"
-          >
-            <div className="mb-5 flex items-start justify-between">
-              <div className="text-cyan-300">{skill.icon}</div>
+            {...skill}
+          />
+        ))}
+      </div>
 
-              <span
-                className={`${jetbrainsMono.className} rounded-full border border-cyan-300/15 bg-cyan-300/[0.05] px-2.5 py-1 text-[10px] uppercase tracking-[0.12em] text-cyan-300`}
-              >
-                {skill.level}
-              </span>
-            </div>
+      {/* Aura Finance Highlight */}
+      <div className="mt-8 overflow-hidden rounded-2xl border border-cyan-300/10 bg-gradient-to-r from-cyan-300/[0.035] via-white/[0.02] to-[#4a8eff]/[0.035] p-5 sm:p-6">
+        <div className="flex flex-col gap-6 lg:flex-row lg:items-center lg:justify-between">
+          <div>
+            <p
+              className={`${jetbrainsMono.className} text-[10px] uppercase tracking-[0.12em] text-cyan-300 sm:text-[11px]`}
+            >
+              Featured AI Implementation
+            </p>
 
             <h4
-              className={`${montserrat.className} mb-4 text-[20px] font-[600] tracking-[-0.03em] text-[#edf2ff]`}
+              className={`${montserrat.className} mt-2 text-[20px] font-[600] tracking-[-0.03em] text-[#edf2ff] sm:text-[22px]`}
             >
-              {skill.title}
+              Aura Finance
             </h4>
 
             <p
-              className={`${inter.className} mb-6 text-[14px] leading-[1.8] text-[#8f9ab3] sm:text-[15px]`}
+              className={`${inter.className} mt-3 max-w-3xl text-[12px] leading-6 text-[#8793aa] sm:text-[13px]`}
             >
-              {skill.description}
+              An AI-powered personal finance platform combining document
+              parsing, transaction extraction, intelligent categorization,
+              embeddings, semantic search, RAG-based retrieval, background
+              processing, and personalized financial insights.
             </p>
-
-            <div className="flex flex-wrap gap-2">
-              {skill.tech.map((item) => (
-                <span
-                  key={item}
-                  className={`${jetbrainsMono.className} rounded-full border border-white/8 bg-white/[0.03] px-3 py-1.5 text-[10px] uppercase tracking-[0.08em] text-[#b8c4dd]`}
-                >
-                  {item}
-                </span>
-              ))}
-            </div>
           </div>
-        ))}
+
+          <div className="flex flex-wrap gap-2 lg:max-w-md lg:justify-end">
+            {[
+              "OpenAI API",
+              "RAG",
+              "Embeddings",
+              "pgvector",
+              "Semantic Search",
+              "Celery",
+              "Redis",
+              "Django REST Framework",
+            ].map((item) => (
+              <SkillBadge key={item} item={item} />
+            ))}
+          </div>
+        </div>
       </div>
-    </div>
+    </section>
   );
 }

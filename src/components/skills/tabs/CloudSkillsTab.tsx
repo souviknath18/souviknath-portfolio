@@ -1,17 +1,24 @@
 "use client";
 
+import type { LucideIcon } from "lucide-react";
 import {
-  Cloud,
   Box,
-  Workflow,
-  GitBranch,
-  ServerCog,
-  KeyRound,
-  Waypoints,
   CheckCircle2,
+  Cloud,
+  CloudCog,
+  Container,
+  GitBranch,
+  KeyRound,
+  Network,
+  ServerCog,
+  Workflow,
 } from "lucide-react";
 
-import { Montserrat, Inter, JetBrains_Mono } from "next/font/google";
+import {
+  Inter,
+  JetBrains_Mono,
+  Montserrat,
+} from "next/font/google";
 
 const montserrat = Montserrat({
   subsets: ["latin"],
@@ -28,157 +35,303 @@ const jetbrainsMono = JetBrains_Mono({
   weight: ["500"],
 });
 
-const cloudSkills = [
-  {
-    icon: <Box size={24} />,
-    title: "Docker",
-    level: "PRACTICING",
-    description:
-      "Containerizing applications and understanding deployment-ready development environments.",
-    tech: ["Containers", "Dockerfile", "Local Setup", "App Packaging"],
-  },
+type CloudSkill = {
+  icon: LucideIcon;
+  title: string;
+  level: string;
+  description: string;
+  tech: string[];
+};
 
+const cloudSkills: CloudSkill[] = [
   {
-    icon: <Workflow size={24} />,
-    title: "GitHub Actions",
-    level: "PRACTICING",
+    icon: Container,
+    title: "Docker & Docker Compose",
+    level: "Production",
     description:
-      "Working with CI/CD workflows to automate checks, builds, and deployment pipelines.",
-    tech: ["CI/CD", "Workflows", "Builds", "Automation"],
+      "Containerizing frontend, backend, worker, and supporting services to create consistent local and deployment environments.",
+    tech: [
+      "Docker",
+      "Docker Compose",
+      "Dockerfile",
+      "Service Containers",
+      "App Packaging",
+    ],
   },
-
   {
-    icon: <Cloud size={24} />,
-    title: "Vercel Deployment",
-    level: "PROFICIENT",
+    icon: Workflow,
+    title: "CI/CD with GitHub Actions",
+    level: "Production",
     description:
-      "Deploying Next.js applications with environment variables, production builds, and preview deployments.",
-    tech: ["Vercel", "Next.js Deploy", "Env Vars", "Production"],
+      "Building automated pipelines for dependency installation, code checks, builds, pull requests, and deployment validation.",
+    tech: [
+      "GitHub Actions",
+      "CI/CD",
+      "Build Pipelines",
+      "Pull Requests",
+      "Automation",
+    ],
   },
-
   {
-    icon: <Waypoints size={24} />,
-    title: "AWS Cloud",
-    level: "LEARNING",
+    icon: Cloud,
+    title: "Google Cloud Platform",
+    level: "Professional",
     description:
-      "Learning cloud infrastructure concepts and deployment workflows using AWS services for scalable web applications.",
-    tech: ["AWS", "Cloud Basics", "Hosting", "Scalability"],
+      "Supporting application deployment and cloud-based enterprise systems primarily within Google Cloud Platform environments.",
+    tech: [
+      "GCP",
+      "Cloud Deployment",
+      "Environment Config",
+      "Hosted Services",
+      "Production Systems",
+    ],
   },
-
   {
-    icon: <GitBranch size={24} />,
+    icon: ServerCog,
+    title: "Railway & Vercel",
+    level: "Production",
+    description:
+      "Deploying Django backend services and Next.js frontend applications with environment variables, managed builds, and production configuration.",
+    tech: [
+      "Railway",
+      "Vercel",
+      "Backend Deployment",
+      "Frontend Deployment",
+      "Environment Variables",
+    ],
+  },
+  {
+    icon: Box,
+    title: "Cloudflare R2",
+    level: "Production",
+    description:
+      "Using cloud object storage for uploaded financial documents, including PDFs, CSV files, images, receipts, and invoices.",
+    tech: [
+      "Cloudflare R2",
+      "Object Storage",
+      "File Uploads",
+      "Secure Storage",
+      "Media Files",
+    ],
+  },
+  {
+    icon: CloudCog,
+    title: "AWS",
+    level: "Working Exposure",
+    description:
+      "Working knowledge of AWS infrastructure and storage services for application hosting, file storage, and scalable cloud workflows.",
+    tech: [
+      "AWS",
+      "EC2",
+      "S3",
+      "Cloud Basics",
+      "Infrastructure",
+    ],
+  },
+  {
+    icon: GitBranch,
     title: "Git & GitHub",
-    level: "ADVANCED",
+    level: "Production",
     description:
-      "Managing repositories, branches, commits, pull requests, and collaborative development workflows.",
-    tech: ["Git", "GitHub", "Branches", "PRs"],
+      "Managing branches, commits, pull requests, code reviews, feature workflows, and collaborative source-control practices.",
+    tech: [
+      "Git",
+      "GitHub",
+      "Branching",
+      "Pull Requests",
+      "Code Review",
+    ],
   },
-
   {
-    icon: <KeyRound size={24} />,
-    title: "Environment Security",
-    level: "PRACTICING",
+    icon: KeyRound,
+    title: "Secrets & Configuration",
+    level: "Production",
     description:
-      "Handling environment variables, API keys, secrets, and secure configuration for deployed applications.",
-    tech: ["Secrets", "API Keys", "Env Files", "Config"],
+      "Managing API keys, database credentials, environment variables, cloud secrets, and environment-specific application settings.",
+    tech: [
+      "Environment Variables",
+      "API Keys",
+      "Secrets",
+      "Config Management",
+      "Secure Deployment",
+    ],
+  },
+  {
+    icon: Network,
+    title: "Distributed Application Services",
+    level: "Production",
+    description:
+      "Operating applications with API services, Celery workers, Redis queues, object storage, databases, and separated frontend deployments.",
+    tech: [
+      "Celery Workers",
+      "Redis",
+      "PostgreSQL",
+      "Object Storage",
+      "Service Architecture",
+    ],
   },
 ];
 
+function SkillBadge({
+  item,
+}: {
+  item: string;
+}) {
+  return (
+    <span
+      className={`${jetbrainsMono.className} rounded-md border border-white/[0.08] bg-white/[0.035] px-2.5 py-1.5 text-[10px] leading-none text-[#b8c4dd] transition-all duration-300 group-hover:border-cyan-300/15 group-hover:text-[#dce7fb] sm:text-[11px]`}
+    >
+      {item}
+    </span>
+  );
+}
+
+function CloudSkillCard({
+  icon: Icon,
+  title,
+  level,
+  description,
+  tech,
+}: CloudSkill) {
+  return (
+    <article className="group flex h-full flex-col rounded-2xl border border-white/[0.08] bg-[#1a2338]/70 p-5 transition-all duration-300 hover:-translate-y-1 hover:border-cyan-300/20 hover:bg-[#1e2942] hover:shadow-[0_0_30px_rgba(99,247,255,0.05)] sm:p-6">
+      {/* Header */}
+      <div className="mb-5 flex items-start justify-between gap-4">
+        <div className="flex h-11 w-11 items-center justify-center rounded-xl border border-cyan-300/15 bg-cyan-300/[0.05]">
+          <Icon
+            size={22}
+            strokeWidth={1.9}
+            className="text-cyan-300"
+            aria-hidden="true"
+          />
+        </div>
+
+        <span
+          className={`${jetbrainsMono.className} rounded-md border border-cyan-300/15 bg-cyan-300/[0.05] px-2.5 py-1 text-[9px] uppercase tracking-[0.1em] text-cyan-300 sm:text-[10px]`}
+        >
+          {level}
+        </span>
+      </div>
+
+      {/* Title */}
+      <h4
+        className={`${montserrat.className} text-[19px] font-[600] tracking-[-0.03em] text-[#edf2ff] sm:text-[20px]`}
+      >
+        {title}
+      </h4>
+
+      {/* Description */}
+      <p
+        className={`${inter.className} mt-3 flex-1 text-[13px] leading-[1.8] text-[#8f9ab3] sm:text-[14px]`}
+      >
+        {description}
+      </p>
+
+      {/* Technologies */}
+      <div className="mt-6 flex flex-wrap gap-2">
+        {tech.map((item) => (
+          <SkillBadge key={item} item={item} />
+        ))}
+      </div>
+    </article>
+  );
+}
+
 export default function CloudSkillsTab() {
   return (
-    <div className="rounded-2xl border border-white/10 bg-[#131b2e]/70 p-5 backdrop-blur-xl sm:rounded-3xl sm:p-6 lg:p-8">
-      
-      {/* HEADER */}
-      <div className="mb-10 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
-
+    <section className="rounded-2xl border border-white/10 bg-[#131b2e]/70 p-5 backdrop-blur-xl sm:rounded-3xl sm:p-6 lg:p-8">
+      {/* Header */}
+      <div className="mb-9 flex flex-col gap-5 sm:mb-10 lg:flex-row lg:items-end lg:justify-between">
         <div>
+          <p
+            className={`${jetbrainsMono.className} text-[10px] uppercase tracking-[0.14em] text-cyan-300 sm:text-[11px]`}
+          >
+            Infrastructure Capabilities
+          </p>
+
           <h3
-            className={`${montserrat.className} text-[28px] font-[700] tracking-[-0.04em] text-[#edf2ff] sm:text-[32px] lg:text-[38px]`}
+            className={`${montserrat.className} mt-3 text-[27px] font-[700] tracking-[-0.04em] text-[#edf2ff] sm:text-[32px] lg:text-[36px]`}
           >
             Cloud & DevOps
           </h3>
 
           <p
-            className={`${inter.className} mt-3 max-w-3xl text-[15px] leading-[1.8] text-[#8b90a0] sm:text-[16px] lg:text-[17px]`}
+            className={`${inter.className} mt-3 max-w-3xl text-[14px] leading-[1.8] text-[#8b90a0] sm:text-[15px]`}
           >
-            Working with deployment workflows, version control,
-            containerization, CI/CD automation, and production-ready
-            configuration for modern web applications.
+            Containerizing applications, automating CI/CD pipelines, managing
+            secure configuration, and deploying frontend, backend, worker,
+            database, and storage services across modern cloud platforms.
           </p>
         </div>
 
-        <div className="inline-flex items-center gap-2 rounded-full border border-cyan-300/20 bg-cyan-300/[0.04] px-4 py-2">
-
+        <div className="inline-flex w-fit items-center gap-2 rounded-full border border-cyan-300/20 bg-cyan-300/[0.04] px-4 py-2">
           <CheckCircle2
             size={16}
             className="text-cyan-300"
+            aria-hidden="true"
           />
 
           <span
-            className={`${jetbrainsMono.className} text-[11px] uppercase tracking-[0.12em] text-cyan-300`}
+            className={`${jetbrainsMono.className} text-[10px] uppercase tracking-[0.1em] text-cyan-300 sm:text-[11px]`}
           >
-            Deployment Workflow
+            Production Deployment Workflows
           </span>
-
         </div>
       </div>
 
-      {/* GRID */}
+      {/* Skills Grid */}
       <div className="grid grid-cols-1 gap-5 md:grid-cols-2 xl:grid-cols-3">
-
         {cloudSkills.map((skill) => (
-          <div
+          <CloudSkillCard
             key={skill.title}
-            className="group rounded-2xl border border-white/8 bg-[#1a2338]/70 p-5 transition-all duration-300 hover:-translate-y-1 hover:border-cyan-300/20 hover:bg-[#1e2942] sm:p-6"
-          >
+            {...skill}
+          />
+        ))}
+      </div>
 
-            {/* TOP */}
-            <div className="mb-5 flex items-start justify-between">
-
-              <div className="text-cyan-300">
-                {skill.icon}
-              </div>
-
-              <span
-                className={`${jetbrainsMono.className} rounded-full border border-cyan-300/15 bg-cyan-300/[0.05] px-2.5 py-1 text-[10px] uppercase tracking-[0.12em] text-cyan-300`}
-              >
-                {skill.level}
-              </span>
-
-            </div>
-
-            {/* TITLE */}
-            <h4
-              className={`${montserrat.className} mb-4 text-[20px] font-[600] tracking-[-0.03em] text-[#edf2ff]`}
-            >
-              {skill.title}
-            </h4>
-
-            {/* DESCRIPTION */}
+      {/* Deployment Architecture */}
+      <div className="mt-8 overflow-hidden rounded-2xl border border-white/[0.07] bg-white/[0.025] p-5 sm:p-6">
+        <div className="flex flex-col gap-6 lg:flex-row lg:items-center lg:justify-between">
+          <div>
             <p
-              className={`${inter.className} mb-6 text-[14px] leading-[1.8] text-[#8f9ab3] sm:text-[15px]`}
+              className={`${jetbrainsMono.className} text-[10px] uppercase tracking-[0.12em] text-[#7d899f] sm:text-[11px]`}
             >
-              {skill.description}
+              Current Deployment Architecture
             </p>
 
-            {/* TECH TAGS */}
-            <div className="flex flex-wrap gap-2">
+            <h4
+              className={`${montserrat.className} mt-2 text-[20px] font-[600] tracking-[-0.03em] text-[#edf2ff] sm:text-[22px]`}
+            >
+              Aura Finance Infrastructure
+            </h4>
 
-              {skill.tech.map((item) => (
-                <span
-                  key={item}
-                  className={`${jetbrainsMono.className} rounded-full border border-white/8 bg-white/[0.03] px-3 py-1.5 text-[10px] uppercase tracking-[0.08em] text-[#b8c4dd]`}
-                >
-                  {item}
-                </span>
-              ))}
-
-            </div>
-
+            <p
+              className={`${inter.className} mt-3 max-w-3xl text-[12px] leading-6 text-[#8490a7] sm:text-[13px]`}
+            >
+              The frontend is deployed on Vercel, while Django APIs, Celery
+              workers, Redis, and PostgreSQL run through managed backend
+              infrastructure. Cloudflare R2 stores uploaded financial
+              documents, and GitHub Actions supports automated build and
+              deployment workflows.
+            </p>
           </div>
-        ))}
 
+          <div className="flex flex-wrap gap-2 lg:max-w-md lg:justify-end">
+            {[
+              "Vercel",
+              "Railway",
+              "PostgreSQL",
+              "Celery",
+              "Redis",
+              "Cloudflare R2",
+              "Docker",
+              "GitHub Actions",
+            ].map((item) => (
+              <SkillBadge key={item} item={item} />
+            ))}
+          </div>
+        </div>
       </div>
-    </div>
+    </section>
   );
 }

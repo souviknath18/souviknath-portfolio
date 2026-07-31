@@ -1,396 +1,580 @@
 "use client";
 
 import Image from "next/image";
-import terminalIcon from "@/assets/icons/terminal.png";
+import type { LucideIcon } from "lucide-react";
+import {
+  Bot,
+  Box,
+  BrainCircuit,
+  Check,
+  Cloud,
+  CloudCog,
+  Code2,
+  Cpu,
+  Database,
+  FileCode2,
+  KeyRound,
+  Layers3,
+  Network,
+  Palette,
+  Server,
+  Waypoints,
+  Workflow,
+} from "lucide-react";
 import { JetBrains_Mono } from "next/font/google";
+
+import terminalIcon from "@/assets/icons/terminal.png";
 
 const jetbrainsMono = JetBrains_Mono({
   subsets: ["latin"],
 });
 
-import {
-  Code2,
-  Layers3,
-  Palette,
-  FileCode2,
-  Database,
-  Server,
-  BrainCircuit,
-  Bot,
-  Cpu,
-  Cloud,
-  Check,
-  Box,
-  Network,
-  CloudCog,
-  Workflow,
-  KeyRound,
-  Waypoints,
-} from "lucide-react";
-
-function SkillCard({
-  icon,
-  level,
-  title,
-  years,
-  width,
-}: {
-  icon: React.ReactNode;
+type SkillCardProps = {
+  icon: LucideIcon;
   level: string;
   title: string;
-  years: string;
-  width: string;
+  description: string;
+  skills: string[];
+};
+
+type AIBoxProps = {
+  icon: LucideIcon;
+  title: string;
+  description: string;
+  badge: string;
+  skills: string[];
+};
+
+type BackendGroupProps = {
+  title: string;
+  description: string;
+  skills: string[];
+};
+
+type InfraItemProps = {
+  icon: LucideIcon;
+  title: string;
+  description: string;
+};
+
+const frontendSkills: SkillCardProps[] = [
+  {
+    icon: Layers3,
+    level: "Production",
+    title: "Next.js & React",
+    description:
+      "Building responsive applications, reusable components, dashboards, and modern SaaS interfaces.",
+    skills: ["Next.js", "React.js", "React Query", "Zustand"],
+  },
+  {
+    icon: Code2,
+    level: "Production",
+    title: "TypeScript & JavaScript",
+    description:
+      "Developing maintainable frontend systems using typed components, reusable utilities, and clean application logic.",
+    skills: ["TypeScript", "JavaScript", "Type Safety"],
+  },
+  {
+    icon: Palette,
+    level: "Production",
+    title: "UI Engineering",
+    description:
+      "Creating responsive and accessible user interfaces with consistent design systems and reusable components.",
+    skills: ["Tailwind CSS", "shadcn/ui", "Responsive UI"],
+  },
+  {
+    icon: FileCode2,
+    level: "Core",
+    title: "Web Fundamentals",
+    description:
+      "Applying semantic markup, responsive styling, accessibility, and browser-compatible frontend practices.",
+    skills: ["HTML5", "CSS3", "Accessibility"],
+  },
+];
+
+const aiCapabilities: AIBoxProps[] = [
+  {
+    icon: Bot,
+    title: "OpenAI & LLM Applications",
+    description:
+      "Building production AI features with structured prompts, controlled outputs, intelligent fallbacks, and secure API integration.",
+    badge: "Production Integration",
+    skills: ["OpenAI API", "LLMs", "Prompt Engineering"],
+  },
+  {
+    icon: BrainCircuit,
+    title: "RAG & Semantic Retrieval",
+    description:
+      "Implementing embedding pipelines, similarity search, and retrieval workflows for natural-language access to application data.",
+    badge: "Implemented",
+    skills: ["RAG", "Embeddings", "Semantic Search", "pgvector"],
+  },
+  {
+    icon: Cpu,
+    title: "Intelligent Document Processing",
+    description:
+      "Combining rules, AI extraction, asynchronous jobs, and validation to process financial documents and structured transactions.",
+    badge: "Aura Finance",
+    skills: ["Document Parsing", "AI Extraction", "AI Workflows"],
+  },
+];
+
+const backendGroups: BackendGroupProps[] = [
+  {
+    title: "Python Backend",
+    description:
+      "Building secure and maintainable backend services for enterprise and AI-powered applications.",
+    skills: ["Python", "Django", "Django REST Framework", "FastAPI"],
+  },
+  {
+    title: "API Engineering",
+    description:
+      "Designing production-grade APIs with clear contracts, authentication, filtering, pagination, and validation.",
+    skills: ["RESTful APIs", "JWT", "RBAC", "API Security"],
+  },
+  {
+    title: "Async & Event-Driven Systems",
+    description:
+      "Supporting background processing, real-time updates, retries, and decoupled service communication.",
+    skills: ["Celery", "Redis", "Kafka", "WebSockets"],
+  },
+];
+
+const databaseSkills = [
+  {
+    name: "PostgreSQL",
+    description: "Schema design, indexing, query optimization, and transactions",
+  },
+  {
+    name: "CockroachDB",
+    description: "Distributed SQL schemas for financial applications",
+  },
+  {
+    name: "MySQL",
+    description: "Relational data management and application integration",
+  },
+  {
+    name: "Redis",
+    description: "Caching, Celery queues, and background task coordination",
+  },
+  {
+    name: "pgvector",
+    description: "Embedding storage and vector similarity search",
+  },
+];
+
+const infrastructureItems: InfraItemProps[] = [
+  {
+    icon: Box,
+    title: "Docker & Compose",
+    description: "Containerized application services and local environments",
+  },
+  {
+    icon: Workflow,
+    title: "GitHub Actions",
+    description: "Automated CI/CD pipelines and build validation",
+  },
+  {
+    icon: CloudCog,
+    title: "Google Cloud Platform",
+    description: "Primary enterprise cloud deployment environment",
+  },
+  {
+    icon: Cloud,
+    title: "AWS",
+    description: "Working exposure to EC2 and S3 services",
+  },
+  {
+    icon: Network,
+    title: "Railway & Vercel",
+    description: "Backend and frontend application deployments",
+  },
+  {
+    icon: Server,
+    title: "Cloudflare R2",
+    description: "Cloud object storage for uploaded financial documents",
+  },
+];
+
+function SkillBadge({
+  children,
+}: {
+  children: string;
 }) {
   return (
-    <div className="rounded-xl border border-white/6 bg-white/[0.03] p-4 sm:p-5 transition-all duration-300 hover:border-cyan-300/20">
+    <span
+      className={`${jetbrainsMono.className} rounded-md border border-white/[0.08] bg-white/[0.035] px-2.5 py-1.5 text-[10px] leading-none text-[#b3bfd7] transition-all duration-300 group-hover:border-cyan-300/15 group-hover:text-[#dce7fb] sm:text-[11px]`}
+    >
+      {children}
+    </span>
+  );
+}
 
-      <div className="mb-5 flex items-start justify-between">
-        <div className="text-cyan-300">
-          {icon}
+function SkillCard({
+  icon: Icon,
+  level,
+  title,
+  description,
+  skills,
+}: SkillCardProps) {
+  return (
+    <article className="group rounded-xl border border-white/[0.07] bg-white/[0.025] p-4 transition-all duration-300 hover:-translate-y-0.5 hover:border-cyan-300/20 hover:bg-white/[0.04] sm:p-5">
+      <div className="mb-5 flex items-start justify-between gap-3">
+        <div className="flex h-10 w-10 items-center justify-center rounded-lg border border-cyan-300/15 bg-cyan-300/[0.05]">
+          <Icon
+            size={20}
+            strokeWidth={1.9}
+            className="text-cyan-300"
+            aria-hidden="true"
+          />
         </div>
 
-        <span className="font-mono text-[11px] uppercase tracking-[0.12em] text-[#6e7485]">
+        <span
+          className={`${jetbrainsMono.className} rounded-md border border-white/[0.07] bg-white/[0.025] px-2 py-1 text-[9px] uppercase tracking-[0.1em] text-[#727e95]`}
+        >
           {level}
         </span>
       </div>
 
-      <h4 className="mb-1 text-[16px] sm:text-[17px] lg:text-[18px] font-semibold text-[#e8edff]">
+      <h4 className="text-[16px] font-semibold text-[#e8edff] sm:text-[17px]">
         {title}
       </h4>
 
-      <p className="mb-5 text-[13px] sm:text-[14px] lg:text-[15px] text-[#7d8496]">
-        {years}
+      <p className="mt-3 text-[12px] leading-[1.75] text-[#818da5] sm:text-[13px]">
+        {description}
       </p>
 
-      <div className="h-[5px] overflow-hidden rounded-full bg-white/8">
-        <div
-          className={`h-full rounded-full bg-cyan-300 ${width}`}
-        />
+      <div className="mt-5 flex flex-wrap gap-2">
+        {skills.map((skill) => (
+          <SkillBadge key={skill}>{skill}</SkillBadge>
+        ))}
       </div>
-    </div>
+    </article>
   );
 }
 
 function AIBox({
+  icon: Icon,
   title,
   description,
   badge,
-}: {
-  title: string;
-  description: string;
-  badge: string;
-}) {
-  const Icon =
-    title.includes("OpenAI")
-      ? Bot
-      : title.includes("RAG")
-      ? BrainCircuit
-      : Cpu;
-
+  skills,
+}: AIBoxProps) {
   return (
-    <div className="group relative overflow-hidden rounded-2xl bg-[#1d273d] p-5 sm:p-6 transition-all duration-300 hover:bg-[#212c44]">
+    <article className="group relative overflow-hidden rounded-2xl border border-white/[0.07] bg-[#1a253b] p-5 transition-all duration-300 hover:-translate-y-0.5 hover:border-cyan-300/20 hover:bg-[#1d2941] sm:p-6">
+      <div className="pointer-events-none absolute -right-8 -top-8 h-28 w-28 rounded-full bg-cyan-300/[0.07] blur-3xl transition-all duration-500 group-hover:bg-cyan-300/[0.11]" />
 
-      {/* BACKGROUND ICON */}
-      <div className="pointer-events-none absolute right-3 top-3 z-0 text-[#2c426a]">
-        <div className="scale-[0.8] sm:scale-100 origin-top-right">
-          <Icon size={76} />
-        </div>
-      </div>
+      <Icon
+        size={70}
+        strokeWidth={1.1}
+        className="pointer-events-none absolute right-3 top-3 text-[#2c426a]/65"
+        aria-hidden="true"
+      />
 
-      {/* glow */}
-      <div className="absolute -right-10 -top-10 h-32 w-32 rounded-full bg-cyan-300/10 blur-3xl transition-all duration-500 group-hover:bg-cyan-300/15" />
-
-      {/* content */}
       <div className="relative z-10">
-        <h4 className="mb-4 text-[18px] sm:text-[19px] lg:text-[20px] font-semibold tracking-[-0.02em] text-cyan-100">
+        <span
+          className={`${jetbrainsMono.className} inline-flex rounded-md border border-cyan-300/15 bg-cyan-300/[0.06] px-2.5 py-1 text-[9px] uppercase tracking-[0.1em] text-cyan-300 sm:text-[10px]`}
+        >
+          {badge}
+        </span>
+
+        <h4 className="mt-5 text-[18px] font-semibold tracking-[-0.02em] text-cyan-100 sm:text-[19px]">
           {title}
         </h4>
 
-        <p className="mb-6 text-[14px] sm:text-[15px] lg:text-[16px] leading-[1.7] sm:leading-[1.8] text-[#d3def2]">
+        <p className="mt-3 text-[13px] leading-[1.75] text-[#aebbd2] sm:text-[14px]">
           {description}
         </p>
 
-        <div className="inline-flex rounded-sm bg-cyan-300/20 px-3 py-1.5">
-          <span className="font-mono text-[11px] uppercase tracking-[0.12em] text-cyan-300">
-            {badge}
-          </span>
+        <div className="mt-5 flex flex-wrap gap-2">
+          {skills.map((skill) => (
+            <SkillBadge key={skill}>{skill}</SkillBadge>
+          ))}
         </div>
       </div>
-    </div>
+    </article>
   );
 }
 
-function BackendSkill({
+function BackendGroup({
   title,
-  years,
-  width,
-}: {
-  title: string;
-  years: string;
-  width: string;
-}) {
+  description,
+  skills,
+}: BackendGroupProps) {
   return (
-    <div>
-      <div className="mb-2 flex flex-wrap items-center justify-between gap-2">
-        <span className="text-[14px] sm:text-[15px] lg:text-[16px] font-medium text-[#edf2ff]">
-          {title}
-        </span>
+    <article className="rounded-xl border border-white/[0.07] bg-white/[0.025] p-4 transition-all duration-300 hover:border-[#4d8fff]/25 hover:bg-white/[0.04] sm:p-5">
+      <h4 className="text-[15px] font-semibold text-[#edf2ff] sm:text-[16px]">
+        {title}
+      </h4>
 
-        <span className="text-[14px] sm:text-[15px] lg:text-[16px] text-[#8cb8ff]">
-          {years}
-        </span>
-      </div>
+      <p className="mt-2 text-[12px] leading-[1.7] text-[#7f8ba2] sm:text-[13px]">
+        {description}
+      </p>
 
-      <div className="h-[6px] overflow-hidden rounded-full bg-white/8">
-        <div
-          className={`h-full rounded-full bg-[#4d8fff] ${width}`}
-        />
+      <div className="mt-4 flex flex-wrap gap-2">
+        {skills.map((skill) => (
+          <SkillBadge key={skill}>{skill}</SkillBadge>
+        ))}
       </div>
-    </div>
+    </article>
   );
 }
 
 function InfraItem({
-  icon,
-  text,
-}: {
-  icon: React.ReactNode;
-  text: string;
-}) {
+  icon: Icon,
+  title,
+  description,
+}: InfraItemProps) {
   return (
-    <div className="flex min-h-[54px] sm:min-h-[58px] items-center gap-4 rounded-lg bg-[#1b2438] px-5 py-2 transition-all duration-300 hover:bg-[#202b44]">
-
-      <div className="shrink-0 text-[#8aa4d6]">
-        {icon}
+    <article className="group flex min-h-[76px] items-start gap-4 rounded-xl border border-white/[0.06] bg-[#1b2438] px-4 py-4 transition-all duration-300 hover:border-cyan-300/15 hover:bg-[#202b44] sm:px-5">
+      <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg border border-white/[0.07] bg-white/[0.035]">
+        <Icon
+          size={17}
+          className="text-[#8aa4d6]"
+          aria-hidden="true"
+        />
       </div>
 
-      <span
-        className={`${jetbrainsMono.className} text-[13px] sm:text-[14px] lg:text-[15px] leading-[1.25] tracking-[0.02em] text-[#dfe8ff]`}
-      >
-        {text}
-      </span>
-    </div>
+      <div>
+        <p
+          className={`${jetbrainsMono.className} text-[12px] font-medium text-[#dfe8ff] sm:text-[13px]`}
+        >
+          {title}
+        </p>
+
+        <p className="mt-1.5 text-[11px] leading-5 text-[#78849a] sm:text-[12px]">
+          {description}
+        </p>
+      </div>
+    </article>
   );
 }
 
 export default function AllSkillsTab() {
   return (
-    <div className="grid grid-cols-1 gap-4 md:gap-5 lg:gap-6 lg:grid-cols-12">
-
-      {/* LEFT LARGE BOX */}
-      <div className="rounded-2xl sm:rounded-3xl border border-white/10 bg-[#131b2e]/70 p-4 sm:p-6 lg:p-8 backdrop-blur-md sm:backdrop-blur-xl lg:col-span-8">
-
-        {/* HEADER */}
-        <div className="mb-6 sm:mb-8 flex items-center gap-3">
-          <div className="text-cyan-300">
-            <Code2 size={26} />
+    <div className="grid grid-cols-1 gap-5 lg:grid-cols-12 lg:gap-6">
+      {/* Frontend */}
+      <section className="rounded-2xl border border-white/10 bg-[#131b2e]/70 p-4 backdrop-blur-md sm:rounded-3xl sm:p-6 sm:backdrop-blur-xl lg:col-span-8 lg:p-8">
+        <div className="mb-6 flex items-center gap-3 sm:mb-8">
+          <div className="flex h-10 w-10 items-center justify-center rounded-xl border border-cyan-300/15 bg-cyan-300/[0.05]">
+            <Code2
+              size={22}
+              className="text-cyan-300"
+              aria-hidden="true"
+            />
           </div>
 
-          <h3 className="text-[22px] sm:text-[24px] lg:text-[28px] font-semibold tracking-[-0.03em] text-[#adc7ff]">
-            Frontend Architecture
-          </h3>
+          <div>
+            <h3 className="text-[21px] font-semibold tracking-[-0.03em] text-[#adc7ff] sm:text-[24px] lg:text-[27px]">
+              Frontend Engineering
+            </h3>
+
+            <p className="mt-1 text-[12px] text-[#727e95] sm:text-[13px]">
+              Responsive interfaces and production-ready web applications
+            </p>
+          </div>
         </div>
 
-        {/* SKILLS GRID */}
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 xl:grid-cols-4">
-
-          <SkillCard
-            icon={<Layers3 size={22} />}
-            level="ADVANCED"
-            title="Next.js & React"
-            years="2+ Years"
-            width="w-[95%]"
-          />
-
-          <SkillCard
-            icon={<Code2 size={22} />}
-            level="ADVANCED"
-            title="TypeScript"
-            years="2+ Years"
-            width="w-[90%]"
-          />
-
-          <SkillCard
-            icon={<Palette size={22} />}
-            level="ADVANCED"
-            title="Tailwind CSS"
-            years="2+ Years"
-            width="w-[96%]"
-          />
-
-          <SkillCard
-            icon={<FileCode2 size={22} />}
-            level="PROFICIENT"
-            title="HTML / CSS"
-            years="2+ Years"
-            width="w-[85%]"
-          />
+          {frontendSkills.map((skill) => (
+            <SkillCard
+              key={skill.title}
+              {...skill}
+            />
+          ))}
         </div>
-      </div>
+      </section>
 
-      {/* RIGHT SMALL BOX */}
-      <div className="rounded-2xl sm:rounded-3xl border border-white/10 bg-[#131b2e]/70 p-4 sm:p-6 lg:p-8 backdrop-blur-md sm:backdrop-blur-xl lg:col-span-4">
-
-        {/* HEADER */}
-        <div className="mb-6 sm:mb-8 flex items-center gap-3">
-
-          <div className="text-orange-300">
-            <Database size={24} />
+      {/* Databases */}
+      <section className="rounded-2xl border border-white/10 bg-[#131b2e]/70 p-4 backdrop-blur-md sm:rounded-3xl sm:p-6 sm:backdrop-blur-xl lg:col-span-4 lg:p-8">
+        <div className="mb-6 flex items-center gap-3 sm:mb-8">
+          <div className="flex h-10 w-10 items-center justify-center rounded-xl border border-orange-300/15 bg-orange-300/[0.05]">
+            <Database
+              size={22}
+              className="text-orange-300"
+              aria-hidden="true"
+            />
           </div>
 
-          <h3 className="text-[22px] sm:text-[24px] lg:text-[26px] font-semibold tracking-[-0.03em] text-orange-300">
-            Databases
-          </h3>
+          <div>
+            <h3 className="text-[21px] font-semibold tracking-[-0.03em] text-orange-300 sm:text-[24px]">
+              Data Systems
+            </h3>
+
+            <p className="mt-1 text-[12px] text-[#727e95]">
+              Relational, caching, and vector data
+            </p>
+          </div>
         </div>
 
-        {/* ROWS */}
-        <div className="space-y-4">
+        <div className="space-y-3">
+          {databaseSkills.map((database) => (
+            <article
+              key={database.name}
+              className="rounded-xl border border-white/[0.06] bg-white/[0.025] p-4 transition-all duration-300 hover:border-orange-300/15 hover:bg-white/[0.04]"
+            >
+              <div className="flex items-center gap-3">
+                <Server
+                  size={17}
+                  className="shrink-0 text-orange-300"
+                  aria-hidden="true"
+                />
 
-          <div className="flex items-center justify-between border-b border-white/5 pb-4">
-            <div className="flex items-center gap-3">
-              <Server size={18} className="text-orange-300" />
-              <span className="text-[14px] sm:text-[15px] font-medium text-[#edf2ff]">
-                PostgreSQL
-              </span>
-            </div>
-            <span className="font-mono text-[13px] sm:text-[14px] lg:text-[15px] text-[#7d8496]">
-              2+ Years
-            </span>
-          </div>
+                <span className="text-[14px] font-medium text-[#edf2ff]">
+                  {database.name}
+                </span>
+              </div>
 
-          <div className="flex items-center justify-between border-b border-white/5 pb-4">
-            <div className="flex items-center gap-3">
-              <Server size={18} className="text-orange-300" />
-              <span className="text-[14px] sm:text-[15px] font-medium text-[#edf2ff]">
-                MySQL
-              </span>
-            </div>
-            <span className="font-mono text-[13px] sm:text-[14px] lg:text-[15px] text-[#7d8496]">
-              2+ Years
-            </span>
-          </div>
-
-          <div className="flex items-center justify-between border-b border-white/5 pb-4">
-            <div className="flex items-center gap-3">
-              <Server size={18} className="text-orange-300" />
-              <span className="text-[14px] sm:text-[15px] font-medium text-[#edf2ff]">
-                CockroachDB
-              </span>
-            </div>
-            <span className="font-mono text-[13px] sm:text-[14px] lg:text-[15px] text-[#7d8496]">
-              2+ Years
-            </span>
-          </div>
-
+              <p className="mt-2 pl-7 text-[11px] leading-5 text-[#778399] sm:text-[12px]">
+                {database.description}
+              </p>
+            </article>
+          ))}
         </div>
-      </div>
+      </section>
 
-      {/* AI & LLM ENGINEERING */}
-      <div className="rounded-2xl sm:rounded-3xl border border-white/10 bg-[#131b2e]/70 p-4 sm:p-6 lg:p-8 backdrop-blur-md sm:backdrop-blur-xl lg:col-span-12">
-
-        {/* HEADER */}
-        <div className="mb-6 sm:mb-8 flex items-center gap-3">
-
-          <div className="text-cyan-300">
-            <BrainCircuit size={28} />
+      {/* AI */}
+      <section className="rounded-2xl border border-white/10 bg-[#131b2e]/70 p-4 backdrop-blur-md sm:rounded-3xl sm:p-6 sm:backdrop-blur-xl lg:col-span-12 lg:p-8">
+        <div className="mb-6 flex items-center gap-3 sm:mb-8">
+          <div className="flex h-10 w-10 items-center justify-center rounded-xl border border-cyan-300/15 bg-cyan-300/[0.05]">
+            <BrainCircuit
+              size={23}
+              className="text-cyan-300"
+              aria-hidden="true"
+            />
           </div>
 
-          <h3 className="text-[24px] sm:text-[26px] lg:text-[30px] font-semibold tracking-[-0.03em] text-[#adc7ff]">
-            Intelligence & LLM Engineering
-          </h3>
+          <div>
+            <h3 className="text-[22px] font-semibold tracking-[-0.03em] text-[#adc7ff] sm:text-[25px] lg:text-[28px]">
+              AI & Generative AI Engineering
+            </h3>
+
+            <p className="mt-1 text-[12px] text-[#727e95] sm:text-[13px]">
+              Practical AI capabilities implemented in full-stack products
+            </p>
+          </div>
         </div>
 
-        {/* AI GRID */}
         <div className="grid grid-cols-1 gap-5 lg:grid-cols-3">
-
-          <AIBox
-            title="OpenAI APIs"
-            description="Building production AI features with prompt engineering, structured outputs, and intelligent workflows."
-            badge="ACTIVE PROJECTS"
-          />
-
-          <AIBox
-            title="RAG & LangChain"
-            description="Exploring Retrieval-Augmented Generation workflows and vector databases for AI-powered applications."
-            badge="ACTIVE LEARNING"
-          />
-
-          <AIBox
-            title="AI Workflows & Automation"
-            description="Building AI-powered workflows and automation systems for real-world applications like finance and career platforms."
-            badge="BUILDING"
-          />
+          {aiCapabilities.map((capability) => (
+            <AIBox
+              key={capability.title}
+              {...capability}
+            />
+          ))}
         </div>
-      </div>
+      </section>
 
-      {/* BACKEND + INFRASTRUCTURE */}
-      <div className="rounded-2xl sm:rounded-3xl border border-white/10 bg-[#131b2e]/70 p-4 sm:p-6 lg:p-8 backdrop-blur-md sm:backdrop-blur-xl lg:col-span-6">
-
-        {/* HEADER */}
-        <div className="mb-8 flex items-center gap-4">
-
-          <Image
-            src={terminalIcon}
-            alt="terminal"
-            className="h-7 w-7 object-contain"
-          />
-
-          <h3 className="text-[22px] sm:text-[24px] lg:text-[28px] font-semibold tracking-[-0.03em] text-[#adc7ff]">
-            Backend & Systems
-          </h3>
-        </div>
-
-        {/* SKILLS */}
-        <div className="space-y-6">
-
-          <BackendSkill
-            title="Python / Django / DRF"
-            years="2+ Years"
-            width="w-[92%]"
-          />
-
-          <BackendSkill
-            title="API Architecture"
-            years="2+ Years"
-            width="w-[82%]"
-          />
-
-          <BackendSkill
-            title="RESTful APIs + Security"
-            years="2+ Years"
-            width="w-[88%]"
-          />
-
-          <BackendSkill
-            title="JWT & RBAC"
-            years="2+ Years"
-            width="w-[85%]"
-          />
-        </div>
-      </div>
-
-      {/* INFRASTRUCTURE */}
-      <div className="rounded-2xl sm:rounded-3xl border border-white/10 bg-[#131b2e]/70 p-4 sm:p-6 lg:p-8 backdrop-blur-md sm:backdrop-blur-xl lg:col-span-6">
-
-        <div className="mb-8 flex items-center gap-4">
-          <div className="relative">
-            <Cloud size={34} className="fill-cyan-300 text-cyan-300" />
-            <Check size={14} className="absolute left-1/2 top-3/5 -translate-x-1/2 -translate-y-[55%] text-[#08111f] stroke-[3]" />
+      {/* Backend */}
+      <section className="rounded-2xl border border-white/10 bg-[#131b2e]/70 p-4 backdrop-blur-md sm:rounded-3xl sm:p-6 sm:backdrop-blur-xl lg:col-span-6 lg:p-8">
+        <div className="mb-7 flex items-center gap-4">
+          <div className="flex h-10 w-10 items-center justify-center rounded-xl border border-[#4d8fff]/15 bg-[#4d8fff]/[0.05]">
+            <Image
+              src={terminalIcon}
+              alt=""
+              width={24}
+              height={24}
+              aria-hidden="true"
+              className="object-contain"
+            />
           </div>
-          <h3 className="text-[22px] sm:text-[24px] lg:text-[28px] font-semibold tracking-[-0.03em] text-[#adc7ff]">
-            Infrastructure
-          </h3>
+
+          <div>
+            <h3 className="text-[21px] font-semibold tracking-[-0.03em] text-[#adc7ff] sm:text-[24px] lg:text-[27px]">
+              Backend & Systems
+            </h3>
+
+            <p className="mt-1 text-[12px] text-[#727e95]">
+              APIs, security, async processing, and event-driven services
+            </p>
+          </div>
+        </div>
+
+        <div className="space-y-4">
+          {backendGroups.map((group) => (
+            <BackendGroup
+              key={group.title}
+              {...group}
+            />
+          ))}
+        </div>
+
+        <div className="mt-5 rounded-xl border border-cyan-300/10 bg-cyan-300/[0.035] px-4 py-3">
+          <p
+            className={`${jetbrainsMono.className} text-[10px] uppercase tracking-[0.1em] text-cyan-300`}
+          >
+            40+ production-grade RESTful and asynchronous APIs
+          </p>
+        </div>
+      </section>
+
+      {/* Infrastructure */}
+      <section className="rounded-2xl border border-white/10 bg-[#131b2e]/70 p-4 backdrop-blur-md sm:rounded-3xl sm:p-6 sm:backdrop-blur-xl lg:col-span-6 lg:p-8">
+        <div className="mb-7 flex items-center gap-4">
+          <div className="relative flex h-10 w-10 items-center justify-center rounded-xl border border-cyan-300/15 bg-cyan-300/[0.05]">
+            <Cloud
+              size={25}
+              className="fill-cyan-300 text-cyan-300"
+              aria-hidden="true"
+            />
+
+            <Check
+              size={11}
+              className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-[40%] stroke-[3] text-[#08111f]"
+              aria-hidden="true"
+            />
+          </div>
+
+          <div>
+            <h3 className="text-[21px] font-semibold tracking-[-0.03em] text-[#adc7ff] sm:text-[24px] lg:text-[27px]">
+              Cloud & Infrastructure
+            </h3>
+
+            <p className="mt-1 text-[12px] text-[#727e95]">
+              Containerization, CI/CD, cloud services, and deployment
+            </p>
+          </div>
         </div>
 
         <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
-          <InfraItem icon={<Box size={18} />} text="Docker" />
-          <InfraItem icon={<Workflow size={18} />} text="GitHub Actions (CI/CD)" />
-          <InfraItem icon={<CloudCog size={18} />} text="Vercel Deployment" />
-          <InfraItem icon={<Cloud size={18} />} text="AWS (Learning)" />
-          <InfraItem icon={<KeyRound size={18} />} text="JWT + RBAC" />
-          <InfraItem icon={<Waypoints size={18} />} text="REST API Design" />
+          {infrastructureItems.map((item) => (
+            <InfraItem
+              key={item.title}
+              {...item}
+            />
+          ))}
         </div>
-      </div>
+
+        <div className="mt-5 grid grid-cols-1 gap-3 sm:grid-cols-2">
+          <div className="flex items-center gap-3 rounded-xl border border-white/[0.06] bg-white/[0.025] px-4 py-3">
+            <KeyRound
+              size={17}
+              className="text-[#8aa4d6]"
+              aria-hidden="true"
+            />
+
+            <span
+              className={`${jetbrainsMono.className} text-[11px] text-[#c6d1e8] sm:text-[12px]`}
+            >
+              JWT Authentication & RBAC
+            </span>
+          </div>
+
+          <div className="flex items-center gap-3 rounded-xl border border-white/[0.06] bg-white/[0.025] px-4 py-3">
+            <Waypoints
+              size={17}
+              className="text-[#8aa4d6]"
+              aria-hidden="true"
+            />
+
+            <span
+              className={`${jetbrainsMono.className} text-[11px] text-[#c6d1e8] sm:text-[12px]`}
+            >
+              REST API Architecture
+            </span>
+          </div>
+        </div>
+      </section>
     </div>
   );
 }

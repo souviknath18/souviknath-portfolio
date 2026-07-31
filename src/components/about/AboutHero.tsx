@@ -1,19 +1,18 @@
 "use client";
 
 import { useState } from "react";
-import {
-  JetBrains_Mono,
-  Montserrat,
-  Inter,
-} from "next/font/google";
-
+import Image from "next/image";
 import {
   Download,
-  Linkedin ,
-  Image as ImageIcon,
   Github,
+  Image as ImageIcon,
+  Linkedin,
 } from "lucide-react";
-import Image from "next/image";
+import {
+  Inter,
+  JetBrains_Mono,
+  Montserrat,
+} from "next/font/google";
 
 const jetbrainsMono = JetBrains_Mono({
   subsets: ["latin"],
@@ -21,7 +20,7 @@ const jetbrainsMono = JetBrains_Mono({
 
 const montserrat = Montserrat({
   subsets: ["latin"],
-  weight: ["700", "800", "900"],
+  weight: ["700", "800"],
 });
 
 const inter = Inter({
@@ -34,128 +33,121 @@ export default function AboutHero() {
   const [imageLoaded, setImageLoaded] = useState(true);
 
   return (
-    <section className="mx-auto max-w-7xl px-6 md:px-10 lg:px-8 xl:px-4 pt-28 md:pt-32 lg:pt-36 pb-20">
+    <section className="mx-auto max-w-7xl px-6 pb-20 pt-28 md:px-10 md:pt-32 lg:px-8 lg:pt-36 xl:px-4">
       <div className="grid items-center gap-14 md:gap-20 lg:grid-cols-2">
-
         {/* LEFT SIDE */}
         <div>
-
-          {/* AVAILABILITY */}
+          {/* Availability */}
           <div className="flex items-center gap-3">
-
-            {/* PULSE DOT */}
-            <div className="relative flex h-3 w-3 shrink-0">
+            <div className="relative flex h-2.5 w-2.5 shrink-0">
               <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-cyan-300 opacity-75" />
-              <span className="relative inline-flex h-3 w-3 rounded-full bg-cyan-300 shadow-[0_0_14px_rgba(34,211,238,0.95)]" />
+              <span className="relative inline-flex h-2.5 w-2.5 rounded-full bg-cyan-300 shadow-[0_0_12px_rgba(34,211,238,0.9)]" />
             </div>
 
             <span
-              className={`${jetbrainsMono.className} text-[13px] uppercase tracking-[0.12em] text-cyan-300`}
+              className={`${jetbrainsMono.className} text-[12px] uppercase tracking-[0.12em] text-cyan-300 sm:text-[13px]`}
             >
-              Available for Opportunities
+              Open to Full Stack & AI Opportunities
             </span>
           </div>
 
-          {/* NAME */}
+          {/* Name */}
           <h1
-            className={`${montserrat.className} mt-7 text-[44px] sm:text-[52px] md:text-[68px] lg:text-[82px] font-[800] leading-[0.95] tracking-[-0.05em]`}
+            className={`${montserrat.className} mt-7 text-[44px] font-[800] leading-[0.95] tracking-[-0.05em] sm:text-[52px] md:text-[66px] lg:text-[74px]`}
           >
-            <span className="text-[#dae2fd]">
-              Souvik
-            </span>{" "}
-
+            <span className="text-[#dae2fd]">Souvik</span>{" "}
             <span className="bg-gradient-to-r from-[#adc7ff] to-cyan-300 bg-clip-text text-transparent">
               Nath
             </span>
           </h1>
 
-          {/* ROLE */}
+          {/* Role */}
           <h2
-            className={`${inter.className} mt-5 text-[24px] sm:text-[28px] md:text-[32px] lg:text-[36px] font-semibold tracking-[-0.02em] text-[#9ba7c2]`}
+            className={`${inter.className} mt-5 text-[22px] font-semibold tracking-[-0.02em] text-[#9ba7c2] sm:text-[25px] md:text-[28px] lg:text-[31px]`}
           >
-            Software Engineer & AI Builder
+            Full Stack Engineer & AI Developer
           </h2>
 
-          {/* DESCRIPTION */}
+          {/* Description */}
           <p
-            className={`${inter.className} mt-7 max-w-2xl text-[15px] sm:text-[16px] md:text-[17px] lg:text-[18px] leading-[1.75] text-[#b7c3de]`}
+            className={`${inter.className} mt-6 max-w-2xl text-[14px] leading-[1.8] text-[#aeb9d1] sm:text-[15px] md:text-[16px]`}
           >
-            Building scalable full-stack applications and intelligent AI-powered systems using modern web technologies and LLM workflows. Currently developing AI Finance Insights and AI Career Coach — two AI-native SaaS platforms focused on finance and career intelligence.
+            I&apos;m a Python Full Stack Engineer with 3+ years of experience
+            building scalable fintech applications, production APIs, and
+            AI-powered SaaS products. My work includes Django, FastAPI,
+            Next.js, TypeScript, PostgreSQL, Celery, Redis, Kafka, OpenAI,
+            RAG, semantic search, and vector databases.
           </p>
 
-          {/* BUTTONS */}
-          <div className="mt-12 flex flex-wrap items-center gap-5">
+          <p
+            className={`${inter.className} mt-4 max-w-2xl text-[14px] leading-[1.8] text-[#8f9ab2] sm:text-[15px]`}
+          >
+            I enjoy designing clean architectures, developing secure backend
+            systems, and turning complex workflows into reliable products that
+            deliver real business value.
+          </p>
 
-            {/* DOWNLOAD BUTTON */}
+          {/* Buttons */}
+          <div className="mt-10 flex flex-wrap items-center gap-4">
             <a
               href="/resume/SouvikNath_Resume.pdf"
-              download
-              className={`${inter.className} inline-flex items-center gap-3 rounded-xl bg-gradient-to-r from-[#4a8eff] to-cyan-300 px-6 sm:px-7 md:px-8 py-3 sm:py-4 text-[11px] sm:text-[12px] md:text-[13px] font-bold uppercase tracking-[0.1em] text-[#08111f] shadow-[0_0_30px_rgba(99,247,255,0.18)] transition-all duration-300 hover:scale-[1.03] hover:shadow-[0_0_45px_rgba(99,247,255,0.3)]`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className={`${inter.className} inline-flex items-center gap-2.5 rounded-xl bg-gradient-to-r from-[#adc7ff] to-cyan-300 px-6 py-3 text-[13px] font-bold text-[#08111f] shadow-[0_0_25px_rgba(99,247,255,0.18)] transition-all duration-300 hover:scale-[1.03] hover:shadow-[0_0_35px_rgba(99,247,255,0.28)] sm:px-7 sm:py-3.5 sm:text-[14px]`}
             >
               Download Resume
-
-              <Download
-                size={18}
-                strokeWidth={2.5}
-              />
+              <Download size={18} strokeWidth={2.4} />
             </a>
 
-            {/* ICON BUTTONS */}
-            <div className="flex items-center gap-4">
+            <a
+              href="https://github.com/souviknath18"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Open Souvik Nath's GitHub profile"
+              className="flex items-center gap-2.5 rounded-xl border border-white/10 bg-[#131b2eb3] px-5 py-3 text-[13px] font-semibold text-[#c4cde0] shadow-[0_0_24px_rgba(0,0,0,0.18)] backdrop-blur-xl transition-all duration-300 hover:-translate-y-0.5 hover:border-white/25 hover:bg-white/[0.05] hover:text-white sm:py-3.5 sm:text-[14px]"
+            >
+              <Github size={18} />
+              GitHub
+            </a>
 
-              {/* CODE */}
-              <a
-                href="https://github.com/souviknath18"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex h-14 w-14 items-center justify-center rounded-2xl border border-white/10 bg-[#131b2eb3] text-[#9ba7c2] shadow-[0_0_30px_rgba(0,0,0,0.2)] backdrop-blur-xl transition-all duration-300 hover:border-cyan-300/40 hover:text-cyan-300"
-              >
-                <Github size={22} />
-              </a>
-
-              {/* SHARE */}
-              <a
-                href="https://linkedin.com/in/souvik-nath-0111a721a/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex h-14 w-14 items-center justify-center rounded-2xl border border-white/10 bg-[#131b2eb3] text-[#9ba7c2] shadow-[0_0_30px_rgba(0,0,0,0.2)] backdrop-blur-xl transition-all duration-300 hover:border-cyan-300/40 hover:text-cyan-300"
-              >
-                <Linkedin  size={22} />
-              </a>
-            </div>
+            <a
+              href="https://www.linkedin.com/in/stackwithsouvik/"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Open Souvik Nath's LinkedIn profile"
+              className="flex items-center gap-2.5 rounded-xl border border-white/10 bg-[#131b2eb3] px-5 py-3 text-[13px] font-semibold text-[#c4cde0] shadow-[0_0_24px_rgba(0,0,0,0.18)] backdrop-blur-xl transition-all duration-300 hover:-translate-y-0.5 hover:border-[#0A66C2]/50 hover:bg-[#0A66C2]/10 hover:text-[#72b8ff] sm:py-3.5 sm:text-[14px]"
+            >
+              <Linkedin size={18} />
+              LinkedIn
+            </a>
           </div>
         </div>
 
         {/* RIGHT SIDE */}
         <div className="flex justify-center lg:justify-end lg:pl-8">
+          <div className="relative h-[300px] w-[280px] sm:h-[340px] sm:w-[320px] md:h-[390px] md:w-[350px] lg:h-[410px] lg:w-[370px]">
+            {/* Outer glow */}
+            <div className="absolute inset-0 rounded-[28px] bg-[#4a8eff]/20 blur-[85px]" />
 
-          <div className="relative h-[300px] w-[280px] sm:h-[340px] sm:w-[320px] md:h-[400px] md:w-[360px] lg:h-[430px] lg:w-[390px]">
-
-            {/* OUTER GLOW */}
-            <div className="absolute inset-0 rounded-[28px] bg-[#4a8eff]/24 blur-[90px]" />
-
-            {/* MAIN IMAGE BOX */}
-            <div className="relative h-full w-full overflow-hidden rounded-[15px] border border-white/10 bg-[#131b2eb3] p-4 shadow-[0_0_50px_rgba(0,0,0,0.35)] backdrop-blur-xl">
-
+            {/* Main image box */}
+            <div className="relative h-full w-full overflow-hidden rounded-[18px] border border-white/10 bg-[#131b2eb3] p-3 shadow-[0_0_45px_rgba(0,0,0,0.32)] backdrop-blur-xl">
               {imageLoaded ? (
                 <Image
                   src={PROFILE_IMAGE}
                   alt="Souvik Nath"
                   fill
                   priority
-                  className="rounded-[10px] object-cover object-top"
+                  sizes="(max-width: 768px) 280px, (max-width: 1024px) 350px, 370px"
+                  className="rounded-[13px] object-cover object-top"
                   onError={() => setImageLoaded(false)}
                 />
               ) : (
-                <div className="flex h-full w-full items-center justify-center rounded-[10px] border border-dashed border-[#2f394d] bg-[#111827]">
+                <div className="flex h-full w-full items-center justify-center rounded-[13px] border border-dashed border-[#2f394d] bg-[#111827]">
                   <div className="flex flex-col items-center">
-                    <ImageIcon
-                      size={58}
-                      className="text-[#3d475d]"
-                    />
+                    <ImageIcon size={52} className="text-[#3d475d]" />
 
                     <p
-                      className={`${jetbrainsMono.className} mt-5 text-[12px] uppercase tracking-[0.14em] text-[#4d576d]`}
+                      className={`${jetbrainsMono.className} mt-4 text-[11px] uppercase tracking-[0.14em] text-[#4d576d]`}
                     >
                       Profile Image
                     </p>
@@ -164,19 +156,33 @@ export default function AboutHero() {
               )}
             </div>
 
-            {/* FLOATING EXPERIENCE CARD */}
-            <div className="absolute -bottom-4 -left-4 md:-bottom-5 md:-left-5 rounded-2xl border border-white/10 bg-[#10182abf] px-5 py-4 shadow-[0_0_40px_rgba(0,0,0,0.35)] backdrop-blur-xl">
-
+            {/* Floating experience card */}
+            <div className="absolute -bottom-4 -left-4 rounded-2xl border border-white/10 bg-[#10182ad9] px-5 py-4 shadow-[0_0_35px_rgba(0,0,0,0.32)] backdrop-blur-xl md:-bottom-5 md:-left-5">
               <p
-                className={`${montserrat.className} text-[32px] font-[700] leading-none text-[#adc7ff]`}
+                className={`${montserrat.className} text-[28px] font-[700] leading-none text-[#adc7ff] sm:text-[30px]`}
               >
-                2.5+
+                3+
               </p>
 
               <p
-                className={`${jetbrainsMono.className} mt-2 font-bold text-[10px] uppercase tracking-[0.14em] text-[#6c7892]`}
+                className={`${jetbrainsMono.className} mt-2 text-[10px] font-bold uppercase tracking-[0.14em] text-[#6c7892]`}
               >
-                YEARS EXPERIENCE
+                Years Experience
+              </p>
+            </div>
+
+            {/* Floating API card */}
+            <div className="absolute -right-4 top-7 rounded-xl border border-white/10 bg-[#10182ad9] px-4 py-3 shadow-[0_0_30px_rgba(0,0,0,0.28)] backdrop-blur-xl md:-right-5">
+              <p
+                className={`${montserrat.className} text-[20px] font-[700] leading-none text-cyan-300`}
+              >
+                40+
+              </p>
+
+              <p
+                className={`${jetbrainsMono.className} mt-1.5 text-[9px] font-semibold uppercase tracking-[0.12em] text-[#6c7892]`}
+              >
+                Production APIs
               </p>
             </div>
           </div>
