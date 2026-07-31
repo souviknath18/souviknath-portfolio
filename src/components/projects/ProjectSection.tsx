@@ -1,435 +1,537 @@
 "use client";
 
 import Link from "next/link";
-import { Rocket, Github, Code2, CheckCircle2, Zap, Shield } from "lucide-react";
+import {
+  ArrowRight,
+  CheckCircle2,
+  Code2,
+  ExternalLink,
+  Github,
+  Landmark,
+  LockKeyhole,
+  Rocket,
+  ServerCog,
+  Workflow,
+} from "lucide-react";
 import { JetBrains_Mono } from "next/font/google";
+
 import ProjectImageSlider from "../home/ProjectImageSlider";
 
 const jetbrainsMono = JetBrains_Mono({
   subsets: ["latin"],
 });
 
-function TechTag({ text }: { text: string }) {
-  return (
-    <span
-      className={`
-        ${jetbrainsMono.className}
-        bg-[#1b2438]
-        border border-white/5
-        text-[#c1c6d7]
-        px-3 py-1.5
-        rounded
-        text-[11px] sm:text-[13px]
-        tracking-wide
-      `}
-    >
-      {text}
-    </span>
-  );
-}
+type TechTagProps = {
+  text: string;
+  small?: boolean;
+};
 
-function TechTagSmall({ text }: { text: string }) {
-  return (
-    <span
-      className={`
-        ${jetbrainsMono.className}
-        bg-[#1b2438]
-        border border-white/5
-        text-[#c1c6d7]
-        px-2 py-1
-        rounded
-        text-[12px]
-        tracking-wide
-      `}
-    >
-      {text}
-    </span>
-  );
-}
-
-const financeImages: {
+type ProjectImage = {
   src: string;
   alt: string;
-}[] = [
+};
+
+const financeImages: ProjectImage[] = [
   {
-    src: "/projects/finance-dashboard.png",
-    alt: "AI Finance Insights dashboard screen",
+    src: "/projects/finance-landing.png",
+    alt: "Aura Finance landing page",
   },
   {
-    src: "/projects/finance-transactions.png",
-    alt: "AI Finance Insights transactions screen",
+    src: "/projects/finance-dashboard2.png",
+    alt: "Aura Finance AI-powered financial dashboard",
   },
   {
-    src: "/projects/finance-upload.png",
-    alt: "AI Finance Insights upload screen",
+    src: "/projects/finance-upload2.png",
+    alt: "Aura Finance financial document upload and processing screen",
+  },
+  {
+    src: "/projects/finance-transactions2.png",
+    alt: "Aura Finance intelligent transaction management screen",
   },
 ];
 
-const careerCoachImages: {
-  src: string;
-  alt: string;
-}[] = [];
+const mvLendImages: ProjectImage[] = [
+  // Add screenshots only if company policy allows you to display them publicly.
+  // {
+  //   src: "/projects/mvlend-dashboard.png",
+  //   alt: "MvLEND operational lending dashboard",
+  // },
+];
 
+const auraFinanceTech = [
+  "Next.js",
+  "TypeScript",
+  "Django REST Framework",
+  "PostgreSQL",
+  "OpenAI API",
+  "Celery",
+  "Redis",
+  "pgvector",
+  "Cloudflare R2",
+  "Docker",
+];
+
+const mvLendTech = [
+  "Django",
+  "DRF",
+  "FastAPI",
+  "Kafka",
+  "CockroachDB",
+  "Next.js",
+  "TypeScript",
+  "GCP",
+];
+
+const engineeringAreas = [
+  {
+    icon: ServerCog,
+    title: "Production API Engineering",
+    description:
+      "Designing secure RESTful and asynchronous APIs with Django REST Framework, FastAPI, JWT authentication, RBAC, filtering, pagination, and validation.",
+  },
+  {
+    icon: Workflow,
+    title: "Async & Event-Driven Systems",
+    description:
+      "Building background processing and decoupled workflows using Celery, Redis, Kafka, WebSockets, retries, and task queues.",
+  },
+  {
+    icon: LockKeyhole,
+    title: "Secure Fintech Architecture",
+    description:
+      "Developing lending and transaction systems with protected APIs, role-based workflows, database optimization, and production-ready cloud deployment.",
+  },
+];
+
+function TechTag({
+  text,
+  small = false,
+}: TechTagProps) {
+  return (
+    <span
+      className={`${jetbrainsMono.className} rounded-md border border-white/[0.08] bg-white/[0.035] text-[#b9c5da] transition-all duration-300 hover:border-cyan-300/15 hover:text-[#dce7fb] ${
+        small
+          ? "px-2.5 py-1.5 text-[10px]"
+          : "px-3 py-1.5 text-[10px] sm:text-[11px]"
+      }`}
+    >
+      {text}
+    </span>
+  );
+}
+
+function FeatureItem({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
+  return (
+    <div className="flex items-start gap-2.5">
+      <CheckCircle2
+        size={16}
+        strokeWidth={2.2}
+        className="mt-1 shrink-0 text-cyan-300"
+        aria-hidden="true"
+      />
+
+      <span className="text-[13px] leading-[1.75] text-[#aeb9cf] sm:text-[14px]">
+        {children}
+      </span>
+    </div>
+  );
+}
 
 export default function ProjectSection() {
   return (
     <section className="px-6 py-16 sm:py-20 lg:px-12">
       <div className="mx-auto max-w-7xl">
+        {/* Section Header */}
+        <div className="mb-10 flex flex-col gap-5 md:mb-12 md:flex-row md:items-end md:justify-between">
+          <div>
+            <p
+              className={`${jetbrainsMono.className} text-[10px] uppercase tracking-[0.14em] text-cyan-300 sm:text-[11px]`}
+            >
+              Selected Engineering Work
+            </p>
 
-        {/* GRID */}
-        <div className="grid grid-cols-1 gap-5 md:grid-cols-12 md:gap-4 sm:gap-6">
+            <h2 className="mt-3 text-[30px] font-semibold tracking-[-0.04em] text-[#e8edff] sm:text-[36px] md:text-[40px]">
+              Featured Projects
+            </h2>
 
-          {/* ================= LEFT BIG PROJECT ================= */}
-          <div className="md:col-span-8 rounded-2xl overflow-hidden border border-white/10 bg-[#131b2e] transition-all duration-300 hover:border-cyan-300/20 hover:-translate-y-1">
+            <p className="mt-4 max-w-3xl text-[14px] leading-[1.8] text-[#8995ad] sm:text-[15px]">
+              AI-powered SaaS and enterprise fintech systems built with
+              production APIs, asynchronous processing, semantic retrieval,
+              secure authentication, and scalable cloud architecture.
+            </p>
+          </div>
 
-            {/* IMAGE TOP HALF */}
+          <a
+            href="https://github.com/souviknath18"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex w-fit items-center gap-2 text-[13px] font-semibold text-[#adc7ff] transition-colors duration-300 hover:text-cyan-300"
+          >
+            View GitHub
+            <Github size={16} />
+          </a>
+        </div>
+
+        {/* Project Grid */}
+        <div className="grid grid-cols-1 gap-6 md:grid-cols-12">
+          {/* Aura Finance */}
+          <article className="group overflow-hidden rounded-2xl border border-white/10 bg-[#131b2e] transition-all duration-300 hover:-translate-y-1 hover:border-cyan-300/25 hover:shadow-[0_0_40px_rgba(99,247,255,0.05)] md:col-span-8">
             <ProjectImageSlider
-              badge="AI Finance SaaS"
+              badge="AI-Powered Finance SaaS"
               images={financeImages}
             />
 
-            {/* CONTENT BOTTOM HALF */}
             <div className="p-5 sm:p-6 lg:p-8">
-
-              {/* TOP ROW */}
-              <div className="flex flex-col md:flex-row justify-between gap-4 sm:gap-6">
-
-                {/* LEFT TEXT */}
+              <div className="flex flex-col gap-5 lg:flex-row lg:items-start lg:justify-between">
                 <div className="flex-1">
-                  <h3 className="text-[24px] sm:text-[26px] lg:text-[28px] font-semibold text-[#e8edff]">
-                    AI Finance Insights
+                  <p
+                    className={`${jetbrainsMono.className} text-[10px] uppercase tracking-[0.12em] text-cyan-300 sm:text-[11px]`}
+                  >
+                    Flagship Personal Project
+                  </p>
+
+                  <h3 className="mt-2 text-[25px] font-semibold tracking-[-0.03em] text-[#e8edff] sm:text-[28px]">
+                    Aura Finance
                   </h3>
 
-                  <p className="mt-3 text-[15px] sm:text-[15px] lg:text-[16px] text-[#cfd6e6] leading-[1.8]">
-                    AI-powered personal finance platform utilizing document processing, transaction extraction, AI-assisted categorization, and intelligent financial insights from uploaded financial data.
+                  <p className="mt-1 text-[13px] font-medium text-[#8290aa] sm:text-[14px]">
+                    AI-Powered Personal Finance Assistant
+                  </p>
+
+                  <p className="mt-4 text-[14px] leading-[1.8] text-[#aeb9cf] sm:text-[15px]">
+                    A full-stack personal finance platform that transforms
+                    financial documents into structured transactions,
+                    intelligent categories, semantic search results, and
+                    personalized financial insights.
                   </p>
                 </div>
 
-                {/* RIGHT ARCH BOX */}
-                <div className="w-full md:w-[260px] lg:w-[270px] shrink-0 bg-[#1b2438] border border-cyan-300/20 rounded-md p-4">
-                  <p className={`${jetbrainsMono.className} font-semibold text-[11px] text-[#7d8496] uppercase`}>
-                    Architecture Why?
+                <div className="w-full shrink-0 rounded-xl border border-cyan-300/15 bg-cyan-300/[0.035] p-4 lg:w-[270px]">
+                  <p
+                    className={`${jetbrainsMono.className} text-[10px] font-semibold uppercase tracking-[0.12em] text-[#77849a]`}
+                  >
+                    Architecture
                   </p>
-                  <p className="mt-2 text-[14px] sm:text-[15px] lg:text-[16px] text-cyan-200 leading-[1.5]">
-                    RAG + Vector Retrieval for Context-Aware Financial Insights
+
+                  <p className="mt-2 text-[13px] leading-[1.6] text-cyan-200 sm:text-[14px]">
+                    Hybrid document parsing, asynchronous AI processing,
+                    embeddings, pgvector, and RAG-style retrieval.
                   </p>
                 </div>
               </div>
 
-              {/* FEATURES + TECH STACK */}
-              <div className="grid md:grid-cols-2 gap-10 mt-8">
-
-                {/* FEATURES */}
+              <div className="mt-8 grid gap-8 md:grid-cols-2">
+                {/* Features */}
                 <div>
-                  <h4 className={`${jetbrainsMono.className} font-semibold text-sm text-[#7d8496] uppercase mb-4`}>
+                  <h4
+                    className={`${jetbrainsMono.className} mb-4 text-[11px] font-semibold uppercase tracking-[0.12em] text-[#77849a]`}
+                  >
                     Key Features
                   </h4>
 
-                  <div className="space-y-3 text-[14px] sm:text-[15px] lg:text-[16px] text-[#cfd6e6]">
+                  <div className="space-y-3">
+                    <FeatureItem>
+                      Extracts transaction data from PDF, CSV, receipt, invoice,
+                      and image-based financial documents.
+                    </FeatureItem>
 
-                    <div className="flex items-start gap-2">
-                      <CheckCircle2 className="mt-[2px] shrink-0 text-cyan-300 w-4 h-4" />
-                      <span>AI Expense Categorization & Insights</span>
-                    </div>
+                    <FeatureItem>
+                      Combines rule-based parsing, OpenAI extraction, validation,
+                      and intelligent categorization.
+                    </FeatureItem>
 
-                    <div className="flex items-start gap-2">
-                      <CheckCircle2 className="mt-[2px] shrink-0 text-cyan-300 w-4 h-4" />
-                      <span>Semantic Search Across Transactions</span>
-                    </div>
+                    <FeatureItem>
+                      Supports semantic search and similar-transaction retrieval
+                      using embeddings and pgvector.
+                    </FeatureItem>
 
-                    <div className="flex items-start gap-2">
-                      <CheckCircle2 className="mt-[2px] shrink-0 text-cyan-300 w-4 h-4" />
-                      <span>Financial Memory & Budget Tracking</span>
-                    </div>
-
+                    <FeatureItem>
+                      Uses Celery and Redis for background processing, retries,
+                      upload progress, and embedding generation.
+                    </FeatureItem>
                   </div>
                 </div>
 
-                {/* TECH STACK */}
+                {/* Tech Stack */}
                 <div>
-                  <h4 className={`${jetbrainsMono.className} font-semibold text-sm text-[#7d8496] uppercase mb-4`}>
+                  <h4
+                    className={`${jetbrainsMono.className} mb-4 text-[11px] font-semibold uppercase tracking-[0.12em] text-[#77849a]`}
+                  >
                     Tech Stack
                   </h4>
 
                   <div className="flex flex-wrap gap-2">
-                    <TechTag text="TypeScript" />
-                    <TechTag text="Next.js" />
-                    <TechTag text="PostgreSQL" />
-                    <TechTag text="OpenAI API" />
-                    <TechTag text="Django" />
+                    {auraFinanceTech.map((technology) => (
+                      <TechTag
+                        key={technology}
+                        text={technology}
+                      />
+                    ))}
                   </div>
                 </div>
               </div>
 
-              {/* ACTION BAR */}
-              <div className="flex flex-wrap gap-4 sm:gap-6 mt-8 pt-6 border-t border-white/5">
-
+              {/* Actions */}
+              <div className="mt-8 flex flex-wrap items-center gap-3 border-t border-white/[0.06] pt-6">
                 <a
                   href="https://ai-finance-assistant-phi.vercel.app/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-2 text-cyan-300 hover:text-[#dae2fd] cursor-pointer"
+                  className="flex items-center gap-2 rounded-lg bg-gradient-to-r from-[#adc7ff] to-cyan-300 px-4 py-2.5 text-[12px] font-bold text-[#08111f] shadow-[0_0_20px_rgba(99,247,255,0.12)] transition-all duration-300 hover:scale-[1.02] hover:shadow-[0_0_28px_rgba(99,247,255,0.22)] sm:text-[13px]"
                 >
-                  <Rocket size={18} />
-                  <span className="font-semibold text-sm">Live Demo</span>
-                </a>
-
-                <a
-                  href="https://github.com/souviknath18/ai-finance-assistant/tree/main/frontend"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-2 text-[#8b90a0] hover:text-[#dae2fd] cursor-pointer"
-                >
-                  <Code2 size={18} />
-                  <span className="font-semibold text-sm">Frontend Repo</span>
+                  <Rocket size={15} />
+                  Live Demo
                 </a>
 
                 <a
                   href="https://github.com/souviknath18/ai-finance-assistant"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-2 text-[#8b90a0] hover:text-[#dae2fd] cursor-pointer"
+                  className="flex items-center gap-2 rounded-lg border border-white/10 bg-white/[0.025] px-4 py-2.5 text-[12px] font-semibold text-[#c4cde0] transition-all duration-300 hover:border-white/20 hover:bg-white/[0.06] hover:text-white sm:text-[13px]"
                 >
-                  <Github size={18} />
-                  <span className="font-semibold text-sm">GitHub</span>
+                  <Github size={15} />
+                  GitHub Repository
                 </a>
-
-              </div>
-
-            </div>
-          </div>
-
-          {/* ================= RIGHT SMALL PROJECT ================= */}
-          <div className="md:col-span-4 rounded-2xl overflow-hidden border border-white/10 bg-[#131b2e] transition-all duration-300 hover:border-cyan-300/20">
-
-            <ProjectImageSlider
-              badge="AI Platform"
-              images={careerCoachImages}
-            />
-
-            {/* CONTENT */}
-            <div className="p-5 sm:p-6">
-
-              {/* TITLE */}
-              <h3 className="text-[24px] sm:text-[22px] font-semibold text-[#e8edff]">
-                AI Career Coach
-              </h3>
-
-              <p className="mt-2 text-[15px] sm:text-[14px] leading-[1.7] text-[#cfd6e6]">
-                AI-powered career platform focused on resume analysis, ATS optimization,
-                job matching, and personalized interview preparation workflows.
-              </p>
-
-              {/* ARCHITECTURE BOX */}
-              <div className="mt-4 bg-[#1b2438] border border-white/5 rounded-md p-3">
-                <p className={`${jetbrainsMono.className} font-semibold text-[10px] text-[#7d8496] uppercase tracking-widest`}>
-                  Architecture
-                </p>
-                <p className="mt-1 text-[14px] sm:text-[14px] leading-[1.7] text-cyan-200">
-                  Resume-Aware RAG Pipeline
-                </p>
-              </div>
-
-              {/* FEATURES */}
-              <div className="mt-4 space-y-3">
-
-                <div className="flex items-start gap-2">
-                  <Zap className="mt-[2px] shrink-0 text-cyan-300 w-4 h-4" />
-                  <span className="text-[#cfd6e6] text-[14px] sm:text-[13px]">
-                    Resume Analysis & ATS Optimization
-                  </span>
-                </div>
-
-                <div className="flex items-start gap-2">
-                  <Shield className="mt-[2px] shrink-0 text-cyan-300 w-4 h-4" />
-                  <span className="text-[#cfd6e6] text-[14px] sm:text-[13px]">
-                    Job Match Scoring & AI Interview Prep
-                  </span>
-                </div>
-
-              </div>
-
-              {/* TECH STACK */}
-              <div className="mt-4 flex flex-wrap gap-2">
-                <div className="mt-4">
-                  <h4 className={`${jetbrainsMono.className} font-semibold text-[12px] text-[#7d8496] uppercase tracking-widest mb-2`}>
-                    Tech Stack
-                  </h4>
-
-                  <div className="flex flex-wrap gap-2">
-                    <TechTagSmall text="Next.js" />
-                    <TechTagSmall text="PostgreSQL" />
-                    <TechTagSmall text="OpenAI" />
-                  </div>
-                </div>
-              </div>
-
-              {/* DIVIDER */}
-              <div className="my-5 border-t border-white/5" />
-
-              {/* ACTIONS */}
-              <div className="flex flex-col gap-3 text-[14px] sm:text-[13px]">
-
-                <a href="#" className="flex items-center gap-2 font-semibold text-sm text-cyan-300 hover:text-[#dae2fd]">
-                  <Rocket className="w-4 h-4" />
-                  <span>Live Demo</span>
-                </a>
-
-                <a href="#" className="flex items-center gap-2 font-semibold text-sm text-[#8b90a0] hover:text-[#dae2fd]">
-                  <Code2 className="w-4 h-4" />
-                  <span>Frontend Repo</span>
-                </a>
-
-                <a href="#" className="flex items-center gap-2 font-semibold text-sm text-[#8b90a0] hover:text-[#dae2fd]">
-                  <Github className="w-4 h-4" />
-                  <span>GitHub Org</span>
-                </a>
-
               </div>
             </div>
-          </div>
+          </article>
 
-          {/* ================= BOTTOM LEFT SMALL PROJECT ================= */}
-          <div className="md:col-span-4 rounded-2xl overflow-hidden border border-white/10 bg-[#131b2e] transition-all duration-300 hover:border-cyan-300/20">
-
-            {/* IMAGE SECTION */}
+          {/* MvLEND */}
+          <article className="group flex flex-col overflow-hidden rounded-2xl border border-white/10 bg-[#131b2e] transition-all duration-300 hover:-translate-y-1 hover:border-cyan-300/25 hover:shadow-[0_0_40px_rgba(99,247,255,0.04)] md:col-span-4">
             <ProjectImageSlider
-              badge="API Monitoring SaaS"
-              images={[]}
+              badge="Enterprise Fintech"
+              images={mvLendImages}
+              emptyTitle="Private Enterprise Platform"
+              emptyDescription="Screenshots and source code are unavailable due to company confidentiality"
             />
 
-            {/* CONTENT */}
-            <div className="p-5 sm:p-6">
+            <div className="flex flex-1 flex-col p-5 sm:p-6">
+              <div className="flex items-center gap-3">
+                <div className="flex h-10 w-10 items-center justify-center rounded-xl border border-cyan-300/15 bg-cyan-300/[0.05]">
+                  <Landmark
+                    size={20}
+                    className="text-cyan-300"
+                    aria-hidden="true"
+                  />
+                </div>
 
-              {/* TITLE */}
-              <h3 className="text-[24px] sm:text-[22px] font-semibold text-[#e8edff]">
-                Sentinel API
-              </h3>
+                <div>
+                  <p
+                    className={`${jetbrainsMono.className} text-[9px] uppercase tracking-[0.1em] text-cyan-300`}
+                  >
+                    Professional Project
+                  </p>
 
-              {/* DESCRIPTION */}
-              <p className="mt-2 text-[15px] sm:text-[14px] leading-[1.7] text-[#cfd6e6]">
-                AI-powered API observability and security platform focused on intelligent
-                monitoring, anomaly detection, fraud analysis, and real-time threat insights
-                for modern backend infrastructure.
+                  <h3 className="mt-1 text-[22px] font-semibold tracking-[-0.03em] text-[#e8edff]">
+                    MvLEND
+                  </h3>
+                </div>
+              </div>
+
+              <p className="mt-4 text-[12px] font-medium text-[#7f8ca4]">
+                Composable Core Banking & Lending Platform
               </p>
 
-              {/* ARCHITECTURE BOX */}
-              <div className="mt-4 bg-[#1b2438] border border-white/5 rounded-md p-3">
-                <p className={`${jetbrainsMono.className} font-semibold text-[10px] text-[#7d8496] uppercase tracking-widest`}>
+              <p className="mt-4 text-[13px] leading-[1.75] text-[#aeb9cf] sm:text-[14px]">
+                Enterprise digital lending platform supporting borrower
+                onboarding, loan processing, repayment tracking, fund
+                disbursement, account management, and operational reporting.
+              </p>
+
+              <div className="mt-5 rounded-xl border border-white/[0.07] bg-white/[0.025] p-4">
+                <p
+                  className={`${jetbrainsMono.className} text-[9px] uppercase tracking-[0.12em] text-[#77849a]`}
+                >
                   Architecture
                 </p>
 
-                <p className="mt-1 text-[14px] sm:text-[14px] leading-[1.7] text-cyan-200">
-                  AI Monitoring + Threat Detection Architecture
+                <p className="mt-2 text-[13px] leading-[1.65] text-cyan-200">
+                  Kafka-based event-driven services with Django, FastAPI,
+                  CockroachDB, secure APIs, and cloud deployment.
                 </p>
               </div>
 
-              {/* FEATURES */}
-              <div className="mt-4 space-y-3">
+              <div className="mt-5 space-y-3">
+                <FeatureItem>
+                  REST APIs across loan origination, repayment, and account
+                  management.
+                </FeatureItem>
 
-                <div className="flex items-start gap-2">
-                  <Zap className="text-cyan-300 w-4 h-4" />
+                <FeatureItem>
+                  Kafka messaging for asynchronous and decoupled transaction
+                  processing.
+                </FeatureItem>
 
-                  <span className="text-[#cfd6e6] text-[14px] sm:text-[13px]">
-                    Real-time API Monitoring & Alerting
-                  </span>
-                </div>
-
-                <div className="flex items-start gap-2">
-                  <Shield className="text-cyan-300 w-4 h-4" />
-
-                  <span className="text-[#cfd6e6] text-[14px] sm:text-[13px]">
-                    AI-based Threat & Anomaly Detection
-                  </span>
-                </div>
-
+                <FeatureItem>
+                  JWT authentication and role-based access control for secure
+                  enterprise workflows.
+                </FeatureItem>
               </div>
 
-              {/* TECH STACK */}
-              <div className="mt-4 flex flex-wrap gap-2">
-
-                <div className="mt-4">
-                  <h4 className={`${jetbrainsMono.className} font-semibold text-[12px] text-[#7d8496] uppercase tracking-widest mb-2`}>
-                    Tech Stack
-                  </h4>
-
-                  <div className="flex flex-wrap gap-2">
-                    <TechTagSmall text="Next.js" />
-                    <TechTagSmall text="Django" />
-                    <TechTagSmall text="PostgreSQL" />
-                  </div>
-                </div>
+              <div className="mt-6 flex flex-wrap gap-2">
+                {mvLendTech.map((technology) => (
+                  <TechTag
+                    key={technology}
+                    text={technology}
+                    small
+                  />
+                ))}
               </div>
 
-              {/* DIVIDER */}
-              <div className="my-5 border-t border-white/5" />
-
-              {/* ACTIONS */}
-              <div className="flex flex-col gap-3 text-[14px] sm:text-[13px]">
-
-                <a href="#" className="flex items-center gap-2 font-semibold text-sm text-cyan-300 hover:text-[#dae2fd]">
-                  <Rocket className="w-4 h-4" />
-                  <span>Live Demo</span>
-                </a>
-
-                <a href="#" className="flex items-center gap-2 font-semibold text-sm text-[#8b90a0] hover:text-[#dae2fd]">
-                  <Code2 className="w-4 h-4" />
-                  <span>Frontend Repo</span>
-                </a>
-
-                <a href="#" className="flex items-center gap-2 font-semibold text-sm text-[#8b90a0] hover:text-[#dae2fd]">
-                  <Github className="w-4 h-4" />
-                  <span>GitHub Org</span>
-                </a>
-
+              <div className="mt-auto pt-6">
+                <div className="rounded-lg border border-white/[0.07] bg-white/[0.025] px-4 py-3">
+                  <p
+                    className={`${jetbrainsMono.className} text-[9px] leading-[1.7] text-[#707d93] sm:text-[10px]`}
+                  >
+                    Company project — source code, screenshots, and live
+                    application are not publicly available.
+                  </p>
+                </div>
               </div>
             </div>
-          </div>
+          </article>
 
-          {/* ================= BOTTOM RIGHT BIG SECTION ================= */}
-          <div className="md:col-span-8 rounded-2xl border border-dashed border-white/10 bg-[#131b2e] overflow-hidden">
+          {/* Engineering Contributions */}
+          <article className="rounded-2xl border border-white/10 bg-[#131b2e] p-5 sm:p-6 md:col-span-5 lg:p-8">
+            <p
+              className={`${jetbrainsMono.className} text-[10px] uppercase tracking-[0.14em] text-cyan-300`}
+            >
+              Professional Impact
+            </p>
 
-            <div className="flex flex-col md:flex-row md:items-center gap-8 p-8 md:p-10 h-full min-h-[340px] sm:min-h-[420px]">
+            <h3 className="mt-3 text-[24px] font-semibold tracking-[-0.03em] text-[#e8edff] sm:text-[27px]">
+              Engineering Contributions
+            </h3>
 
-              {/* LEFT VISUAL BOX */}
-              <div className="w-full md:w-1/2 flex items-center">
+            <p className="mt-4 text-[13px] leading-[1.75] text-[#8f9bb2] sm:text-[14px]">
+              Core areas where I have contributed across production fintech
+              systems and full-stack applications.
+            </p>
 
-                <div className="relative w-full h-[260px] rounded-lg border border-cyan-300/10 bg-[#1b2438] overflow-hidden flex items-center justify-center">
+            <div className="mt-6 space-y-4">
+              {engineeringAreas.map((area) => {
+                const Icon = area.icon;
 
-                  {/* PLUS ICON */}
-                  <div className="relative z-10 flex items-center justify-center w-16 h-16 rounded-full border-[5px] border-[#6f778b]">
-                    <div className="absolute w-[32px] h-[5px] rounded-full bg-[#6f778b]" />
-                    <div className="absolute h-[32px] w-[5px] rounded-full bg-[#6f778b]" />
+                return (
+                  <div
+                    key={area.title}
+                    className="rounded-xl border border-white/[0.07] bg-white/[0.025] p-4 transition-all duration-300 hover:border-cyan-300/15 hover:bg-white/[0.04]"
+                  >
+                    <div className="flex items-start gap-3.5">
+                      <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg border border-cyan-300/15 bg-cyan-300/[0.05]">
+                        <Icon
+                          size={17}
+                          className="text-cyan-300"
+                          aria-hidden="true"
+                        />
+                      </div>
+
+                      <div>
+                        <h4 className="text-[14px] font-semibold text-[#dfe7f7]">
+                          {area.title}
+                        </h4>
+
+                        <p className="mt-2 text-[12px] leading-[1.7] text-[#7f8ba2]">
+                          {area.description}
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+
+            <div className="mt-6 rounded-xl border border-cyan-300/10 bg-cyan-300/[0.035] px-4 py-3">
+              <p
+                className={`${jetbrainsMono.className} text-[10px] uppercase tracking-[0.1em] text-cyan-300`}
+              >
+                40+ production-grade RESTful and asynchronous APIs
+              </p>
+            </div>
+          </article>
+
+          {/* Building Next */}
+          <article className="relative overflow-hidden rounded-2xl border border-dashed border-white/10 bg-[#131b2e] md:col-span-7">
+            <div className="pointer-events-none absolute -right-20 -top-20 h-64 w-64 rounded-full bg-cyan-300/[0.05] blur-[100px]" />
+
+            <div className="relative flex h-full min-h-[420px] flex-col gap-8 p-6 md:flex-row md:items-center md:p-8 lg:p-10">
+              {/* Visual */}
+              <div className="flex w-full items-center md:w-[42%]">
+                <div className="relative flex h-[250px] w-full items-center justify-center overflow-hidden rounded-2xl border border-cyan-300/10 bg-[#1b2438]">
+                  <div className="absolute h-40 w-40 rounded-full border border-cyan-300/[0.08]" />
+                  <div className="absolute h-28 w-28 rounded-full border border-[#adc7ff]/[0.08]" />
+
+                  <div className="relative z-10 flex h-16 w-16 items-center justify-center rounded-2xl border border-cyan-300/20 bg-cyan-300/[0.05]">
+                    <Code2
+                      size={28}
+                      className="text-cyan-300"
+                      aria-hidden="true"
+                    />
                   </div>
                 </div>
               </div>
 
-              {/* RIGHT CONTENT */}
-              <div className="w-full md:w-1/2 flex flex-col justify-center">
+              {/* Content */}
+              <div className="flex w-full flex-col justify-center md:w-[58%]">
+                <p
+                  className={`${jetbrainsMono.className} text-[10px] uppercase tracking-[0.14em] text-cyan-300`}
+                >
+                  Continuous Development
+                </p>
 
-                {/* HEADING */}
-                <h3 className="text-[28px] sm:text-[32px] lg:text-[38px] leading-[1.15] font-semibold tracking-[-0.03em] text-[#8e95a7]">
-                  Building Next...
+                <h3 className="mt-3 text-[28px] font-semibold leading-[1.15] tracking-[-0.04em] text-[#dce5f8] sm:text-[32px]">
+                  Building What Comes Next
                 </h3>
 
-                {/* PARAGRAPH */}
-                <p className="mt-5 max-w-[540px] text-[14px] sm:text-[15px] lg:text-[16px] leading-[1.8] text-[#6f778b]">
-                  Currently building AI-native SaaS applications focused on conversational
-                  interfaces, retrieval systems, semantic search, vector databases,
-                  and scalable full-stack product architecture.
+                <p className="mt-5 max-w-xl text-[13px] leading-[1.8] text-[#8995ac] sm:text-[14px]">
+                  I&apos;m continuing to improve Aura Finance while expanding
+                  my skills in advanced system design, AWS, Kubernetes,
+                  Agentic AI, AI workflows, and multi-agent systems.
                 </p>
 
-                {/* ACTION BUTTON */}
-                <Link href="/contact">
-                  <button className={`${jetbrainsMono.className} mt-8 w-fit self-start rounded-sm border border-white/10 bg-[#1b2438] px-4 sm:px-5 py-2.5 sm:py-3 text-[11px] sm:text-[12px] uppercase tracking-[0.12em] text-[#b7c6e6] transition-all duration-300 hover:border-cyan-300/30 hover:bg-[#202c46] hover:text-cyan-200`}>
-                    View_Contact
-                  </button>
-                </Link>
+                <div className="mt-6 flex flex-wrap gap-2">
+                  {[
+                    "System Design",
+                    "AWS",
+                    "Kubernetes",
+                    "Agentic AI",
+                    "Multi-Agent Systems",
+                    "DevOps",
+                  ].map((item) => (
+                    <TechTag
+                      key={item}
+                      text={item}
+                      small
+                    />
+                  ))}
+                </div>
 
+                <div className="mt-8 flex flex-wrap items-center gap-3">
+                  <Link
+                    href="/contact"
+                    className={`${jetbrainsMono.className} flex items-center gap-2 rounded-lg bg-gradient-to-r from-[#adc7ff] to-cyan-300 px-4 py-2.5 text-[10px] font-bold uppercase tracking-[0.08em] text-[#08111f] transition-all duration-300 hover:scale-[1.02] sm:text-[11px]`}
+                  >
+                    Contact Me
+                    <ArrowRight size={14} />
+                  </Link>
+
+                  <a
+                    href="https://github.com/souviknath18"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={`${jetbrainsMono.className} flex items-center gap-2 rounded-lg border border-white/10 bg-white/[0.025] px-4 py-2.5 text-[10px] uppercase tracking-[0.08em] text-[#b7c4dc] transition-all duration-300 hover:border-white/20 hover:bg-white/[0.05] hover:text-white sm:text-[11px]`}
+                  >
+                    View GitHub
+                    <ExternalLink size={14} />
+                  </a>
+                </div>
               </div>
             </div>
-          </div>
-
+          </article>
         </div>
       </div>
     </section>

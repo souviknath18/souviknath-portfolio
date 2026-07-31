@@ -1,5 +1,10 @@
 "use client";
-import Link from "next/link";
+
+import {
+  Github,
+  Linkedin,
+  Mail,
+} from "lucide-react";
 import { JetBrains_Mono } from "next/font/google";
 
 const jetbrainsMono = JetBrains_Mono({
@@ -10,83 +15,120 @@ export default function ContactTerminalSection() {
   return (
     <section className="px-6 pb-24 lg:px-12">
       <div className="mx-auto max-w-7xl">
-
-        {/* TERMINAL CONTAINER */}
-        <div className="overflow-hidden rounded-2xl border border-cyan-300/10 bg-[#131b2e]/90 shadow-[0_0_40px_rgba(0,0,0,0.45)] backdrop-blur-xl transition-all duration-300 hover:-translate-y-1 hover:border-cyan-300/20">
-
-          {/* TERMINAL HEADER */}
-          <div className="flex items-center border-b border-white/5 bg-[#1b2438]/80 px-5 py-4">
-
-            {/* MAC DOTS */}
-            <div className="mr-5 flex items-center gap-2">
-              <div className="h-2.5 w-2.5 sm:h-3 sm:w-3 rounded-full bg-[#ff5f56]" />
-              <div className="h-2.5 w-2.5 sm:h-3 sm:w-3 rounded-full bg-[#ffbd2e]" />
-              <div className="h-2.5 w-2.5 sm:h-3 sm:w-3 rounded-full bg-[#27c93f]" />
+        {/* Terminal Container */}
+        <div className="overflow-hidden rounded-2xl border border-cyan-300/10 bg-[#131b2e]/90 shadow-[0_0_40px_rgba(0,0,0,0.38)] backdrop-blur-xl transition-all duration-300 hover:-translate-y-1 hover:border-cyan-300/20 hover:shadow-[0_0_40px_rgba(99,247,255,0.05)]">
+          {/* Terminal Header */}
+          <div className="flex items-center border-b border-white/[0.06] bg-[#1b2438]/80 px-4 py-3.5 sm:px-5">
+            {/* Mac Dots */}
+            <div className="mr-4 flex items-center gap-2 sm:mr-5">
+              <div className="h-2.5 w-2.5 rounded-full bg-[#ff5f56] sm:h-3 sm:w-3" />
+              <div className="h-2.5 w-2.5 rounded-full bg-[#ffbd2e] sm:h-3 sm:w-3" />
+              <div className="h-2.5 w-2.5 rounded-full bg-[#27c93f] sm:h-3 sm:w-3" />
             </div>
 
-            {/* TERMINAL PATH */}
+            {/* Terminal Path */}
             <div
-              className={`${jetbrainsMono.className} truncate text-[10px] sm:text-[12px] tracking-[0.08em] text-[#8b90a0]`}
+              className={`${jetbrainsMono.className} truncate text-[10px] tracking-[0.08em] text-[#8b90a0] sm:text-[11px] md:text-[12px]`}
             >
-              stackwithsouvik@portfolio: ~/contact_request
+              souvik@portfolio: ~/open_to_opportunities
             </div>
           </div>
 
-          {/* TERMINAL BODY */}
-          <div className="relative overflow-hidden px-5 py-5 sm:px-6 sm:py-6 md:px-10 md:py-8">
+          {/* Terminal Body */}
+          <div className="relative overflow-hidden px-5 py-7 sm:px-7 sm:py-8 md:px-10 md:py-10">
+            {/* Background Glows */}
+            <div className="pointer-events-none absolute -left-20 top-0 h-72 w-72 rounded-full bg-cyan-300/[0.05] blur-3xl" />
+            <div className="pointer-events-none absolute right-0 top-10 h-72 w-72 rounded-full bg-[#4a8eff]/[0.05] blur-3xl" />
 
-            {/* BACKGROUND GLOW */}
-            <div className="absolute -left-20 top-0 h-72 w-72 rounded-full bg-cyan-300/5 blur-3xl" />
-            <div className="absolute right-0 top-10 h-72 w-72 rounded-full bg-[#4a8eff]/5 blur-3xl" />
-
-            <div
-              className={`${jetbrainsMono.className} relative z-10`}
-            >
-
-              {/* COMMAND */}
-              <div className="flex flex-wrap items-start gap-x-3 gap-y-2 text-[12px] sm:text-[14px] md:text-[15px]">
-
-                <span className="text-cyan-300">
-                  visitor@web:~$
+            <div className={`${jetbrainsMono.className} relative z-10`}>
+              {/* Command */}
+              <div className="flex flex-wrap items-start gap-x-3 gap-y-2 text-[11px] sm:text-[13px] md:text-[14px]">
+                <span className="shrink-0 text-cyan-300">
+                  recruiter@web:~$
                 </span>
 
                 <span className="break-words text-[#aab4cf]">
-                  ./contact_engineer.sh --subject "Collaborate on AI Product"
-                  <span className="ml-1 inline-block h-[16px] w-[2px] animate-[pulse_1s_steps(1)_infinite] bg-cyan-300 align-middle" />
+                  ./connect.sh --role &quot;Full Stack / Backend / AI
+                  Engineer&quot;
+                  <span className="ml-1 inline-block h-[15px] w-[2px] animate-[pulse_1s_steps(1)_infinite] bg-cyan-300 align-middle" />
                 </span>
               </div>
 
-              {/* TERMINAL OUTPUT */}
-              <div className="mt-6 space-y-0.5 sm:space-y-1 text-[12px] sm:text-[14px] leading-7 md:text-[15px]">
-
+              {/* Terminal Output */}
+              <div className="mt-6 space-y-1 text-[11px] leading-7 sm:text-[13px] md:text-[14px]">
                 <div className="text-[#c1c6d7]">
-                  [SYSTEM] Initializing handshake protocol...
+                  [SYSTEM] Loading engineering profile...
                 </div>
 
                 <div className="text-cyan-300">
-                  [SUCCESS] Connection established.
+                  [SUCCESS] Profile verified and available.
                 </div>
 
                 <div className="text-[#c1c6d7]">
-                  [INFO] Looking for a developer who works with React,
-                  Python, and AI-powered systems?
+                  [INFO] 3+ years of experience across enterprise fintech,
+                  full-stack development, production APIs, and AI-powered SaaS
+                  products.
                 </div>
 
                 <div className="text-[#c1c6d7]">
-                  [ACTION] Click the button below to initiate high-bandwidth
-                  communication.
+                  [STACK] Next.js, TypeScript, Django, FastAPI, PostgreSQL,
+                  Celery, Redis, Kafka, OpenAI, RAG, Docker, and cloud
+                  deployment.
+                </div>
+
+                <div className="text-[#c1c6d7]">
+                  [STATUS] Open to full-stack, backend, and AI application
+                  opportunities.
+                </div>
+
+                <div className="text-[#c1c6d7]">
+                  [ACTION] Choose a channel below to start a conversation.
                 </div>
               </div>
 
-              {/* BUTTON */}
-              <div className="mt-10">
-                <Link href="/contact">
-                  <button className={`${jetbrainsMono.className} rounded-lg bg-[#adc7ff] px-5 py-2.5 sm:px-7 sm:py-3 text-[11px] sm:text-[13px] font-semibold uppercase tracking-[0.08em] text-[#08111f] shadow-[0_0_20px_rgba(173,199,255,0.25)] transition-all duration-300 hover:scale-[1.02] hover:bg-[#c4d7ff] hover:shadow-[0_0_30px_rgba(173,199,255,0.35)]`}>
-                    Execute: Contact_Me
-                  </button>
-                </Link>
+              {/* Action Buttons */}
+              <div className="mt-9 flex flex-wrap items-center gap-3">
+                <a
+                  href="mailto:souviknath18@gmail.com"
+                  className={`${jetbrainsMono.className} flex items-center gap-2 rounded-lg bg-gradient-to-r from-[#adc7ff] to-cyan-300 px-4 py-2.5 text-[10px] font-semibold uppercase tracking-[0.08em] text-[#08111f] shadow-[0_0_20px_rgba(173,199,255,0.22)] transition-all duration-300 hover:scale-[1.02] hover:shadow-[0_0_28px_rgba(99,247,255,0.28)] sm:px-5 sm:py-3 sm:text-[11px]`}
+                >
+                  <Mail size={15} />
+                  Email Me
+                </a>
+
+                <a
+                  href="https://www.linkedin.com/in/stackwithsouvik/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={`${jetbrainsMono.className} flex items-center gap-2 rounded-lg border border-white/10 bg-white/[0.025] px-4 py-2.5 text-[10px] font-semibold uppercase tracking-[0.08em] text-[#b7c4dc] transition-all duration-300 hover:border-[#0A66C2]/45 hover:bg-[#0A66C2]/10 hover:text-[#72b8ff] sm:px-5 sm:py-3 sm:text-[11px]`}
+                >
+                  <Linkedin size={15} />
+                  LinkedIn
+                </a>
+
+                <a
+                  href="https://github.com/souviknath18"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={`${jetbrainsMono.className} flex items-center gap-2 rounded-lg border border-white/10 bg-white/[0.025] px-4 py-2.5 text-[10px] font-semibold uppercase tracking-[0.08em] text-[#b7c4dc] transition-all duration-300 hover:border-white/25 hover:bg-white/[0.06] hover:text-white sm:px-5 sm:py-3 sm:text-[11px]`}
+                >
+                  <Github size={15} />
+                  GitHub
+                </a>
               </div>
 
+              {/* Contact Details */}
+              <div className="mt-7 flex flex-col gap-1.5 border-t border-white/[0.06] pt-5 text-[10px] leading-6 text-[#748097] sm:flex-row sm:items-center sm:gap-3 sm:text-[11px]">
+                <span>souviknath18@gmail.com</span>
+
+                <span className="hidden text-white/20 sm:inline">•</span>
+
+                <span>Bangalore, India</span>
+
+                <span className="hidden text-white/20 sm:inline">•</span>
+
+                <span>Immediate Joiner</span>
+              </div>
             </div>
           </div>
         </div>

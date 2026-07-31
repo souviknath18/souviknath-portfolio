@@ -1,22 +1,27 @@
 "use client";
 
-import Image from "next/image";
+import Image, { StaticImageData } from "next/image";
+import { JetBrains_Mono } from "next/font/google";
 
 import terminalIcon from "@/assets/icons/terminal.png";
-
 import frontendIcon from "@/assets/icons/js.png";
 import backendIcon from "@/assets/icons/server.png";
 import aiIcon from "@/assets/icons/ai.png";
 import cloudIcon from "@/assets/icons/cloud.png";
 import databaseIcon from "@/assets/icons/database.png";
 
-import { JetBrains_Mono } from "next/font/google";
-
 const jetbrainsMono = JetBrains_Mono({
   subsets: ["latin"],
 });
 
-const skills = [
+type Skill = {
+  title: string;
+  icon: StaticImageData;
+  iconBoxClass: string;
+  items: string[];
+};
+
+const skills: Skill[] = [
   {
     title: "Frontend",
     icon: frontendIcon,
@@ -25,59 +30,62 @@ const skills = [
       "Next.js",
       "React.js",
       "TypeScript",
+      "JavaScript",
       "Tailwind CSS",
-      "Shadcn/UI",
+      "shadcn/ui",
     ],
   },
-
   {
     title: "Backend",
     icon: backendIcon,
     iconBoxClass: "border border-[#63f7ff]/20 bg-[#63f7ff]/10",
     items: [
+      "Python",
       "Django & DRF",
+      "FastAPI",
       "RESTful APIs",
-      "JWT + RBAC",
-      "PostgreSQL",
-      "API Security",
+      "Celery & Redis",
+      "Kafka & WebSockets",
     ],
   },
-
   {
-    title: "AI & LLM",
+    title: "AI & GenAI",
     icon: aiIcon,
     iconBoxClass: "border border-[#4a8eff]/20 bg-[#4a8eff]/10",
     items: [
       "OpenAI API",
-      "LangChain (Learning)",
       "LLM Applications",
-      "RAG (Learning)",
-      "Vector DBs (Learning)",
+      "RAG Workflows",
+      "Prompt Engineering",
+      "Embeddings",
+      "Semantic Search",
+      "Vector Search",
     ],
   },
-
-  {
-    title: "Tools & DevOps",
-    icon: cloudIcon,
-    iconBoxClass: "border border-[#ffb695]/20 bg-[#ffb695]/10",
-    items: [
-      "Docker",
-      "GitHub Actions",
-      "Vercel",
-      "Postman",
-      // "Linux Basics",
-    ],
-  },
-
   {
     title: "Database",
     icon: databaseIcon,
     iconBoxClass: "border border-[#8b90a0]/20 bg-[#8b90a0]/10",
     items: [
       "PostgreSQL",
-      "MySQL",
       "CockroachDB",
-      "Redis (Learning)",
+      "MySQL",
+      "MongoDB",
+      "Redis",
+      "pgvector",
+    ],
+  },
+  {
+    title: "DevOps & Cloud",
+    icon: cloudIcon,
+    iconBoxClass: "border border-[#ffb695]/20 bg-[#ffb695]/10",
+    items: [
+      "Docker & Compose",
+      "GitHub Actions",
+      "CI/CD Pipelines",
+      "GCP & AWS",
+      "Railway & Vercel",
+      "Cloudflare R2",
     ],
   },
 ];
@@ -87,22 +95,16 @@ function SkillCard({
   icon,
   iconBoxClass,
   items,
-}: {
-  title: string;
-  icon: any;
-  iconBoxClass: string;
-  items: string[];
-}) {
+}: Skill) {
   return (
-    <div className="group rounded-[20px] border border-white/10 bg-[#131b2eb3] p-7 shadow-[0_0_40px_rgba(0,0,0,0.22)] backdrop-blur-xl transition-all duration-300 hover:-translate-y-1 hover:border-cyan-300/25 hover:bg-[#17233b]/90 hover:shadow-[0_0_35px_rgba(99,247,255,0.06)]">
-      
+    <article className="group rounded-[20px] border border-white/10 bg-[#131b2eb3] p-6 shadow-[0_0_40px_rgba(0,0,0,0.22)] backdrop-blur-xl transition-all duration-300 hover:-translate-y-1 hover:border-cyan-300/25 hover:bg-[#17233b]/90 hover:shadow-[0_0_35px_rgba(99,247,255,0.06)] sm:p-7">
       {/* Icon */}
       <div
         className={`mb-6 flex h-14 w-14 items-center justify-center rounded-xl ${iconBoxClass}`}
       >
         <Image
           src={icon}
-          alt={title}
+          alt={`${title} icon`}
           width={28}
           height={28}
           className="object-contain"
@@ -110,45 +112,58 @@ function SkillCard({
       </div>
 
       {/* Heading */}
-      <h3 className="mb-5 text-[22px] font-[700] tracking-[-0.02em] text-[#dae2fd]">
+      <h3 className="mb-5 text-[20px] font-bold tracking-[-0.02em] text-[#dae2fd]">
         {title}
       </h3>
 
       {/* Skills */}
-      <div
-        className={`${jetbrainsMono.className} space-y-3 text-[14px] tracking-[0.02em] text-[#9ba7c2]`}
-      >
+      <div className="flex flex-wrap gap-2.5">
         {items.map((item) => (
-          <div key={item}>{item}</div>
+          <span
+            key={item}
+            className={`${jetbrainsMono.className} rounded-lg border border-white/[0.08] bg-white/[0.035] px-3 py-2 text-[11px] leading-none tracking-[0.01em] text-[#aab5ce] transition-all duration-300 group-hover:border-cyan-300/10 group-hover:bg-cyan-300/[0.025] group-hover:text-[#c8d3eb] sm:text-[12px]`}
+          >
+            {item}
+          </span>
         ))}
       </div>
-    </div>
+    </article>
   );
 }
 
 export default function SkillsSection() {
   return (
-    <section className="mx-auto max-w-7xl px-6 py-24 lg:px-4">
-      
+    <section
+      id="skills"
+      className="mx-auto max-w-7xl px-6 py-20 md:px-10 lg:px-6 lg:py-24 xl:px-4"
+    >
       {/* Heading */}
-      <div className="mb-12 flex items-center gap-4">
-        <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-transparent">
-          <Image
-            src={terminalIcon}
-            alt="Terminal Icon"
-            width={28}
-            height={28}
-            className="object-contain opacity-90"
-          />
+      <div className="mb-12">
+        <div className="flex items-center gap-4">
+          <div className="flex h-9 w-9 items-center justify-center">
+            <Image
+              src={terminalIcon}
+              alt=""
+              width={28}
+              height={28}
+              aria-hidden="true"
+              className="object-contain opacity-90"
+            />
+          </div>
+
+          <h2 className="text-[30px] font-semibold tracking-[-0.03em] text-[#dae2fd] sm:text-4xl">
+            Tech Stack
+          </h2>
         </div>
 
-        <h2 className="text-[32px] font-semibold tracking-tight text-[#dae2fd] sm:text-4xl">
-          Tech Stack
-        </h2>
+        <p className="mt-4 max-w-2xl text-[14px] leading-7 text-[#8793ad] sm:text-[15px]">
+          Technologies I use to build scalable full-stack applications,
+          production APIs, AI-powered products, and cloud-deployed systems.
+        </p>
       </div>
 
       {/* Cards */}
-      <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-5">
+      <div className="grid gap-6 sm:grid-cols-2 xl:grid-cols-5">
         {skills.map((skill) => (
           <SkillCard
             key={skill.title}
@@ -160,8 +175,10 @@ export default function SkillsSection() {
         ))}
       </div>
 
-      <p className="mt-8 text-center text-sm text-[#97a3bd]">
-        Actively learning • Always exploring new tools
+      <p
+        className={`${jetbrainsMono.className} mt-9 text-center text-[12px] tracking-[0.04em] text-[#77839b]`}
+      >
+        Building scalable systems with modern full-stack and AI technologies.
       </p>
     </section>
   );

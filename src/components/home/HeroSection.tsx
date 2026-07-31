@@ -1,10 +1,10 @@
 "use client";
-import Link from "next/link";
-import { ArrowRight } from "lucide-react";
+
+import { Github, Linkedin, Download, } from "lucide-react";
 import {
+  Inter,
   JetBrains_Mono,
   Montserrat,
-  Inter,
 } from "next/font/google";
 
 const jetbrainsMono = JetBrains_Mono({
@@ -13,7 +13,7 @@ const jetbrainsMono = JetBrains_Mono({
 
 const montserrat = Montserrat({
   subsets: ["latin"],
-  weight: ["700", "900"],
+  weight: ["700", "800"],
 });
 
 const inter = Inter({
@@ -21,9 +21,24 @@ const inter = Inter({
   weight: ["400", "500", "600", "700"],
 });
 
+const highlights = [
+  {
+    value: "3+",
+    label: "Years of Experience",
+  },
+  {
+    value: "30+",
+    label: "Production REST APIs",
+  },
+  {
+    value: "Fintech",
+    label: "Production Systems",
+  },
+];
+
 export default function HeroSection() {
   return (
-    <section className="mx-auto flex max-w-7xl items-start px-6 pt-28 pb-20 md:px-10 lg:px-6 lg:pt-28 xl:px-4">
+    <section className="mx-auto flex max-w-7xl items-start px-6 pb-20 pt-28 md:px-10 lg:px-6 lg:pt-28 xl:px-4">
       <div className="grid w-full gap-16 lg:grid-cols-2">
         {/* LEFT SIDE */}
         <div className="flex flex-col justify-center">
@@ -35,85 +50,127 @@ export default function HeroSection() {
             </div>
 
             <span
-              className={`${jetbrainsMono.className} text-[13px] uppercase tracking-[0.12em] text-cyan-300`}
+              className={`${jetbrainsMono.className} text-[12px] uppercase tracking-[0.12em] text-cyan-300 sm:text-[13px]`}
             >
-              Open to Opportunities
+              Open to Full Stack & AI Opportunities
             </span>
           </div>
 
-          {/* Name + Role */}
+          {/* Name */}
           <h1
-            className={`${montserrat.className} mb-5 text-[44px] font-[700] leading-[0.98] tracking-[-0.05em] text-[#dae2fd] sm:text-[58px] md:text-7xl`}
+            className={`${montserrat.className} text-[46px] font-[800] leading-[0.95] tracking-[-0.05em] text-[#dae2fd] sm:text-[60px] md:text-[74px]`}
           >
             Souvik Nath
-            <span className="block bg-gradient-to-r from-[#adc7ff] to-cyan-300 bg-clip-text text-transparent">
-              Software Engineer & AI Builder
-            </span>
           </h1>
 
+          {/* Subtitle */}
+          <h2
+            className={`${montserrat.className} mt-4 bg-gradient-to-r from-[#adc7ff] to-cyan-300 bg-clip-text text-[25px] font-bold leading-tight tracking-[-0.035em] text-transparent sm:text-[31px] md:text-[36px]`}
+          >
+            Full Stack Engineer & AI Developer
+          </h2>
+
           {/* Description */}
-          <p className={`${inter.className} max-w-xl text-[16px] leading-[1.9] text-[#97a3bd] sm:text-[17px]`}>
-            Crafting high-performance full-stack applications and intelligent AI solutions using Next.js, Django, and LLMs. Passionate about turning complex problems into intuitive, AI-enhanced experiences.
+          <p
+            className={`${inter.className} mt-5 max-w-xl text-[14px] leading-[1.85] text-[#97a3bd] sm:text-[15px]`}
+          >
+            I build scalable full-stack applications and AI-powered SaaS
+            products using Next.js, TypeScript, Django, FastAPI, PostgreSQL,
+            and OpenAI. My work focuses on production-ready APIs, intelligent
+            document processing, RAG, semantic search, and reliable background
+            processing systems.
           </p>
 
           {/* Buttons */}
           <div
-            className={`${inter.className} mt-10 flex flex-wrap items-center gap-4 sm:gap-5`}
+            className={`${inter.className} mt-9 flex flex-wrap items-center gap-3 sm:flex-nowrap sm:gap-4`}
           >
-            <Link href="/projects">
-              <button className="rounded-xl bg-gradient-to-r from-[#adc7ff] to-cyan-300 px-6 sm:px-7 py-3 sm:py-3.5 text-[13px] sm:text-[15px] font-bold text-[#08111f] shadow-[0_0_25px_rgba(173,199,255,0.22)] transition-all duration-300 hover:scale-[1.03] hover:shadow-[0_0_35px_rgba(99,247,255,0.28)]">
-                View Projects
-              </button>
-            </Link>
-
             <a
               href="/resume/SouvikNath_Resume.pdf"
-              download
-              className="rounded-xl border border-cyan-300/30 bg-cyan-300/[0.02] px-6 sm:px-7 py-3 sm:py-3.5 text-[13px] sm:text-[15px] font-bold text-cyan-300 transition-all duration-300 hover:border-cyan-300/60 hover:bg-cyan-300/[0.05]"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center justify-center gap-2.5 whitespace-nowrap rounded-xl bg-gradient-to-r from-[#adc7ff] to-cyan-300 px-6 py-3 text-[13px] font-bold text-[#08111f] shadow-[0_0_25px_rgba(173,199,255,0.22)] transition-all duration-300 hover:scale-[1.03] hover:shadow-[0_0_35px_rgba(99,247,255,0.28)] sm:px-7 sm:py-3.5 sm:text-[14px]"
             >
-              View Resume
+              Download Resume
+              <Download size={18} strokeWidth={2.4} />
             </a>
 
-            <Link
-              href="/contact"
-              className="flex cursor-pointer items-center gap-2 text-[14px] sm:text-[16px] font-bold text-[#dae2fd] transition hover:text-[#adc7ff]"
+            <a
+              href="https://www.linkedin.com/in/stackwithsouvik/"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Open Souvik Nath's LinkedIn profile"
+              className="flex items-center justify-center gap-2 whitespace-nowrap rounded-xl border border-white/10 bg-white/[0.02] px-5 py-3 text-[13px] font-semibold text-[#dae2fd] transition-all duration-300 hover:border-[#0A66C2]/70 hover:bg-[#0A66C2]/10 hover:text-[#72b8ff] sm:py-3.5 sm:text-[14px]"
             >
-              Contact Me
-              <ArrowRight size={18} className="sm:size-5" />
-            </Link>
+              <Linkedin size={18} />
+              LinkedIn
+            </a>
+
+            <a
+              href="https://github.com/souviknath18"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Open Souvik Nath's GitHub profile"
+              className="flex items-center justify-center gap-2 whitespace-nowrap rounded-xl border border-white/10 bg-white/[0.02] px-5 py-3 text-[13px] font-semibold text-[#dae2fd] transition-all duration-300 hover:border-white/35 hover:bg-white/[0.06] hover:text-white sm:py-3.5 sm:text-[14px]"
+            >
+              <Github size={18} />
+              GitHub
+            </a>
+          </div>
+
+          {/* Career Highlights */}
+          <div
+            className={`${inter.className} mt-8 grid max-w-xl grid-cols-1 gap-3 sm:grid-cols-3`}
+          >
+            {highlights.map((item) => (
+              <div
+                key={item.label}
+                className="rounded-xl border border-white/[0.08] bg-white/[0.025] px-4 py-3 backdrop-blur-sm transition-all duration-300 hover:border-cyan-300/20 hover:bg-cyan-300/[0.035]"
+              >
+                <div className="text-[18px] font-bold text-[#dae2fd]">
+                  {item.value}
+                </div>
+
+                <div className="mt-1 text-[11px] font-medium uppercase leading-[1.5] tracking-[0.08em] text-[#7f8ba3]">
+                  {item.label}
+                </div>
+              </div>
+            ))}
           </div>
         </div>
 
         {/* RIGHT SIDE */}
         <div className="relative hidden items-center justify-center lg:flex">
           {/* Blur Glow */}
-          <div className="absolute h-72 w-72 rounded-full bg-cyan-300/8 blur-[120px]" />
+          <div className="absolute h-64 w-64 rounded-full bg-cyan-300/8 blur-[100px]" />
 
           {/* Terminal */}
-          <div className="group relative w-full max-w-xl overflow-hidden rounded-2xl border border-white/10 bg-[#0f172ab3] shadow-[0_0_40px_rgba(0,0,0,0.45)] backdrop-blur-xl transition-all duration-300 hover:border-cyan-300/20">
-            
+          <div className="group relative w-full max-w-[460px] overflow-hidden rounded-2xl border border-white/10 bg-[#0f172ab3] shadow-[0_0_35px_rgba(0,0,0,0.4)] backdrop-blur-xl transition-all duration-300 hover:border-cyan-300/20">
             {/* Header */}
-            <div className="flex items-center border-b border-white/5 bg-[#11182760] px-5 py-3.5 backdrop-blur-xl">
+            <div className="flex items-center border-b border-white/5 bg-[#11182760] px-4 py-3 backdrop-blur-xl">
               {/* Mac Dots */}
-              <div className="mr-5 flex items-center gap-2">
-                <div className="h-3 w-3 rounded-full bg-[#ff5f56]" />
-                <div className="h-3 w-3 rounded-full bg-[#ffbd2e]" />
-                <div className="h-3 w-3 rounded-full bg-[#27c93f]" />
+              <div className="mr-4 flex items-center gap-2">
+                <div className="h-2.5 w-2.5 rounded-full bg-[#ff5f56]" />
+                <div className="h-2.5 w-2.5 rounded-full bg-[#ffbd2e]" />
+                <div className="h-2.5 w-2.5 rounded-full bg-[#27c93f]" />
               </div>
 
               {/* Filename */}
               <div
-                className={`${jetbrainsMono.className} text-[12px] tracking-[0.06em] text-[#7f8ba3]`}
+                className={`${jetbrainsMono.className} text-[11px] tracking-[0.06em] text-[#7f8ba3]`}
               >
-                souvik_nath_core.py
+                souvik_nath.py
               </div>
             </div>
 
             {/* Code Area */}
-            <div className={`${jetbrainsMono.className} overflow-x-auto p-6 text-[14px] leading-[1.95] text-[#adc7ff]`}>
+            <div
+              className={`${jetbrainsMono.className} overflow-x-auto p-5 text-[13px] leading-[1.8] text-[#adc7ff]`}
+            >
               <div>
                 <span className="text-[#63f7ff]">class</span>{" "}
-                <span className="text-white">SouvikNath</span>(Developer):
+                <span className="text-white">SouvikNath</span>
+                (FullStackEngineer):
               </div>
 
               <div className="pl-4">
@@ -122,38 +179,87 @@ export default function HeroSection() {
               </div>
 
               <div className="pl-8">
-                self.name = <span className="text-[#ffb695]">"Souvik Nath"</span>
-              </div>
-              <div className="pl-8">
-                self.role = <span className="text-[#ffb695]">"Software Engineer & AI Builder"</span>
-              </div>
-              <div className="pl-8">
-                self.currently_building = [
-                <span className="text-[#ffb695]">"AI Finance Insights Platform"</span>,{" "}
-                <span className="text-[#ffb695]">"AI Career Coach"</span>
-                ]
-              </div>
-
-              <div className="pl-4 mt-4">
-                <span className="text-[#63f7ff]">self</span>.learning = [
+                self.name ={" "}
+                <span className="text-[#ffb695]">
+                  &quot;Souvik Nath&quot;
+                </span>
               </div>
 
               <div className="pl-8">
-                <span className="text-[#ffb695]">"RAG Pipelines"</span>,
+                self.role ={" "}
+                <span className="text-[#ffb695]">
+                  &quot;Full Stack Engineer&quot;
+                </span>
               </div>
 
               <div className="pl-8">
-                <span className="text-[#ffb695]">"Vector Databases"</span>,
+                self.experience ={" "}
+                <span className="text-[#ffb695]">
+                  &quot;3+ years&quot;
+                </span>
               </div>
 
-              <div className="pl-8">
-                <span className="text-[#ffb695]">"LLM Applications"</span>
+              <div className="mt-3 pl-8">
+                self.core_stack = [
               </div>
 
-              <div className="pl-4">]</div>
+              <div className="pl-12">
+                <span className="text-[#ffb695]">
+                  &quot;Next.js & TypeScript&quot;
+                </span>
+                ,
+              </div>
 
-              <div className="pl-8 mt-3 text-[#63f7ff]">
-                # Building scalable AI-native systems
+              <div className="pl-12">
+                <span className="text-[#ffb695]">
+                  &quot;Django, DRF & FastAPI&quot;
+                </span>
+                ,
+              </div>
+
+              <div className="pl-12">
+                <span className="text-[#ffb695]">
+                  &quot;PostgreSQL, Celery & Redis&quot;
+                </span>
+              </div>
+
+              <div className="pl-8">]</div>
+
+              <div className="mt-3 pl-8">
+                self.currently_building ={" "}
+                <span className="text-[#ffb695]">
+                  &quot;Aura Finance&quot;
+                </span>
+              </div>
+
+              <div className="mt-3 pl-8">
+                self.ai_focus = [
+              </div>
+
+              <div className="pl-12">
+                <span className="text-[#ffb695]">
+                  &quot;LLM Applications&quot;
+                </span>
+                ,
+              </div>
+
+              <div className="pl-12">
+                <span className="text-[#ffb695]">
+                  &quot;RAG & Semantic Search&quot;
+                </span>
+                ,
+              </div>
+
+              <div className="pl-12">
+                <span className="text-[#ffb695]">
+                  &quot;Embeddings & Vector Search&quot;
+                </span>
+              </div>
+
+              <div className="pl-8">]</div>
+
+              <div className="mt-3 pl-8 text-[#63f7ff]">
+                # Building scalable AI-powered software
               </div>
             </div>
           </div>

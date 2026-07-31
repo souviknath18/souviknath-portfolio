@@ -1,45 +1,81 @@
 "use client";
 
+import {
+  JetBrains_Mono,
+  Montserrat,
+  Inter,
+} from "next/font/google";
+
+const jetbrainsMono = JetBrains_Mono({
+  subsets: ["latin"],
+});
+
+const montserrat = Montserrat({
+  subsets: ["latin"],
+  weight: ["700", "800"],
+});
+
+const inter = Inter({
+  subsets: ["latin"],
+  weight: ["400", "500", "600"],
+});
+
 export default function SkillsHero() {
   return (
-    <section className="px-6 md:px-10 lg:px-8 xl:px-12 pt-28 md:pt-32 lg:pt-36 pb-20 md:pb-24">
+    <section className="px-6 pb-20 pt-28 md:px-10 md:pb-24 md:pt-32 lg:px-8 lg:pt-36 xl:px-12">
       <div className="mx-auto flex max-w-4xl flex-col items-center text-center">
-
-        {/* TOP BADGE */}
-        <div className="mb-5 rounded-full border border-cyan-300/30 bg-cyan-300/[0.03] px-3 sm:px-4 py-[4px]">
-          <span className="font-mono text-[11px] sm:text-[12px] md:text-[13px] font-medium uppercase tracking-[0.14em] sm:tracking-[0.16em] text-cyan-300">
-            SYSTEM CAPABILITIES
+        {/* Top Badge */}
+        <div className="mb-5 rounded-full border border-cyan-300/25 bg-cyan-300/[0.035] px-3 py-1 sm:px-4">
+          <span
+            className={`${jetbrainsMono.className} text-[10px] font-medium uppercase tracking-[0.14em] text-cyan-300 sm:text-[11px] md:text-[12px]`}
+          >
+            Full Stack • Backend • AI • Cloud
           </span>
         </div>
 
-        {/* HEADING */}
-        <h1 className="text-[38px] sm:text-[46px] md:text-[60px] lg:text-[72px] font-bold tracking-[-0.04em] leading-[1.08] md:leading-[1.05] text-[#adc7ff]">
-          Technical Arsenal
+        {/* Heading */}
+        <h1
+          className={`${montserrat.className} text-[38px] font-[800] leading-[1.08] tracking-[-0.04em] text-[#dae2fd] sm:text-[46px] md:text-[58px] lg:text-[66px]`}
+        >
+          Technical Skills
+          <span className="mt-1 block bg-gradient-to-r from-[#adc7ff] to-cyan-300 bg-clip-text text-transparent">
+            Built for Real-World Systems
+          </span>
         </h1>
 
-        {/* DESCRIPTION */}
-        <p className="mt-5 sm:mt-6 max-w-3xl text-[15px] sm:text-[16px] md:text-[17px] lg:text-[18px] leading-[1.75] sm:leading-[1.8] text-[#8b90a0]">
-          Software Engineer focused on building modern web applications 
-          with Next.js, Django, and AI-powered workflows. Focused on creating scalable, 
-          secure, and intelligent systems — from beautiful user interfaces to 
-          intelligent AI-native applications.
+        {/* Description */}
+        <p
+          className={`${inter.className} mt-6 max-w-3xl text-[14px] leading-[1.8] text-[#8f9ab2] sm:text-[15px] md:text-[16px]`}
+        >
+          I build scalable full-stack applications, production-ready APIs,
+          fintech systems, and AI-powered SaaS products using Next.js,
+          TypeScript, Django, FastAPI, PostgreSQL, Celery, Redis, Kafka,
+          OpenAI, RAG, vector search, Docker, and cloud technologies.
         </p>
 
-        {/* STATUS */}
-        <div className="mt-8 sm:mt-10 flex items-start gap-3 px-2 text-left">
+        {/* Supporting Text */}
+        <p
+          className={`${inter.className} mt-4 max-w-2xl text-[13px] leading-[1.8] text-[#737f97] sm:text-[14px]`}
+        >
+          My focus is on clean architecture, secure API design, asynchronous
+          processing, database performance, reliable deployment, and practical
+          AI integration.
+        </p>
 
-          {/* PULSE DOT */}
-          <div className="relative mt-[4px] flex h-2.5 w-2.5 shrink-0">
+        {/* Status */}
+        <div className="mt-8 flex items-center gap-3 rounded-full border border-white/[0.07] bg-white/[0.025] px-4 py-2.5 sm:mt-10">
+          <div className="relative flex h-2.5 w-2.5 shrink-0">
             <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-cyan-300 opacity-75" />
-            <span className="relative inline-flex h-2.5 w-2.5 rounded-full bg-cyan-300 shadow-[0_0_12px_rgba(34,211,238,0.95)]" />
+            <span className="relative inline-flex h-2.5 w-2.5 rounded-full bg-cyan-300 shadow-[0_0_12px_rgba(34,211,238,0.9)]" />
           </div>
 
-          {/* STATUS TEXT */}
-          <span className="font-mono text-[11px] sm:text-[12px] md:text-[13px] uppercase tracking-[0.06em] sm:tracking-[0.08em] text-cyan-300">
-            Status: Actively building AI-powered products
+          <span
+            className={`${jetbrainsMono.className} text-[10px] uppercase tracking-[0.08em] text-cyan-300 sm:text-[11px] md:text-[12px]`}
+          >
+            Currently expanding into Agentic AI, AWS, Kubernetes, and advanced
+            system design
           </span>
         </div>
-
       </div>
     </section>
   );

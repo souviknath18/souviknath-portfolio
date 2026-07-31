@@ -1,16 +1,24 @@
 "use client";
 
+import type { LucideIcon } from "lucide-react";
 import {
-  Server,
-  Database,
-  ShieldCheck,
-  KeyRound,
-  Waypoints,
-  Gauge,
+  Activity,
+  Braces,
   CheckCircle2,
+  Database,
+  Gauge,
+  KeyRound,
+  Network,
+  Server,
+  ShieldCheck,
+  Waypoints,
 } from "lucide-react";
 
-import { Montserrat, Inter, JetBrains_Mono } from "next/font/google";
+import {
+  Inter,
+  JetBrains_Mono,
+  Montserrat,
+} from "next/font/google";
 
 const montserrat = Montserrat({
   subsets: ["latin"],
@@ -27,128 +35,301 @@ const jetbrainsMono = JetBrains_Mono({
   weight: ["500"],
 });
 
-const backendSkills = [
+type BackendSkill = {
+  icon: LucideIcon;
+  title: string;
+  level: string;
+  description: string;
+  tech: string[];
+};
+
+const backendSkills: BackendSkill[] = [
   {
-    icon: <Server size={24} />,
-    title: "Django & DRF",
-    level: "ADVANCED",
+    icon: Server,
+    title: "Django, DRF & FastAPI",
+    level: "Production",
     description:
-      "Building scalable backend systems, REST APIs, serializers, views, authentication flows, and production-style API structures.",
-    tech: ["Django", "DRF", "Serializers", "Views"],
+      "Building scalable backend services, serializers, viewsets, async endpoints, business logic, and maintainable API architectures.",
+    tech: [
+      "Django",
+      "Django REST Framework",
+      "FastAPI",
+      "ViewSets",
+      "Serializers",
+    ],
   },
   {
-    icon: <Waypoints size={24} />,
-    title: "RESTful API Design",
-    level: "ADVANCED",
+    icon: Waypoints,
+    title: "RESTful API Engineering",
+    level: "Production",
     description:
-      "Designing clean API endpoints with proper request handling, response structures, filtering, pagination, and error handling.",
-    tech: ["REST APIs", "Pagination", "Filtering", "Validation"],
+      "Designing production-grade APIs with clear contracts, validation, filtering, pagination, ordering, structured errors, and consistent responses.",
+    tech: [
+      "REST APIs",
+      "Pagination",
+      "Filtering",
+      "Ordering",
+      "Validation",
+    ],
   },
   {
-    icon: <KeyRound size={24} />,
-    title: "Authentication",
-    level: "ADVANCED",
+    icon: KeyRound,
+    title: "Authentication & Authorization",
+    level: "Production",
     description:
-      "Implementing secure login systems using JWT authentication, protected routes, token handling, and user-based access control.",
-    tech: ["JWT", "Auth Flow", "Protected APIs", "Sessions"],
+      "Implementing secure authentication flows, protected endpoints, token handling, user-specific access, and role-based permissions.",
+    tech: [
+      "JWT",
+      "RBAC",
+      "OAuth2",
+      "Permissions",
+      "Protected APIs",
+    ],
   },
   {
-    icon: <ShieldCheck size={24} />,
+    icon: Network,
+    title: "Async & Event-Driven Systems",
+    level: "Production",
+    description:
+      "Developing background processing, retry workflows, real-time updates, and decoupled service communication for scalable applications.",
+    tech: [
+      "Celery",
+      "Redis",
+      "Kafka",
+      "WebSockets",
+      "Background Jobs",
+    ],
+  },
+  {
+    icon: Database,
+    title: "Database Engineering",
+    level: "Production",
+    description:
+      "Designing relational schemas, optimizing queries, managing migrations, indexing high-volume data, and supporting vector-based retrieval.",
+    tech: [
+      "PostgreSQL",
+      "CockroachDB",
+      "MySQL",
+      "Redis",
+      "pgvector",
+    ],
+  },
+  {
+    icon: Gauge,
+    title: "Performance & Reliability",
+    level: "Production",
+    description:
+      "Improving backend performance through query optimization, caching, reusable services, failure handling, retries, and efficient data processing.",
+    tech: [
+      "Query Optimization",
+      "Caching",
+      "Retries",
+      "Error Handling",
+      "Scalability",
+    ],
+  },
+  {
+    icon: ShieldCheck,
     title: "API Security",
-    level: "PROFICIENT",
+    level: "Production",
     description:
-      "Applying secure backend practices including validation, permission checks, role-based access, and safe API communication.",
-    tech: ["RBAC", "Permissions", "Validation", "Security"],
+      "Applying input validation, access control, secure API communication, user data isolation, and reliable permission checks.",
+    tech: [
+      "Input Validation",
+      "API Security",
+      "Data Isolation",
+      "Permissions",
+      "Secure Workflows",
+    ],
   },
   {
-    icon: <Database size={24} />,
-    title: "Database Design",
-    level: "ADVANCED",
+    icon: Braces,
+    title: "Clean Backend Architecture",
+    level: "Production",
     description:
-      "Working with relational databases, model relationships, migrations, query optimization, and structured data storage.",
-    tech: ["PostgreSQL", "MySQL", "Models", "Migrations"],
+      "Structuring services with modular components, reusable business logic, clean boundaries, and maintainable microservice patterns.",
+    tech: [
+      "Clean Architecture",
+      "SOLID",
+      "Microservices",
+      "Service Layer",
+      "Modular Design",
+    ],
   },
   {
-    icon: <Gauge size={24} />,
-    title: "Backend Performance",
-    level: "PROFICIENT",
+    icon: Activity,
+    title: "Production Support",
+    level: "Production",
     description:
-      "Improving backend workflows through optimized queries, cleaner API logic, reusable services, and efficient data processing.",
-    tech: ["Optimization", "Queries", "Services", "Scalability"],
+      "Handling debugging, root-cause analysis, production issues, API failures, and cross-team delivery in Agile environments.",
+    tech: [
+      "Debugging",
+      "Root Cause Analysis",
+      "Production Support",
+      "Logging",
+      "Agile/Scrum",
+    ],
   },
 ];
 
+function SkillBadge({
+  item,
+}: {
+  item: string;
+}) {
+  return (
+    <span
+      className={`${jetbrainsMono.className} rounded-md border border-white/[0.08] bg-white/[0.035] px-2.5 py-1.5 text-[10px] leading-none text-[#b8c4dd] transition-all duration-300 group-hover:border-cyan-300/15 group-hover:text-[#dce7fb] sm:text-[11px]`}
+    >
+      {item}
+    </span>
+  );
+}
+
+function BackendSkillCard({
+  icon: Icon,
+  title,
+  level,
+  description,
+  tech,
+}: BackendSkill) {
+  return (
+    <article className="group flex h-full flex-col rounded-2xl border border-white/[0.08] bg-[#1a2338]/70 p-5 transition-all duration-300 hover:-translate-y-1 hover:border-cyan-300/20 hover:bg-[#1e2942] hover:shadow-[0_0_30px_rgba(99,247,255,0.05)] sm:p-6">
+      {/* Header */}
+      <div className="mb-5 flex items-start justify-between gap-4">
+        <div className="flex h-11 w-11 items-center justify-center rounded-xl border border-cyan-300/15 bg-cyan-300/[0.05]">
+          <Icon
+            size={22}
+            strokeWidth={1.9}
+            className="text-cyan-300"
+            aria-hidden="true"
+          />
+        </div>
+
+        <span
+          className={`${jetbrainsMono.className} rounded-md border border-cyan-300/15 bg-cyan-300/[0.05] px-2.5 py-1 text-[9px] uppercase tracking-[0.1em] text-cyan-300 sm:text-[10px]`}
+        >
+          {level}
+        </span>
+      </div>
+
+      {/* Title */}
+      <h4
+        className={`${montserrat.className} text-[19px] font-[600] tracking-[-0.03em] text-[#edf2ff] sm:text-[20px]`}
+      >
+        {title}
+      </h4>
+
+      {/* Description */}
+      <p
+        className={`${inter.className} mt-3 flex-1 text-[13px] leading-[1.8] text-[#8f9ab3] sm:text-[14px]`}
+      >
+        {description}
+      </p>
+
+      {/* Skills */}
+      <div className="mt-6 flex flex-wrap gap-2">
+        {tech.map((item) => (
+          <SkillBadge key={item} item={item} />
+        ))}
+      </div>
+    </article>
+  );
+}
+
 export default function BackendSkillsTab() {
   return (
-    <div className="rounded-2xl border border-white/10 bg-[#131b2e]/70 p-5 backdrop-blur-xl sm:rounded-3xl sm:p-6 lg:p-8">
-      <div className="mb-10 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+    <section className="rounded-2xl border border-white/10 bg-[#131b2e]/70 p-5 backdrop-blur-xl sm:rounded-3xl sm:p-6 lg:p-8">
+      {/* Header */}
+      <div className="mb-9 flex flex-col gap-5 sm:mb-10 lg:flex-row lg:items-end lg:justify-between">
         <div>
+          <p
+            className={`${jetbrainsMono.className} text-[10px] uppercase tracking-[0.14em] text-cyan-300 sm:text-[11px]`}
+          >
+            Backend Capabilities
+          </p>
+
           <h3
-            className={`${montserrat.className} text-[28px] font-[700] tracking-[-0.04em] text-[#edf2ff] sm:text-[32px] lg:text-[38px]`}
+            className={`${montserrat.className} mt-3 text-[27px] font-[700] tracking-[-0.04em] text-[#edf2ff] sm:text-[32px] lg:text-[36px]`}
           >
             Backend Engineering
           </h3>
 
           <p
-            className={`${inter.className} mt-3 max-w-3xl text-[15px] leading-[1.8] text-[#8b90a0] sm:text-[16px] lg:text-[17px]`}
+            className={`${inter.className} mt-3 max-w-3xl text-[14px] leading-[1.8] text-[#8b90a0] sm:text-[15px]`}
           >
-            Building secure, scalable backend systems with Django, REST APIs,
-            authentication, database design, and clean server-side architecture.
+            Building secure, scalable, and production-ready backend systems
+            using Django, Django REST Framework, FastAPI, PostgreSQL, Celery,
+            Redis, Kafka, WebSockets, and clean service architecture.
           </p>
         </div>
 
-        <div className="inline-flex items-center gap-2 rounded-full border border-cyan-300/20 bg-cyan-300/[0.04] px-4 py-2">
-          <CheckCircle2 size={16} className="text-cyan-300" />
+        <div className="inline-flex w-fit items-center gap-2 rounded-full border border-cyan-300/20 bg-cyan-300/[0.04] px-4 py-2">
+          <CheckCircle2
+            size={16}
+            className="text-cyan-300"
+            aria-hidden="true"
+          />
 
           <span
-            className={`${jetbrainsMono.className} text-[11px] uppercase tracking-[0.12em] text-cyan-300`}
+            className={`${jetbrainsMono.className} text-[10px] uppercase tracking-[0.1em] text-cyan-300 sm:text-[11px]`}
           >
-            Secure API Systems
+            40+ Production APIs
           </span>
         </div>
       </div>
 
+      {/* Skills Grid */}
       <div className="grid grid-cols-1 gap-5 md:grid-cols-2 xl:grid-cols-3">
         {backendSkills.map((skill) => (
-          <div
+          <BackendSkillCard
             key={skill.title}
-            className="group rounded-2xl border border-white/8 bg-[#1a2338]/70 p-5 transition-all duration-300 hover:-translate-y-1 hover:border-cyan-300/20 hover:bg-[#1e2942] sm:p-6"
-          >
-            <div className="mb-5 flex items-start justify-between">
-              <div className="text-cyan-300">{skill.icon}</div>
-
-              <span
-                className={`${jetbrainsMono.className} rounded-full border border-cyan-300/15 bg-cyan-300/[0.05] px-2.5 py-1 text-[10px] uppercase tracking-[0.12em] text-cyan-300`}
-              >
-                {skill.level}
-              </span>
-            </div>
-
-            <h4
-              className={`${montserrat.className} mb-4 text-[20px] font-[600] tracking-[-0.03em] text-[#edf2ff]`}
-            >
-              {skill.title}
-            </h4>
-
-            <p
-              className={`${inter.className} mb-6 text-[14px] leading-[1.8] text-[#8f9ab3] sm:text-[15px]`}
-            >
-              {skill.description}
-            </p>
-
-            <div className="flex flex-wrap gap-2">
-              {skill.tech.map((item) => (
-                <span
-                  key={item}
-                  className={`${jetbrainsMono.className} rounded-full border border-white/8 bg-white/[0.03] px-3 py-1.5 text-[10px] uppercase tracking-[0.08em] text-[#b8c4dd]`}
-                >
-                  {item}
-                </span>
-              ))}
-            </div>
-          </div>
+            {...skill}
+          />
         ))}
       </div>
-    </div>
+
+      {/* Supporting Toolkit */}
+      <div className="mt-8 rounded-2xl border border-white/[0.07] bg-white/[0.025] p-5 sm:p-6">
+        <div className="flex flex-col gap-5 lg:flex-row lg:items-center lg:justify-between">
+          <div>
+            <p
+              className={`${jetbrainsMono.className} text-[10px] uppercase tracking-[0.12em] text-[#7d899f] sm:text-[11px]`}
+            >
+              Backend Engineering Toolkit
+            </p>
+
+            <p
+              className={`${inter.className} mt-2 max-w-2xl text-[12px] leading-6 text-[#8490a7] sm:text-[13px]`}
+            >
+              Supporting technologies and engineering practices used across
+              enterprise fintech systems, asynchronous services, and
+              AI-powered SaaS applications.
+            </p>
+          </div>
+
+          <div className="flex flex-wrap gap-2">
+            {[
+              "Python",
+              "Django",
+              "DRF",
+              "FastAPI",
+              "Celery",
+              "Redis",
+              "Kafka",
+              "WebSockets",
+              "PostgreSQL",
+              "JWT",
+              "RBAC",
+              "Pytest",
+              "Postman",
+              "Docker",
+            ].map((item) => (
+              <SkillBadge key={item} item={item} />
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
   );
 }
