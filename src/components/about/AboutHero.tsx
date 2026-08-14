@@ -90,7 +90,7 @@ export default function AboutHero() {
           {/* Buttons */}
           <div className="mt-10 flex flex-wrap items-center gap-4">
             <a
-              href="/resume/SouvikNath_Resume.pdf"
+              href="/resume/Souvik_Full_Stack_Developer_2.8Years.pdf"
               target="_blank"
               rel="noopener noreferrer"
               className={`${inter.className} inline-flex items-center gap-2.5 rounded-xl bg-gradient-to-r from-[#adc7ff] to-cyan-300 px-6 py-3 text-[13px] font-bold text-[#08111f] shadow-[0_0_25px_rgba(99,247,255,0.18)] transition-all duration-300 hover:scale-[1.03] hover:shadow-[0_0_35px_rgba(99,247,255,0.28)] sm:px-7 sm:py-3.5 sm:text-[14px]`}
