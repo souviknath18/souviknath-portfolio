@@ -466,7 +466,7 @@ export default function ContactSection() {
 
           {/* Resume */}
           <a
-            href="/resume/SouvikNath_Resume.pdf"
+            href="/resume/Souvik_Full_Stack_Developer_2.8Years.pdf"
             target="_blank"
             rel="noopener noreferrer"
             className={`${inter.className} flex w-full items-center justify-center gap-2.5 rounded-xl bg-gradient-to-r from-[#adc7ff] to-cyan-300 px-6 py-3.5 text-[13px] font-bold text-[#08111f] shadow-[0_0_22px_rgba(173,199,255,0.18)] transition-all duration-300 hover:scale-[1.02] hover:shadow-[0_0_30px_rgba(99,247,255,0.26)] sm:text-[14px]`}
