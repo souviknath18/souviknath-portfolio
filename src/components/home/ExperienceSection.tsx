@@ -208,7 +208,7 @@ export default function ExperienceSection() {
               <span
                 className={`${jetbrainsMono.className} w-fit whitespace-nowrap rounded-md border border-cyan-300/15 bg-cyan-300/[0.05] px-3 py-1.5 text-[11px] font-semibold uppercase tracking-[0.06em] text-cyan-300 sm:text-[12px]`}
               >
-                Aug 2023 – Present
+                Dec 2023 – Present
               </span>
             </div>
 

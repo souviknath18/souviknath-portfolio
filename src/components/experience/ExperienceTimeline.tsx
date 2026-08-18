@@ -31,7 +31,7 @@ const experiences = [
     role: "Software Engineer, Python Full Stack",
     company: "Gowdanar Technosoft Pvt Ltd",
     location: "Bangalore, India",
-    year: "Aug 2023 – Present",
+    year: "Dec 2023 – Present",
     glow: "bg-cyan-300",
     points: [
       <>
