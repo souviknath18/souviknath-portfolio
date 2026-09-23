@@ -66,19 +66,30 @@ export default function ContactTerminalSection() {
 
                 <div className="text-[#c1c6d7]">
                   [INFO] 3+ years of experience across enterprise fintech,
-                  full-stack development, production APIs, and AI-powered SaaS
-                  products.
+                  full-stack development, production APIs, and AI-powered
+                  applications.
                 </div>
 
                 <div className="text-[#c1c6d7]">
-                  [STACK] Next.js, TypeScript, Django, FastAPI, PostgreSQL,
-                  Celery, Redis, Kafka, OpenAI, RAG, Docker, and cloud
-                  deployment.
+                  [STACK] Next.js, TypeScript, Python, Django, FastAPI,
+                  PostgreSQL, SQLAlchemy, Kafka, Redis, LangGraph, OpenAI,
+                  RAG, Docker, and cloud deployment.
                 </div>
 
                 <div className="text-[#c1c6d7]">
-                  [STATUS] Open to full-stack, backend, and AI application
-                  opportunities.
+                  [AI] Building Agentic AI workflows, tool-assisted systems,
+                  RAG pipelines, semantic search, and structured LLM
+                  applications.
+                </div>
+
+                <div className="text-[#c1c6d7]">
+                  [PROJECTS] VoyageAI — Agentic AI Travel Planner | Aura
+                  Finance — AI Personal Finance SaaS.
+                </div>
+
+                <div className="text-[#c1c6d7]">
+                  [STATUS] Open to full-stack, backend, AI, and Agentic AI
+                  engineering opportunities.
                 </div>
 
                 <div className="text-[#c1c6d7]">

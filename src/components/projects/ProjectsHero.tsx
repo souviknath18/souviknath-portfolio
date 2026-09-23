@@ -23,6 +23,7 @@ const inter = Inter({
 
 const projectFocusAreas = [
   "Full Stack SaaS",
+  "Agentic AI",
   "AI-Powered Products",
   "Fintech Systems",
   "Production APIs",
@@ -61,17 +62,19 @@ export default function ProjectsHero() {
         <p
           className={`${inter.className} mt-6 max-w-3xl text-[14px] leading-[1.85] text-[#8f9ab2] sm:text-[15px] md:text-[16px]`}
         >
-          A collection of full-stack and AI-powered applications built using
-          Next.js, TypeScript, Django REST Framework, FastAPI, PostgreSQL,
-          OpenAI, Celery, Redis, vector search, and cloud infrastructure.
+          A collection of full-stack, Agentic AI, and fintech applications
+          built using Next.js, TypeScript, Python, Django, FastAPI,
+          PostgreSQL, LangGraph, OpenAI, Kafka, Celery, Redis, and modern
+          cloud infrastructure.
         </p>
 
         <p
-          className={`${inter.className} mt-4 max-w-2xl text-[13px] leading-[1.8] text-[#727e95] sm:text-[14px]`}
+          className={`${inter.className} mt-4 max-w-3xl text-[13px] leading-[1.8] text-[#727e95] sm:text-[14px]`}
         >
-          These projects demonstrate production API design, asynchronous
-          processing, secure authentication, intelligent document workflows,
-          semantic search, and scalable SaaS architecture.
+          These projects demonstrate production API engineering, AI agent
+          orchestration, tool-assisted workflows, RAG, semantic search,
+          asynchronous processing, secure authentication, event-driven
+          systems, and scalable application architecture.
         </p>
 
         {/* Focus Areas */}
@@ -93,8 +96,24 @@ export default function ProjectsHero() {
         </div>
 
         {/* Project Summary */}
-        <div className="mt-10 grid w-full max-w-3xl grid-cols-1 gap-3 sm:grid-cols-3">
-          <div className="rounded-xl border border-white/[0.08] bg-white/[0.025] px-5 py-4 backdrop-blur-sm">
+        <div className="mt-10 grid w-full max-w-4xl grid-cols-1 gap-3 sm:grid-cols-3">
+          {/* VoyageAI */}
+          <div className="group rounded-xl border border-cyan-300/[0.12] bg-cyan-300/[0.025] px-5 py-4 backdrop-blur-sm transition-all duration-300 hover:-translate-y-1 hover:border-cyan-300/25">
+            <p
+              className={`${montserrat.className} text-[20px] font-[700] text-cyan-300 sm:text-[22px]`}
+            >
+              VoyageAI
+            </p>
+
+            <p
+              className={`${jetbrainsMono.className} mt-1.5 text-[9px] uppercase tracking-[0.1em] text-[#738097] sm:text-[10px]`}
+            >
+              Agentic AI Travel Planner
+            </p>
+          </div>
+
+          {/* Aura Finance */}
+          <div className="group rounded-xl border border-white/[0.08] bg-white/[0.025] px-5 py-4 backdrop-blur-sm transition-all duration-300 hover:-translate-y-1 hover:border-cyan-300/20">
             <p
               className={`${montserrat.className} text-[20px] font-[700] text-[#adc7ff] sm:text-[22px]`}
             >
@@ -108,9 +127,10 @@ export default function ProjectsHero() {
             </p>
           </div>
 
-          <div className="rounded-xl border border-white/[0.08] bg-white/[0.025] px-5 py-4 backdrop-blur-sm">
+          {/* MvLEND */}
+          <div className="group rounded-xl border border-white/[0.08] bg-white/[0.025] px-5 py-4 backdrop-blur-sm transition-all duration-300 hover:-translate-y-1 hover:border-cyan-300/20">
             <p
-              className={`${montserrat.className} text-[20px] font-[700] text-cyan-300 sm:text-[22px]`}
+              className={`${montserrat.className} text-[20px] font-[700] text-[#adc7ff] sm:text-[22px]`}
             >
               MvLEND
             </p>
@@ -118,23 +138,34 @@ export default function ProjectsHero() {
             <p
               className={`${jetbrainsMono.className} mt-1.5 text-[9px] uppercase tracking-[0.1em] text-[#738097] sm:text-[10px]`}
             >
-              Fintech Platform
+              Enterprise Fintech
             </p>
           </div>
+        </div>
 
-          <div className="rounded-xl border border-white/[0.08] bg-white/[0.025] px-5 py-4 backdrop-blur-sm">
-            <p
-              className={`${montserrat.className} text-[20px] font-[700] text-[#adc7ff] sm:text-[22px]`}
-            >
-              40+
-            </p>
+        {/* Engineering Summary */}
+        <div className="mt-4 flex flex-wrap items-center justify-center gap-x-3 gap-y-2">
+          <span
+            className={`${jetbrainsMono.className} text-[9px] uppercase tracking-[0.1em] text-[#68758d] sm:text-[10px]`}
+          >
+            3+ Years Experience
+          </span>
 
-            <p
-              className={`${jetbrainsMono.className} mt-1.5 text-[9px] uppercase tracking-[0.1em] text-[#738097] sm:text-[10px]`}
-            >
-              Production APIs
-            </p>
-          </div>
+          <span className="text-white/15">•</span>
+
+          <span
+            className={`${jetbrainsMono.className} text-[9px] uppercase tracking-[0.1em] text-[#68758d] sm:text-[10px]`}
+          >
+            40+ Production APIs
+          </span>
+
+          <span className="text-white/15">•</span>
+
+          <span
+            className={`${jetbrainsMono.className} text-[9px] uppercase tracking-[0.1em] text-[#68758d] sm:text-[10px]`}
+          >
+            AI + Full Stack + Fintech
+          </span>
         </div>
       </div>
     </section>

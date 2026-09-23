@@ -1,6 +1,6 @@
 "use client";
 
-import { Github, Linkedin, Download, } from "lucide-react";
+import { Github, Linkedin, Download } from "lucide-react";
 import {
   Inter,
   JetBrains_Mono,
@@ -31,8 +31,8 @@ const highlights = [
     label: "Production REST APIs",
   },
   {
-    value: "Fintech",
-    label: "Production Systems",
+    value: "AI + Fintech",
+    label: "Engineering Focus",
   },
 ];
 
@@ -74,11 +74,11 @@ export default function HeroSection() {
           <p
             className={`${inter.className} mt-5 max-w-xl text-[14px] leading-[1.85] text-[#97a3bd] sm:text-[15px]`}
           >
-            I build scalable full-stack applications and AI-powered SaaS
-            products using Next.js, TypeScript, Django, FastAPI, PostgreSQL,
-            and OpenAI. My work focuses on production-ready APIs, intelligent
-            document processing, RAG, semantic search, and reliable background
-            processing systems.
+            I build scalable full-stack and AI-powered applications using
+            Next.js, TypeScript, Python, Django, FastAPI, and PostgreSQL. My
+            work spans production APIs, Agentic AI workflows, tool calling,
+            RAG, semantic search, event-driven systems, and cloud-deployed
+            SaaS products.
           </p>
 
           {/* Buttons */}
@@ -188,7 +188,7 @@ export default function HeroSection() {
               <div className="pl-8">
                 self.role ={" "}
                 <span className="text-[#ffb695]">
-                  &quot;Full Stack Engineer&quot;
+                  &quot;Full Stack & AI Engineer&quot;
                 </span>
               </div>
 
@@ -199,6 +199,7 @@ export default function HeroSection() {
                 </span>
               </div>
 
+              {/* Core Stack */}
               <div className="mt-3 pl-8">
                 self.core_stack = [
               </div>
@@ -219,26 +220,40 @@ export default function HeroSection() {
 
               <div className="pl-12">
                 <span className="text-[#ffb695]">
-                  &quot;PostgreSQL, Celery & Redis&quot;
+                  &quot;PostgreSQL & SQLAlchemy&quot;
                 </span>
               </div>
 
               <div className="pl-8">]</div>
 
+              {/* Featured Projects */}
               <div className="mt-3 pl-8">
-                self.currently_building ={" "}
+                self.featured_projects = [
+              </div>
+
+              <div className="pl-12">
+                <span className="text-[#ffb695]">
+                  &quot;VoyageAI&quot;
+                </span>
+                ,
+              </div>
+
+              <div className="pl-12">
                 <span className="text-[#ffb695]">
                   &quot;Aura Finance&quot;
                 </span>
               </div>
 
+              <div className="pl-8">]</div>
+
+              {/* AI Focus */}
               <div className="mt-3 pl-8">
                 self.ai_focus = [
               </div>
 
               <div className="pl-12">
                 <span className="text-[#ffb695]">
-                  &quot;LLM Applications&quot;
+                  &quot;Agentic AI & Tool Calling&quot;
                 </span>
                 ,
               </div>
@@ -252,7 +267,7 @@ export default function HeroSection() {
 
               <div className="pl-12">
                 <span className="text-[#ffb695]">
-                  &quot;Embeddings & Vector Search&quot;
+                  &quot;LLM Workflows&quot;
                 </span>
               </div>
 
