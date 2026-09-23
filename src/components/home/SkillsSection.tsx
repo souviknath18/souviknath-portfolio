@@ -33,8 +33,10 @@ const skills: Skill[] = [
       "JavaScript",
       "Tailwind CSS",
       "shadcn/ui",
+      "MapLibre GL",
     ],
   },
+
   {
     title: "Backend",
     icon: backendIcon,
@@ -43,31 +45,39 @@ const skills: Skill[] = [
       "Python",
       "Django & DRF",
       "FastAPI",
+      "SQLAlchemy",
       "RESTful APIs",
       "Celery & Redis",
-      "Kafka & WebSockets",
+      "Kafka",
+      "WebSockets",
     ],
   },
+
   {
     title: "AI & GenAI",
     icon: aiIcon,
     iconBoxClass: "border border-[#4a8eff]/20 bg-[#4a8eff]/10",
     items: [
       "OpenAI API",
-      "LLM Applications",
-      "RAG Workflows",
-      "Prompt Engineering",
+      "Agentic AI",
+      "LangGraph",
+      "Tool Calling",
+      "Structured Outputs",
+      "RAG",
       "Embeddings",
       "Semantic Search",
       "Vector Search",
+      "Prompt Engineering",
     ],
   },
+
   {
     title: "Database",
     icon: databaseIcon,
     iconBoxClass: "border border-[#8b90a0]/20 bg-[#8b90a0]/10",
     items: [
       "PostgreSQL",
+      "Neon",
       "CockroachDB",
       "MySQL",
       "MongoDB",
@@ -75,6 +85,7 @@ const skills: Skill[] = [
       "pgvector",
     ],
   },
+
   {
     title: "DevOps & Cloud",
     icon: cloudIcon,
@@ -84,7 +95,9 @@ const skills: Skill[] = [
       "GitHub Actions",
       "CI/CD Pipelines",
       "GCP & AWS",
-      "Railway & Vercel",
+      "Vercel",
+      "Render",
+      "Railway",
       "Cloudflare R2",
     ],
   },
@@ -158,7 +171,8 @@ export default function SkillsSection() {
 
         <p className="mt-4 max-w-2xl text-[14px] leading-7 text-[#8793ad] sm:text-[15px]">
           Technologies I use to build scalable full-stack applications,
-          production APIs, AI-powered products, and cloud-deployed systems.
+          production APIs, Agentic AI systems, AI-powered products, and
+          cloud-deployed platforms.
         </p>
       </div>
 
@@ -178,7 +192,7 @@ export default function SkillsSection() {
       <p
         className={`${jetbrainsMono.className} mt-9 text-center text-[12px] tracking-[0.04em] text-[#77839b]`}
       >
-        Building scalable systems with modern full-stack and AI technologies.
+        Building scalable full-stack systems and reliable AI workflows.
       </p>
     </section>
   );

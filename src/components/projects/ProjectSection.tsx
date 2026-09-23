@@ -3,6 +3,7 @@
 import Link from "next/link";
 import {
   ArrowRight,
+  Bot,
   CheckCircle2,
   Code2,
   ExternalLink,
@@ -31,6 +32,29 @@ type ProjectImage = {
   alt: string;
 };
 
+/* -------------------------------------------------------------------------- */
+/*                               Project Images                               */
+/* -------------------------------------------------------------------------- */
+
+const voyageImages: ProjectImage[] = [
+  {
+    src: "/projects/voyage-dashboard.png",
+    alt: "VoyageAI travel planning dashboard",
+  },
+  {
+    src: "/projects/voyage-plan-trip.png",
+    alt: "VoyageAI AI-powered trip planning interface",
+  },
+  {
+    src: "/projects/voyage-itinerary.png",
+    alt: "VoyageAI generated travel itinerary",
+  },
+  {
+    src: "/projects/voyage-map.png",
+    alt: "VoyageAI interactive trip map",
+  },
+];
+
 const financeImages: ProjectImage[] = [
   {
     src: "/projects/finance-landing.png",
@@ -50,12 +74,23 @@ const financeImages: ProjectImage[] = [
   },
 ];
 
-const mvLendImages: ProjectImage[] = [
-  // Add screenshots only if company policy allows you to display them publicly.
-  // {
-  //   src: "/projects/mvlend-dashboard.png",
-  //   alt: "MvLEND operational lending dashboard",
-  // },
+const mvLendImages: ProjectImage[] = [];
+
+/* -------------------------------------------------------------------------- */
+/*                                 Tech Stack                                 */
+/* -------------------------------------------------------------------------- */
+
+const voyageTech = [
+  "Next.js",
+  "TypeScript",
+  "FastAPI",
+  "SQLAlchemy",
+  "PostgreSQL",
+  "LangGraph",
+  "OpenAI",
+  "Geoapify",
+  "Open-Meteo",
+  "MapLibre GL",
 ];
 
 const auraFinanceTech = [
@@ -82,12 +117,22 @@ const mvLendTech = [
   "GCP",
 ];
 
+/* -------------------------------------------------------------------------- */
+/*                          Engineering Contributions                         */
+/* -------------------------------------------------------------------------- */
+
 const engineeringAreas = [
   {
     icon: ServerCog,
     title: "Production API Engineering",
     description:
-      "Designing secure RESTful and asynchronous APIs with Django REST Framework, FastAPI, JWT authentication, RBAC, filtering, pagination, and validation.",
+      "Designing secure RESTful and asynchronous APIs with Django REST Framework, FastAPI, JWT authentication, RBAC, filtering, pagination, validation, and relational databases.",
+  },
+  {
+    icon: Bot,
+    title: "AI & Agentic Systems",
+    description:
+      "Building LLM-powered applications with RAG, embeddings, semantic search, structured outputs, tool-assisted workflows, LangGraph orchestration, validation, and re-planning.",
   },
   {
     icon: Workflow,
@@ -97,11 +142,15 @@ const engineeringAreas = [
   },
   {
     icon: LockKeyhole,
-    title: "Secure Fintech Architecture",
+    title: "Secure Application Architecture",
     description:
-      "Developing lending and transaction systems with protected APIs, role-based workflows, database optimization, and production-ready cloud deployment.",
+      "Developing protected APIs and multi-user systems using JWT authentication, authorization, role-based workflows, database optimization, and production cloud deployment.",
   },
 ];
+
+/* -------------------------------------------------------------------------- */
+/*                              Shared Components                             */
+/* -------------------------------------------------------------------------- */
 
 function TechTag({
   text,
@@ -141,6 +190,10 @@ function FeatureItem({
   );
 }
 
+/* -------------------------------------------------------------------------- */
+/*                               Project Section                              */
+/* -------------------------------------------------------------------------- */
+
 export default function ProjectSection() {
   return (
     <section className="px-6 py-16 sm:py-20 lg:px-12">
@@ -159,9 +212,10 @@ export default function ProjectSection() {
             </h2>
 
             <p className="mt-4 max-w-3xl text-[14px] leading-[1.8] text-[#8995ad] sm:text-[15px]">
-              AI-powered SaaS and enterprise fintech systems built with
-              production APIs, asynchronous processing, semantic retrieval,
-              secure authentication, and scalable cloud architecture.
+              Agentic AI, AI-powered SaaS, and enterprise fintech systems built
+              with production APIs, tool-assisted workflows, asynchronous
+              processing, semantic retrieval, secure authentication, and
+              scalable cloud architecture.
             </p>
           </div>
 
@@ -178,7 +232,199 @@ export default function ProjectSection() {
 
         {/* Project Grid */}
         <div className="grid grid-cols-1 gap-6 md:grid-cols-12">
-          {/* Aura Finance */}
+          {/* ================================================================== */}
+          {/* VoyageAI                                                          */}
+          {/* ================================================================== */}
+
+          <article className="group overflow-hidden rounded-2xl border border-white/10 bg-[#131b2e] transition-all duration-300 hover:-translate-y-1 hover:border-cyan-300/25 hover:shadow-[0_0_40px_rgba(99,247,255,0.05)] md:col-span-12">
+            <ProjectImageSlider
+              badge="Agentic AI Travel Planner"
+              images={voyageImages}
+              variant="featured"
+            />
+
+            <div className="p-5 sm:p-6 lg:p-8">
+              <div className="flex flex-col gap-6 lg:flex-row lg:items-start lg:justify-between">
+                <div className="max-w-3xl flex-1">
+                  <p
+                    className={`${jetbrainsMono.className} text-[10px] uppercase tracking-[0.12em] text-cyan-300 sm:text-[11px]`}
+                  >
+                    Agentic AI Project
+                  </p>
+
+                  <h3 className="mt-2 text-[27px] font-semibold tracking-[-0.03em] text-[#e8edff] sm:text-[32px]">
+                    VoyageAI
+                  </h3>
+
+                  <p className="mt-1 text-[13px] font-medium text-[#8290aa] sm:text-[14px]">
+                    Agentic AI Travel Planner
+                  </p>
+
+                  <p className="mt-4 text-[14px] leading-[1.8] text-[#aeb9cf] sm:text-[15px]">
+                    A full-stack AI travel planning platform that transforms
+                    destinations, dates, budgets, interests, and preferences
+                    into personalized day-by-day itineraries using grounded
+                    travel research, agent orchestration, deterministic
+                    validation, and automatic re-planning.
+                  </p>
+                </div>
+
+                {/* Architecture Summary */}
+                <div className="w-full shrink-0 rounded-xl border border-cyan-300/15 bg-cyan-300/[0.035] p-4 lg:w-[320px]">
+                  <p
+                    className={`${jetbrainsMono.className} text-[10px] font-semibold uppercase tracking-[0.12em] text-[#77849a]`}
+                  >
+                    Agent Architecture
+                  </p>
+
+                  <p className="mt-2 text-[13px] leading-[1.65] text-cyan-200 sm:text-[14px]">
+                    LangGraph workflow with context loading, external research,
+                    itinerary generation, validation, conditional routing, and
+                    bounded automatic re-planning.
+                  </p>
+                </div>
+              </div>
+
+              {/* Agent Workflow */}
+              <div className="mt-8 rounded-xl border border-white/[0.07] bg-[#0f172a]/70 p-5 sm:p-6">
+                <p
+                  className={`${jetbrainsMono.className} text-[10px] font-semibold uppercase tracking-[0.12em] text-[#77849a]`}
+                >
+                  Agent Workflow
+                </p>
+
+                <div
+                  className={`${jetbrainsMono.className} mt-4 flex flex-wrap items-center gap-2 text-[10px] sm:text-[11px]`}
+                >
+                  <span className="rounded-md border border-cyan-300/15 bg-cyan-300/[0.04] px-3 py-2 text-cyan-200">
+                    Load Context
+                  </span>
+
+                  <ArrowRight size={13} className="text-[#59667d]" />
+
+                  <span className="rounded-md border border-cyan-300/15 bg-cyan-300/[0.04] px-3 py-2 text-cyan-200">
+                    Research Trip
+                  </span>
+
+                  <ArrowRight size={13} className="text-[#59667d]" />
+
+                  <span className="rounded-md border border-cyan-300/15 bg-cyan-300/[0.04] px-3 py-2 text-cyan-200">
+                    Generate Itinerary
+                  </span>
+
+                  <ArrowRight size={13} className="text-[#59667d]" />
+
+                  <span className="rounded-md border border-cyan-300/15 bg-cyan-300/[0.04] px-3 py-2 text-cyan-200">
+                    Validate
+                  </span>
+
+                  <ArrowRight size={13} className="text-[#59667d]" />
+
+                  <span className="rounded-md border border-cyan-300/15 bg-cyan-300/[0.04] px-3 py-2 text-cyan-200">
+                    Re-plan if Needed
+                  </span>
+                </div>
+              </div>
+
+              <div className="mt-8 grid gap-8 md:grid-cols-2">
+                {/* Features */}
+                <div>
+                  <h4
+                    className={`${jetbrainsMono.className} mb-4 text-[11px] font-semibold uppercase tracking-[0.12em] text-[#77849a]`}
+                  >
+                    Key Features
+                  </h4>
+
+                  <div className="space-y-3">
+                    <FeatureItem>
+                      Stateful LangGraph workflow coordinates research,
+                      itinerary generation, validation, and bounded re-planning.
+                    </FeatureItem>
+
+                    <FeatureItem>
+                      Uses external travel data for destination places and
+                      weather to ground itinerary generation.
+                    </FeatureItem>
+
+                    <FeatureItem>
+                      Generates structured day-by-day itineraries based on trip
+                      dates, preferences, interests, and planning context.
+                    </FeatureItem>
+
+                    <FeatureItem>
+                      Persists trips, itineraries, agent runs, agent steps, and
+                      tool execution data for observable AI workflows.
+                    </FeatureItem>
+
+                    <FeatureItem>
+                      Interactive travel workspace combines itinerary, places,
+                      budget information, agent activity, and map-based
+                      exploration.
+                    </FeatureItem>
+                  </div>
+                </div>
+
+                {/* Tech Stack */}
+                <div>
+                  <h4
+                    className={`${jetbrainsMono.className} mb-4 text-[11px] font-semibold uppercase tracking-[0.12em] text-[#77849a]`}
+                  >
+                    Tech Stack
+                  </h4>
+
+                  <div className="flex flex-wrap gap-2">
+                    {voyageTech.map((technology) => (
+                      <TechTag
+                        key={technology}
+                        text={technology}
+                      />
+                    ))}
+                  </div>
+
+                  <div className="mt-6 rounded-xl border border-white/[0.07] bg-white/[0.025] p-4">
+                    <p
+                      className={`${jetbrainsMono.className} text-[9px] uppercase tracking-[0.12em] text-[#77849a]`}
+                    >
+                      Deployment
+                    </p>
+
+                    <p className="mt-2 text-[12px] leading-[1.7] text-[#8f9bb2] sm:text-[13px]">
+                      Next.js frontend deployed on Vercel with a FastAPI
+                      backend on Render and PostgreSQL hosted on Neon.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              {/* Actions */}
+              <div className="mt-8 flex flex-wrap items-center gap-3 border-t border-white/[0.06] pt-6">
+                <a
+                  href="https://voyage-ai-zeta.vercel.app/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-2 rounded-lg bg-gradient-to-r from-[#adc7ff] to-cyan-300 px-4 py-2.5 text-[12px] font-bold text-[#08111f] shadow-[0_0_20px_rgba(99,247,255,0.12)] transition-all duration-300 hover:scale-[1.02] hover:shadow-[0_0_28px_rgba(99,247,255,0.22)] sm:text-[13px]"
+                >
+                  <Rocket size={15} />
+                  Live Demo
+                </a>
+
+                <a
+                  href="https://github.com/souviknath18/voyage-ai"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-2 rounded-lg border border-white/10 bg-white/[0.025] px-4 py-2.5 text-[12px] font-semibold text-[#c4cde0] transition-all duration-300 hover:border-white/20 hover:bg-white/[0.06] hover:text-white sm:text-[13px]"
+                >
+                  <Github size={15} />
+                  GitHub Repository
+                </a>
+              </div>
+            </div>
+          </article>
+
+          {/* ================================================================== */}
+          {/* Aura Finance                                                      */}
+          {/* ================================================================== */}
+
           <article className="group overflow-hidden rounded-2xl border border-white/10 bg-[#131b2e] transition-all duration-300 hover:-translate-y-1 hover:border-cyan-300/25 hover:shadow-[0_0_40px_rgba(99,247,255,0.05)] md:col-span-8">
             <ProjectImageSlider
               badge="AI-Powered Finance SaaS"
@@ -191,7 +437,7 @@ export default function ProjectSection() {
                   <p
                     className={`${jetbrainsMono.className} text-[10px] uppercase tracking-[0.12em] text-cyan-300 sm:text-[11px]`}
                   >
-                    Flagship Personal Project
+                    AI SaaS Project
                   </p>
 
                   <h3 className="mt-2 text-[25px] font-semibold tracking-[-0.03em] text-[#e8edff] sm:text-[28px]">
@@ -225,7 +471,6 @@ export default function ProjectSection() {
               </div>
 
               <div className="mt-8 grid gap-8 md:grid-cols-2">
-                {/* Features */}
                 <div>
                   <h4
                     className={`${jetbrainsMono.className} mb-4 text-[11px] font-semibold uppercase tracking-[0.12em] text-[#77849a]`}
@@ -235,13 +480,13 @@ export default function ProjectSection() {
 
                   <div className="space-y-3">
                     <FeatureItem>
-                      Extracts transaction data from PDF, CSV, receipt, invoice,
-                      and image-based financial documents.
+                      Extracts transaction data from PDF, CSV, receipt,
+                      invoice, and image-based financial documents.
                     </FeatureItem>
 
                     <FeatureItem>
-                      Combines rule-based parsing, OpenAI extraction, validation,
-                      and intelligent categorization.
+                      Combines rule-based parsing, OpenAI extraction,
+                      validation, and intelligent categorization.
                     </FeatureItem>
 
                     <FeatureItem>
@@ -256,7 +501,6 @@ export default function ProjectSection() {
                   </div>
                 </div>
 
-                {/* Tech Stack */}
                 <div>
                   <h4
                     className={`${jetbrainsMono.className} mb-4 text-[11px] font-semibold uppercase tracking-[0.12em] text-[#77849a]`}
@@ -275,7 +519,6 @@ export default function ProjectSection() {
                 </div>
               </div>
 
-              {/* Actions */}
               <div className="mt-8 flex flex-wrap items-center gap-3 border-t border-white/[0.06] pt-6">
                 <a
                   href="https://ai-finance-assistant-phi.vercel.app/"
@@ -300,7 +543,10 @@ export default function ProjectSection() {
             </div>
           </article>
 
-          {/* MvLEND */}
+          {/* ================================================================== */}
+          {/* MvLEND                                                            */}
+          {/* ================================================================== */}
+
           <article className="group flex flex-col overflow-hidden rounded-2xl border border-white/10 bg-[#131b2e] transition-all duration-300 hover:-translate-y-1 hover:border-cyan-300/25 hover:shadow-[0_0_40px_rgba(99,247,255,0.04)] md:col-span-4">
             <ProjectImageSlider
               badge="Enterprise Fintech"
@@ -395,12 +641,15 @@ export default function ProjectSection() {
             </div>
           </article>
 
-          {/* Engineering Contributions */}
+          {/* ================================================================== */}
+          {/* Engineering Contributions                                         */}
+          {/* ================================================================== */}
+
           <article className="rounded-2xl border border-white/10 bg-[#131b2e] p-5 sm:p-6 md:col-span-5 lg:p-8">
             <p
               className={`${jetbrainsMono.className} text-[10px] uppercase tracking-[0.14em] text-cyan-300`}
             >
-              Professional Impact
+              Engineering Profile
             </p>
 
             <h3 className="mt-3 text-[24px] font-semibold tracking-[-0.03em] text-[#e8edff] sm:text-[27px]">
@@ -408,8 +657,8 @@ export default function ProjectSection() {
             </h3>
 
             <p className="mt-4 text-[13px] leading-[1.75] text-[#8f9bb2] sm:text-[14px]">
-              Core areas where I have contributed across production fintech
-              systems and full-stack applications.
+              Core engineering areas demonstrated across production fintech
+              systems and independently built AI applications.
             </p>
 
             <div className="mt-6 space-y-4">
@@ -454,7 +703,10 @@ export default function ProjectSection() {
             </div>
           </article>
 
-          {/* Building Next */}
+          {/* ================================================================== */}
+          {/* Building Next                                                     */}
+          {/* ================================================================== */}
+
           <article className="relative overflow-hidden rounded-2xl border border-dashed border-white/10 bg-[#131b2e] md:col-span-7">
             <div className="pointer-events-none absolute -right-20 -top-20 h-64 w-64 rounded-full bg-cyan-300/[0.05] blur-[100px]" />
 
@@ -488,9 +740,10 @@ export default function ProjectSection() {
                 </h3>
 
                 <p className="mt-5 max-w-xl text-[13px] leading-[1.8] text-[#8995ac] sm:text-[14px]">
-                  I&apos;m continuing to improve Aura Finance while expanding
-                  my skills in advanced system design, AWS, Kubernetes,
-                  Agentic AI, AI workflows, and multi-agent systems.
+                  I&apos;m continuing to improve VoyageAI and Aura Finance
+                  while deepening my skills in distributed system design,
+                  cloud infrastructure, Kubernetes, Agentic AI, and reliable
+                  production AI systems.
                 </p>
 
                 <div className="mt-6 flex flex-wrap gap-2">
@@ -499,7 +752,7 @@ export default function ProjectSection() {
                     "AWS",
                     "Kubernetes",
                     "Agentic AI",
-                    "Multi-Agent Systems",
+                    "AI Agents",
                     "DevOps",
                   ].map((item) => (
                     <TechTag
